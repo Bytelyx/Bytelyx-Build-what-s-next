@@ -1,0 +1,429 @@
+{
+  "meta": {
+    "title_template": "FikraTech - title",
+    "home": {
+      "title": "Home",
+      "description": "We build exceptional digital products that bring ideas to life.",
+      "keywords": "FikraTech, software development, web development, mobile apps, digital solutions, UI UX, automation",
+      "og_title": "FikraTech – Digital Products That Bring Ideas to Life",
+      "og_description": "FikraTech builds scalable, secure, and well-designed digital products for modern businesses.",
+      "imag_alt": "FikraTech home page showcasing digital solutions",
+      "company_name": "FikraTech",
+      "contact_type": "Customer Service"
+    },
+    "services": {
+      "title": "Services",
+      "description": "Fikratech empowers businesses in the digital economy through automation, UX, app development, and smart software. We focus on secure, scalable, and well-designed solutions."
+    },
+    "process": {
+      "title": "Process",
+      "description": "With Fikratech, you get clarity, communication, and momentum. We keep you involved and informed from planning to post-launch."
+    },
+    "projects": {
+      "title": "Projects",
+      "description": "From business automation platforms to consumer mobile apps, Fikratech creates digital experiences that solve real-world challenges. Here’s a look at our work—and the impact it’s had."
+    },
+    "careers": {
+      "title": "Careers",
+      "description": "Become a part of our expanding team at FikraTech, where we inspire individuals to elevate their productivity to new heights."
+    },
+    "pricing": {
+      "title": "Pricing"
+    },
+    "blog": {
+      "title": "Blog",
+      "description": "Discover the best real UX/UI design patterns for 2024 on our blog. For more information, you can contact us at phone.",
+      "keywords": "UX/UI Design-UX/UI Design Patterns-UX/UI Design Kits-Best Design Patterns 2024",
+      "og_title": "The Best Real UX/UI Design Patterns of 2024",
+      "imag_alt": "A collection of the best UX/UI design patterns for 2024",
+      "headline": "The Best Collections of Real UX/UI Design Patterns for 2024",
+      "description_schema": "Explore the best collections of real UX/UI design patterns for 2024."
+    },
+    "blog_details": {
+      "title": "Blog Details",
+      "description": "Explore the best real UX/UI design patterns of 2024. Learn the importance of good design for digital success and discover the key benefits of investing in UX/UI design. Contact: phone",
+      "keywords": "UX Design-UI Design-Design Patterns-Digital Success-User Experience-User Interface-Fikrunk",
+      "og_title": "The Best Real UX/UI Design Patterns of 2024",
+      "imag_alt": "A collection of the best UX/UI design patterns for 2024",
+      "headline": "The Best Collections of Real UX/UI Design Patterns for 2024",
+      "description_schema": "Explore the best collections of real UX/UI design patterns for 2024.",
+      "name_company": "FikraTech",
+      "name": "Razan Halaweh",
+      "job_Title": "Senior UI/UX Designer"
+    },
+    "contact_us": {
+      "title": "Contact us",
+      "description": "Get in touch with FikraTech to discuss your ideas and challenges. We offer innovative solutions for various industries. Contact us today at phone.",
+      "keywords": "FikraTech-contact-innovative solutions-feedback-support-services-technology-development-consultation",
+      "og_title": "Communicate with your idea",
+      "imag_alt": "Let us help you transform your ideas into innovative solutions.",
+      "name1": "Contact Us-FikraTech",
+      "name2": "FikraTech",
+      "contact_Type": "Customer Service"
+    }
+  },
+  "fikratech": "FikraTech",
+  "close": "Close",
+  "header": {
+    "sign_in": "Sign in"
+  },
+  "home": {
+    "hero": {
+      "title": "Bringing Your Vision to Life with Unmatched Expertise.",
+      "description": "We build exceptional digital products that bring ideas to life.",
+      "see_projects": "See Projects",
+      "Discover": "Discover Services",
+      "trusted_by": "Trusted by Innovators and Industry Leaders"
+    },
+    "story": {
+      "sTitle": " What is FikraTech",
+      "title": "The Story of fikratech",
+      "description": "More than a tech company — we are your innovation partner. Discover how FikraTech blends expertise, passion, and technology to redefine digital success.",
+      "whatIsFikratech": {
+        "title": "What is FikraTech?",
+        "description": "We are a global technology partner that transforms bold ideas into smart, scalable solutions empowering businesses to grow, connect, and lead in the digital era."
+      },
+      "vision": {
+        "title": "Our Vision",
+        "description": "At FikraTech, we believe technology has no borders. Our vision is to create a future where ideas, people, and businesses are seamlessly connected — building a smarter, more unified world."
+      },
+      "whatWeDo": {
+        "title": "What We Do",
+        "description": "At FikraTech, we turn ideas into smart, scalable digital solutions. From intuitive apps to powerful platforms, we design, develop, and deliver technology that drives real impact — for businesses, for people, and for tomorrow."
+      },
+      "achievements": {
+        "title": "Our Achievements",
+        "description": "Every number tells a story of challenges overcome, partnerships built, and dreams realized. Our achievements are not just milestones; they are a reflection of the trust our clients place in us and the passion that drives us forward.",
+        "clientSatisfaction": "Client Satisfaction",
+        "projectsLaunched": "Projects Launched",
+        "experts": "Experts"
+      },
+      "values": {
+        "title": "Our Values",
+        "description": "We innovate with purpose, act with integrity, deliver with excellence, grow through collaboration, and always push beyond limits."
+      }
+    },
+    "offer": {
+      "sTitle": "Unlocking Potential",
+      "title": "What We Offer",
+      "Offer": "Offer",
+      "description": "We craft digital tools, platforms, and systems that power your ambitions. Whether you need a sleek app, scalable software, or IT infrastructure — we make it happen, beautifully.",
+      "cards": {
+        "businessAutomation": {
+          "title": "Business Automation",
+          "description": "FikraTech provides business automation solutions to save time and money, streamlining operations for clients."
+        },
+        "uiUxDesign": {
+          "title": "UI/UX Design",
+          "description": "Fikratech crafts seamless user experiences and stunning interfaces that feel natural, intuitive, and unforgettable."
+        },
+        "mobileDevelopment": {
+          "title": "Mobile App Development",
+          "description": "Fikratech is known for its mobile app development, showcasing expertise."
+        },
+        "softwareDevelopment": {
+          "title": "Software Development",
+          "description": "FikraTech excels in creating innovative and creative web designs tailored to meet diverse business needs."
+        }
+      }
+    },
+    "project": {
+      "sTitle": "Proof of Excellence",
+      "title": "Innovation Through Projects",
+      "Projects": "Projects",
+      "description": "Every project is a story of success. Dive into our portfolio where challenges turn into achievements, and visions are brought to life with precision and creativity.",
+      "discoverButton": "Discover Projects",
+      "sahab": {
+        "title": "Sahab system",
+        "description": "Platform for money transfer compliance"
+      },
+      "zwiftpay": {
+        "title": "ZwiftPay",
+        "description": "Money Exchange company"
+      },
+      "alqudrah": {
+        "title": "Al-Qudrah",
+        "description": "Car Rental System"
+      },
+      "badges": {
+        "financialCompliance": "Financial Compliance",
+        "currencyExchange": "Currency Exchange",
+        "amlSolutions": "AML Solutions",
+        "kyc": "KYC",
+        "carRent": "Car Rent",
+        "gps": "GPS",
+        "advanceFilter": "Advance Filter"
+      }
+    },
+    "blog": {
+      "titlehero": "Ideas That Shape the Future ",
+      "forward": "Forward",
+      "paragraph": "Discover valuable insights, expert tips, and industry trends. Our blog keeps you informed, inspired, and ready for what's next.",
+      "sTitle": "idea to project",
+      "title": "Ready to Start blog",
+      "titleblog": "Designer Tools",
+      "description1": "Take the first step toward innovation.",
+      "description2": "Say Yes, and let’s build something extraordinary together.",
+      "descriptionblog": "The Best Collections of Real UX/UI Design Patterns",
+      "dateblog": "4 min • Jul 30, 2023"
+    },
+    "blog_details": {
+      "title_hero": "The Best Collections of Real UX/UI Design Patterns ",
+      "author": "Razan Halaweh, Senior UI/UX Designer October 21, 2024",
+      "section1": "Why Great UI/UX Design Shapes Digital Success",
+      "text1": "In today’s fast-moving digital world, users expect more than just a good-looking product — they expect an experience that feels effortless, intuitive, and meaningful. That’s where great UI/UX design comes into play. It’s no longer a “nice-to-have” — it’s the foundation of building products that truly connect with people.",
+      "section2": "What is UI and UX?",
+      "text2": "User Interface (UI) design is all about how a product looks. It's the colors, typography, buttons, icons, and layout that shape the visual experience. A beautiful UI can attract users and create a strong first impression — but beauty alone isn’t enough. User Experience (UX) design goes deeper. It’s about how the product feels to use. UX focuses on creating seamless journeys, solving real user problems, and making every step feel natural. A great UX ensures that users find what they need, complete tasks easily, and enjoy every interaction. When UI and UX come together, the result is magical: products that are not only visually stunning but also genuinely useful and enjoyable.",
+      "section3": "Why UI/UX Design Matters More Than Ever",
+      "text3": "Today’s users have endless options at their fingertips. If your website or app feels confusing, slow, or frustrating, users will leave — often within seconds.That’s why investing in UI/UX design is crucial. Great design builds trust, strengthens your brand, and drives real business results like higher conversions, longer retention, and stronger loyalty.",
+      "section4": "At FikraTech, we view UI/UX as a powerful tool that transforms ideas into real-world impact. It’s about putting the user at the center, anticipating their needs, and designing solutions that make life simpler and better.",
+      "text4": "Key Benefits of Great UI/UX Design",
+      "Conclusion": "Conclusion: Design is Not Just How It Looks — It’s How It Works At its heart, UI/UX design is about empathy. It's about understanding real people — their goals, frustrations, and desires — and crafting experiences that feel natural and meaningful. At FikraTech, we’re passionate about creating designs that don’t just meet expectations, but exceed them — turning ideas into impactful digital realities. Because when you design for people first, success naturally follows.",
+      "title": "Exploring Opportunities for Collaboration Between Companies",
+      "description": "In today’s fast-paced and interconnected world, collaboration is more than a strategy—it’s the key to driving innovation, growth, and mutual success. At [Your Company Name], we believe in the power of partnerships to create value and achieve shared goals...",
+      "read_more": "Read more",
+      "list1": "  Higher User Satisfaction: Smooth experiences create happy users who are more likely to return and recommend your product.",
+      "list2": "Increased Conversion Rates: Thoughtful design guides users naturally toward actions you want them to take.",
+      "list3": "Stronger Brand Loyalty: Memorable experiences build emotional connections that keep users coming back.",
+      "list4": "Reduced Development Costs: Good design from the start helps avoid costly redesigns and fixes later.",
+      "list5": "Competitive Advantage: In a crowded market, an exceptional UI/UX can set your product apart."
+    },
+    "contact_us": {
+      "title": "Get in Touch with",
+      "paragraph": "We’re excited to hear about your ideas and challenges. Drop us a message and let’s create solutions that move the world forward.",
+      "FikraTech": "FikraTech",
+      "form": {
+        "full_name": "Full Name",
+        "fullname_placeholder": "Write here",
+        "phone": "Phone Number",
+        "phone_placeholder": "Write here",
+        "company": "Company Name",
+        "company_placeholder": "Write here",
+        "email": "Email",
+        "email_placeholder": "Write here",
+        "topic": "Topic",
+        "topic_placeholder": "General",
+        "attachments": "Attachments",
+        "attachments_placeholder": "Select a file",
+        "message": "Message",
+        "message_placeholder": "Enter your questions, feedback or suggestions...",
+        "submit": "Send Message",
+        "sending": "Sending...",
+        "dialog": {
+          "success_title": "Message Sent Successfully",
+          "success_message": "Your message has been sent. We will get back to you shortly",
+          "error_title": "Something Went Wrong",
+          "error_message": "The message could not be sent. Please try again later"
+        }
+      }
+    },
+    "ready_to_start": {
+      "sTitle": "idea to project",
+      "title": "Ready to Start",
+      "description": "Take the first step toward innovation. \nSay Yes, and let’s build something extraordinary together."
+    },
+    "Frequently_asked_questions": {
+      "sTitle": "Got Questions?",
+      "title": "Frequently asked questions",
+      "description": "Find quick answers to the most common questions about our services, process, and how we can help bring your ideas to life."
+    }
+  },
+  "faq": {
+    "questions": [
+      {
+        "question": " What services does FikraTech offer?",
+        "answer": ""
+      },
+      {
+        "question": "How do I start a project with FikraTech?",
+        "answer": ""
+      },
+      {
+        "question": "What industries do you work with?",
+        "answer": ""
+      },
+      {
+        "question": "How long does a typical project take?",
+        "answer": ""
+      },
+      {
+        "question": " Can FikraTech support ongoing updates and maintenance?",
+        "answer": ""
+      }
+    ]
+  },
+  "careers": {
+    "title": "Help us Make Work Frictionless",
+    "Frictionless": "Frictionless",
+    "description": "Become a part of our expanding team at FikraTech, where we inspire individuals to elevate their productivity to new heights.",
+    "timeline": {
+      "title": "A look at the moments that shaped us.",
+      "seed_round": "Seed Round",
+      "seed_round_desc": "We proudly presented our initial product concept, marking our entry into the startup ecosystem."
+    },
+    "join_the_team": {
+      "label": "We are Hiring",
+      "title": "Join the team",
+      "team": "Team",
+      "description": "At Fikratech, we deeply appreciate innovative ideas, meaningful impact, and the talented individuals who bring them to life. Discover a position that truly inspires you and allows you to make a difference.",
+      "apply": "Apply for Job",
+      "careers": {},
+      "job_application": {
+        "title": "Join Our team",
+        "apply": "Apply Now",
+        "placeholder": "Write here",
+        "file_placeholder": "Choose a file",
+        "full_name_label": "Full Name",
+        "phone_number_label": "Phone Number",
+        "position_label": "Position",
+        "resume_label": "Resume",
+        "email_label": "Email",
+        "portfolio_label": "Portfolio Link",
+        "linkedin_label": "LinkedIn Link",
+        "expected_salary_label": "Expected Salary",
+        "availability_to_start_label": "Availability to Start"
+      }
+    },
+    "mindset": {
+      "label": "Our Culture",
+      "title": "The Fikratech mindset",
+      "mindset": "Mindset",
+      "description": "We’re not just building tech — we’re building a movement. At Fikratech, our mindset drives everything: from the way we collaborate, to how we innovate."
+    },
+    "members": {
+      "label": "Fikratech’s Team",
+      "title": "Meet the Minds of fikratech",
+      "fikratech": "Fikratech",
+      "description": "Behind every feature, every pixel, and every push — there’s a passionate team solving real problems with heart and hustle. Meet the people turning ideas into impact."
+    }
+  },
+  "services": {
+    "title": "Digital Services for the Next Era of business",
+    "business": "Business",
+    "description": "Fikratech empowers businesses in the digital economy through automation, UX, app development, and smart software. We focus on secure, scalable, and well-designed solutions.",
+    "our_services": {
+      "label": "Our Expertise",
+      "title": "Our services",
+      "services": "Services",
+      "description": "Fikratech combines design thinking and engineering excellence to create products that are scalable, reliable, and built for performance. Our team handles everything from code to cloud, delivering software you can grow with.",
+      "business_automation": {
+        "title": "Business Automation",
+        "description": "Fikratech empowers businesses by automating manual, time-consuming workflows through custom software, integrations, and AI-driven systems. Whether you're streamlining internal operations, digitizing processes, or connecting your existing tools—we help you save time, cut costs, and scale smarter.",
+        "question_1": "What types of processes can you automate?",
+        "answer_1": "We automate sales, HR, finance, inventory, customer support, and many more business workflows tailored to your needs.",
+        "question_2": "Do you integrate with existing tools like ERP or CRM systems?",
+        "answer_2": "Yes, we can integrate with tools like Salesforce, HubSpot, SAP, Odoo, and custom systems.",
+        "question_3": "Is business automation suitable for small businesses?",
+        "answer_3": "Absolutely. Even small teams benefit from automation to save time and reduce errors.",
+        "question_4": "Will automation require staff retraining?",
+        "answer_4": "We design intuitive systems and provide training if needed, ensuring a smooth transition."
+      },
+      "ui_ux_design": {
+        "title": "UI/UX Design",
+        "description": "We craft seamless, visually stunning, and user-friendly interfaces tailored for both web and mobile platforms. Our philosophy harmonizes innovation with practicality, ensuring that every digital product we create is not only aesthetically pleasing but also incredibly easy to navigate and interact with.",
+        "question_1": "What tools do you use for UI/UX design?",
+        "answer_1": "We primarily use Figma, Adobe XD, and tools for prototyping and usability testing",
+        "question_2": "Do you conduct user research?",
+        "answer_2": "Yes, user research and persona development are integral to our UX process.",
+        "question_3": "Can you redesign my current product's interface?",
+        "answer_3": "Definitely. We can conduct a UX audit and redesign based on your goals and user pain points.",
+        "question_4": "Will I get interactive prototypes?",
+        "answer_4": "Yes, we deliver clickable prototypes to help you visualize interactions before development."
+      },
+      "mobile_app_development": {
+        "title": "Mobile App Development",
+        "description": "Fikratech specializes in crafting scalable and high-performance mobile applications for both iOS and Android platforms. We take your ideas from initial concept to successful launch, ensuring that each app we develop is not only technically robust but also visually stunning and finely tuned for optimal performance and UX.",
+        "question_1": "Do you build native or cross-platform apps?",
+        "answer_1": "We build both, depending on your project needs—using Swift/Kotlin or frameworks like Flutter and React Native.",
+        "question_2": "Can you help with app store publishing?",
+        "answer_2": "Yes, we handle the publishing process on the App Store and Google Play.",
+        "question_3": "Will my app work offline?",
+        "answer_3": "Offline functionality can be included depending on your requirements.",
+        "question_4": "Can I update content on my app without code?",
+        "answer_4": "Yes, we can build a content management panel that allows non-technical teams to make changes."
+      },
+      "software_development": {
+        "title": "Software Development",
+        "description": "At Fikratech, we specialize in creating everything from intuitive internal dashboards to comprehensive platforms that are not only reliable and secure but also scalable to meet your business needs. Our team utilizes cutting-edge technology stacks and adheres to clean coding practices and agile development methodologies to ensure top-notch software solutions.",
+        "question_1": "What technologies do you use?",
+        "answer_1": "We use Node.js, NestJS, Laravel, Python, React, Next.js, PostgreSQL, MongoDB, and more—based on your project needs.",
+        "question_2": "Can you maintain or update existing software?",
+        "answer_2": "Yes, we can audit, refactor, or take over maintenance of your existing systems.",
+        "question_3": "Do you offer post-launch support?",
+        "answer_3": "Absolutely. We offer long-term maintenance, monitoring, and optimization packages.",
+        "question_4": "How do you ensure security?",
+        "answer_4": "We follow best practices like code audits, encryption, authentication layers, and secure hosting environments."
+      }
+    }
+  },
+  "projects": {
+    "hero": {
+      "title": "Solutions That Deliver Results",
+      "Results": "Results",
+      "description": "From business automation platforms to consumer mobile apps, Fikratech creates digital experiences that solve real-world challenges. Here’s a look at our work—and the impact it’s had."
+    },
+    "our-partners": {
+      "sTitle": "Testimonial",
+      "title": "From Our Partners",
+      "Partners": "Partners",
+      "description": "Our clients’ success is our greatest achievement. Here’s what founders, teams, and partners say about working with Fikratech."
+    },
+    "filter": {
+      "private": "Private Projects",
+      "government": "Government Projects"
+    }
+  },
+  "process": {
+    "hero": {
+      "title": "A Transparent Process. A Reliable Partner",
+      "Partner": "Partner",
+      "description": "With Fikratech, you get clarity, communication, and momentum. We keep you involved and informed from planning to post-launch."
+    },
+    "Workflow": {
+      "sTitle": "How we Work",
+      "title": "Inside FikraTech Workflow",
+      "Workflow": "Workflow",
+      "description": "A clear, agile process powered by modern tools, transparent communication, and focused sprints—built to keep your project moving forward with precision."
+    },
+    "cards": {
+      "transparency": {
+        "title": "Task Transparency at Every Step",
+        "description": "We align stakeholders with task management tools. Tasks are defined, assigned, and tracked for visibility and accountability.",
+        "todo": "To Do"
+      },
+      "team": {
+        "title": "One Team, Fully Integrated",
+        "description": "Our teams sync through Figma, Azure, and GitHub. Design critiques and code reviews foster real-time collaboration across disciplines with shared ownership."
+      },
+      "communication": {
+        "title": "Clear Lines of Communication",
+        "description": "Contact us on Google Meet, Teams, or WhatsApp. With clear paths and shared docs, you'll know who to reach and where to find what you need."
+      },
+      "delivery": {
+        "title": "Delivery You Can Rely On",
+        "description": "From kick-off to launch, we define clear timelines with agreed-upon milestones. Through Gantt charts and roadmap dashboards, we keep you informed and ahead—no surprises, just reliable, on-time delivery."
+      },
+      "agile": {
+        "title": "Agile in Practice, Not Just in Principle",
+        "description": "Standups, sprint planning, and retrospectives are key. These agile rituals ensure progress and alignment with business goals."
+      }
+    }
+  },
+  "footer": {
+    "description": "Empowering Business Success with Innovative Solutions, Where Excellence Meets Technology",
+    "services": {
+      "title": " Services",
+      "business_automation": "Business Automation",
+      "web_development": "Web Development",
+      "mobile_solution": "Mobile Solutions",
+      "ui_ux_design": "UI/UX Design"
+    },
+    "quick_links": "Quick Links",
+    "contacts": {
+      "title": "Get in touch",
+      "address1": "(1) - Abu Baker Al Siddique St - Deira, Dubai, AE",
+      "address2": "(2) - Alabdali street, Amman, JO"
+    },
+    "copyright": "year FikraTech. All rights reserved."
+  }
+}

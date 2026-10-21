@@ -1,0 +1,147 @@
+{
+  "idea_to_impact": {
+    "sTitle": "From Idea to Impact",
+    "title": "Idea-to-Impact Process",
+    "Process": "Process",
+    "description": "We work side by side with you, transforming ideas into powerful solutions through collaboration, innovation, and expert craftsmanship.",
+    "process": {
+      "phaseA": {
+        "specifications": {
+          "title": "Specifications & Planning"
+        },
+        "designs": {
+          "title": "Designs, Wireframe & Prototype"
+        },
+        "estimates": {
+          "title": "Estimates & Timeline"
+        }
+      },
+      "phaseB": {
+        "title": "PHASE B- Development",
+        "build": {
+          "title": "Build"
+        },
+        "test": {
+          "title": "Test"
+        },
+        "deploy": {
+          "title": "Deploy"
+        },
+        "measure": {
+          "title": "Measure"
+        },
+        "maintain": {
+          "title": "Maintain"
+        }
+      }
+    },
+    "tools_used": "Tools Used:",
+    "sections": {
+      "specifications": {
+        "title": "Specifications & Planning",
+        "paragraph": "We begin with an in-depth discovery process aimed at defining the full scope of the project. This includes understanding your users, business objectives, and functional requirements. Our team collaborates closely with stakeholders to ensure no detail is overlooked. We identify what problems the product solves, how users will interact with it, and what success looks like. From this, we produce a detailed specifications document and roadmap that drives the entire project forward with clarity and purpose.",
+        "subtitle": "What we do:",
+        "list": [
+          "Facilitate discovery workshops to capture all needs",
+          "Define user personas, user journeys, and core functionalities",
+          "Recommend technology stack and system architecture",
+          "Prioritize features using the 80/20 principle for value-first delivery",
+          "Plan for future scalability, integrations, and third-party dependencies"
+        ],
+        "outcome": "Outcome: A clearly defined technical and functional foundation"
+      },
+      "designs": {
+        "title": "Designs, Wireframe & Prototype",
+        "paragraph": "After we’ve defined the scope, we move into a highly visual phase where ideas become tangible. Our UI/UX designers build flows and wireframes that outline how users interact with your product. These evolve into high-fidelity prototypes that look and behave like the real application. This step is critical for validating user experience and aligning stakeholders before development begins. It ensures we create a user-centric design that is accessible, intuitive, and brand-consistent.",
+        "subtitle": "What we create:",
+        "list": [
+          "Low-fidelity wireframes for layout and structure",
+          "User journey maps to guide navigation and flow",
+          "High-fidelity prototypes to simulate the final product",
+          "Mobile-first, responsive designs across breakpoints",
+          "Accessibility-compliant and brand-aligned UI elements"
+        ],
+        "outcome": "Outcome: A validated visual blueprint for development"
+      },
+      "estimates": {
+        "title": "Estimates & Timeline",
+        "paragraph": "Once we have a complete view of the design and features, we develop a detailed timeline and cost estimate. Our team breaks the work into manageable sprints and phases, with key milestones for accountability and review. This step ensures budget transparency, resource planning, and alignment with your delivery expectations. By identifying potential bottlenecks and dependencies early, we mitigate risks and remain flexible throughout the development lifecycle.",
+        "subtitle": "What we deliver:",
+        "list": [
+          "Sprint-by-sprint breakdown of tasks and priorities",
+          "Budget estimates for each project phase and team role",
+          "Identification of critical paths and risk points",
+          "Milestones and checkpoints for stakeholder alignment",
+          "Room for agile iteration and scope adjustment"
+        ],
+        "outcome": "Outcome: A reliable, transparent execution plan"
+      },
+      "build": {
+        "title": "Build",
+        "paragraph": "This is the heart of the project where we convert approved designs and specifications into a working product. Our developers create a clean, scalable, and secure codebase using modern technologies. Both frontend and backend systems are built simultaneously, integrating APIs, databases, and third-party services. Agile methodology guides our work, allowing for real-time collaboration, iteration, and progress tracking throughout the build.",
+        "subtitle": "What’s involved:",
+        "list": [
+          "Frontend development for responsive, fast interfaces",
+          "Backend setup for performance and scalability",
+          "Integration with APIs, databases, and external services",
+          "Continuous integration and version control workflows",
+          "Code reviews and documentation for maintainability"
+        ],
+        "outcome": "Outcome: A robust, test-ready digital product"
+      },
+      "test": {
+        "title": "Test",
+        "paragraph": "To ensure the product works as intended, we carry out extensive testing across devices, browsers, and real-life user scenarios. This phase helps us detect bugs, performance issues, and inconsistencies. We also validate the application from a security and compliance perspective. Our QA process combines automation with manual testing for thorough coverage, making sure your users have a smooth, secure, and reliable experience.",
+        "subtitle": "Testing includes:",
+        "list": [
+          "Automated unit and integration testing",
+          "Manual functional testing of all key flows",
+          "Cross-browser and cross-device responsiveness checks",
+          "Performance and speed benchmarking",
+          "Security audits and data protection compliance"
+        ],
+        "outcome": "Outcome: A stable, production-ready product"
+      },
+      "deploy": {
+        "title": "Deploy",
+        "paragraph": "With testing complete, we prepare the product for launch by configuring infrastructure and setting up deployment pipelines. Whether it’s a mobile app or a web platform, we ensure your product is deployed securely and efficiently. We take care of all necessary configurations, rollback strategies, and backups, so your go-live is smooth and low-risk. This phase also includes submitting mobile apps to the respective stores if applicable.",
+        "subtitle": "Deployment tasks:",
+        "list": [
+          "CI/CD pipelines for automated deployment",
+          "Hosting, DNS, and SSL configuration",
+          "Database and environment migration",
+          "Rollback plans and backup protocols",
+          "App store submission and compliance checks"
+        ],
+        "outcome": "Outcome: A successful, monitored product launch"
+      },
+      "measure": {
+        "title": "Measure",
+        "paragraph": "After deployment, our focus shifts to measurement. We monitor usage patterns, performance metrics, and user behavior through advanced analytics tools. This data helps assess the product’s effectiveness, identify opportunities for improvement, and prioritize next steps. With real-time dashboards and KPIs tailored to your business goals, we ensure your platform is performing optimally and meeting expectations.",
+        "subtitle": "What we track:",
+        "list": [
+          "Page visits, session lengths, bounce rates",
+          "Conversion funnels and task completion rates",
+          "Load times, uptime, and performance benchmarks",
+          "Error rates and user-reported issues",
+          "Heatmaps and session replays for UX feedback",
+          "Custom metrics aligned to strategic goals"
+        ],
+        "outcome": "Outcome: Data-driven insights for improvement"
+      },
+      "maintain": {
+        "title": "Maintain",
+        "paragraph": "Maintenance is crucial to keep your platform functional, secure, and user-friendly over time. We offer continuous support and proactive updates based on user feedback and technical advancements. Whether it's fixing bugs, adding new features, or scaling to new markets, we ensure your product evolves with your needs. Our support plans include response SLAs, performance monitoring, and regular health checks to keep everything running smoothly.",
+        "subtitle": "Ongoing services:",
+        "list": [
+          "Fixing bugs and addressing reported issues",
+          "Monitoring for uptime, crashes, and system errors",
+          "Rolling out new features based on analytics and feedback",
+          "Security updates and third-party library maintenance",
+          "Optional SLA-based support for mission-critical systems"
+        ],
+        "outcome": "Outcome: A reliable, evolving product aligned with growth"
+      }
+    }
+  }
+}

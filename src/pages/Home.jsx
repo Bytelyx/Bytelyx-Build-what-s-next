@@ -724,8 +724,10 @@ export function Home() {
       </section>
 
       {/* 4. WHAT WE OFFER */}
-      <section className="gsap-reveal-section gsap-offer-stack-section 3xl:container 2.5xl:px-32 3xl:px-48 mx-auto mb-30 w-full max-w-7xl space-y-10 overflow-visible px-4 pt-20 pb-40 md:mb-32 md:px-10 md:pb-48 lg:px-8 xl:space-y-16 xl:px-14 xl:pb-56 2xl:px-24" aria-label="What We Offer">
-        {/* Section Header */}
+      <section
+        className="hidden md:block gsap-reveal-section gsap-offer-stack-section 3xl:container 2.5xl:px-32 3xl:px-48 mx-auto mb-30 w-full max-w-7xl space-y-10 overflow-visible px-4 pt-20 pb-40 md:mb-32 md:px-10 md:pb-48 lg:px-8 xl:space-y-16 xl:px-14 xl:pb-56 2xl:px-24"
+        aria-label="What We Offer"
+      >        {/* Section Header */}
         <div className="m-auto flex flex-col items-center justify-center gap-2 text-center lg:gap-4 xl:gap-6">
           <div className="bottomBorder flex items-center rounded-full border-t border-white/10 bg-[#0A1825] px-3 py-1">
             <span className="me-2 size-1.5 rounded-full bg-gradient-to-t from-primary-from to-primary-to shadow-sm" />

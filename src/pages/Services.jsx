@@ -84,7 +84,7 @@ export function Services() {
 
   return (
     <div className="flex w-full flex-col items-center">
-      {/* SERVICES HERO SECTION */}
+      {/* HERO SECTION */}
       <section className="relative isolate mx-auto mb-16 w-full max-w-7xl overflow-hidden px-4 pt-4 text-center md:px-10 lg:px-8 lg:pt-6 xl:px-14 xl:pt-10 2xl:px-24 2.5xl:px-32 3xl:container 3xl:px-48" aria-label="Hero">
         <div className="pointer-events-none absolute -top-20 left-1/2 z-0 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,_#20375699,_#05c5de00)] opacity-75 blur-[100px] md:w-[900px]" />
         <h1 ref={heroHeadingRef} className="relative z-10 mx-auto w-full text-3xl font-medium leading-tight md:text-5xl lg:mb-2 lg:w-4/5 lg:text-5xl 2xl:text-7xl 3xl:mb-16 2.5xl:mb-12">

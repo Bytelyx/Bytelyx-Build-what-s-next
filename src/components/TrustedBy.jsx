@@ -17,7 +17,7 @@ export function TrustedBy() {
     <section className="my-8 w-full overflow-hidden xl:my-14 xl:space-y-10" aria-label="Trusted by Innovators and Industry Leaders">
       <h3 className="m-auto text-center text-sm md:text-2xl font-normal">
         <span className="bg-gradient-to-b from-foreground-from to-foreground-to bg-clip-text py-2 text-transparent">
-          Trusted by Innovators and Industry Leaders
+          Technologies what we use
         </span>
       </h3>
 

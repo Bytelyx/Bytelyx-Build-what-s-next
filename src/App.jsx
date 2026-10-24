@@ -6,9 +6,7 @@ import { Services } from './pages/Services';
 import { Process } from './pages/Process';
 import { Projects } from './pages/Projects';
 import { ProjectView } from './pages/ProjectView';
-import { Careers } from './pages/Careers';
-import { Blog } from './pages/Blog';
-import { BlogDetails } from './pages/BlogDetails';
+// import { Careers } from './pages/Careers';
 import { Contact } from './pages/Contact';
 
 export function App() {
@@ -21,9 +19,7 @@ export function App() {
           <Route path="/process" element={<Process />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/view/:name" element={<ProjectView />} />
-          <Route path="/careers" element={<Careers />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogDetails />} />
+          {/* <Route path="/careers" element={<Careers />} /> */}
           <Route path="/contact" element={<Contact />} />
 
           {/* Fallback to Home */}

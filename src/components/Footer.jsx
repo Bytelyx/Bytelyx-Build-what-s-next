@@ -1,22 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Logo from '../assets/logo-01.png';
 
 export function Footer() {
   return (
     <footer className="relative grid grid-cols-2 gap-6 pt-20 md:grid-cols-3 lg:grid-cols-4 max-w-7xl mx-auto px-4 w-full">
-      {/* Col 1: FikraTech Brand & Social */}
+
+      {/* Col 1: ByteLyx Brand & Social */}
       <div className="col-span-full text-center md:col-span-1 md:text-start">
-        {/* Logo */}
+
+        {/* Logo + Brand Name */}
         <Link
           to="/"
-          className="inline-flex items-center justify-center mb-5 md:justify-start group transition-opacity hover:opacity-90"
-          aria-label="FikraTech"
+          className="inline-flex items-center justify-center gap-3 mb-5 md:justify-start group transition-opacity hover:opacity-90"
+          aria-label="ByteLyx"
         >
           <img
-            src="/images/logo.svg"
-            alt="FikraTech Logo"
-            className="h-10 w-auto object-contain lg:h-12"
+            src={Logo}
+            alt="ByteLyx Logo"
+            className="h-12 w-auto object-contain lg:h-14"
           />
+
+          <span className="text-2xl font-bold tracking-wide text-white lg:text-3xl">
+            ByteLyx
+          </span>
         </Link>
 
         <p className="mb-6 font-light text-sm text-[#818B95] leading-relaxed max-w-sm mx-auto md:mx-0">
@@ -24,10 +31,14 @@ export function Footer() {
         </p>
 
         {/* Social Links */}
-        <nav className="flex justify-center gap-2.5 md:justify-start" aria-label="Social media">
+        <nav
+          className="flex justify-center gap-2.5 md:justify-start"
+          aria-label="Social media"
+        >
+
           {/* WhatsApp */}
           <a
-            href="https://wa.me/+971567347233"
+            href="https://wa.me/918592943588"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="WhatsApp"
@@ -44,7 +55,7 @@ export function Footer() {
 
           {/* LinkedIn */}
           <a
-            href="https://ae.linkedin.com/company/fikratech"
+            href="https://ae.linkedin.com/company/bytelyx"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -59,12 +70,12 @@ export function Footer() {
             </svg>
           </a>
 
-          {/* Facebook */}
+          {/* Instagram */}
           <a
-            href="https://www.facebook.com/profile.php?id=61575273784306"
+            href="https://www.instagram.com/bytelyx?mdxt=MXdpN2ZtbGhlcTZ1eA=="
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Facebook"
+            aria-label="Instagram"
             className="hover:text-[#05C3DE] hover:border-[#307FE2]/40 flex size-10 items-center justify-center rounded-xl bg-[#15212C] border border-white/10 transition transform hover:-translate-y-0.5 text-white/80"
           >
             <svg
@@ -72,14 +83,16 @@ export function Footer() {
               viewBox="0 0 24 24"
               aria-hidden="true"
             >
-              <path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z" />
+              <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm0 2h10c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3zm11 1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z" />
             </svg>
           </a>
+
         </nav>
       </div>
 
       {/* Col 2 & 3: Quick Links & Services */}
       <div className="col-span-2 flex justify-around lg:px-10">
+
         {/* Quick Links */}
         <div>
           <h4 className="mb-4 text-xl font-bold md:text-2xl">
@@ -89,38 +102,20 @@ export function Footer() {
           </h4>
 
           <nav className="space-y-4 font-medium text-sm">
-            <Link
-              to="/projects"
-              className="hover:text-[#05C3DE] text-white/80 block transition"
-            >
+            <Link to="/projects" className="hover:text-[#05C3DE] text-white/80 block transition">
               Projects
             </Link>
 
-            <Link
-              to="/careers"
-              className="hover:text-[#05C3DE] text-white/80 block transition"
-            >
-              Careers
+            <Link to="/services" className="hover:text-[#05C3DE] text-white/80 block transition">
+              Services
             </Link>
 
-            <Link
-              to="/process"
-              className="hover:text-[#05C3DE] text-white/80 block transition"
-            >
+            <Link to="/process" className="hover:text-[#05C3DE] text-white/80 block transition">
               Process
             </Link>
 
-            <Link
-              to="/blog"
-              className="hover:text-[#05C3DE] text-white/80 block transition"
-            >
-              Blog
-            </Link>
 
-            <Link
-              to="/contact"
-              className="hover:text-[#05C3DE] text-white/80 block transition"
-            >
+            <Link to="/contact" className="hover:text-[#05C3DE] text-white/80 block transition">
               Contact us
             </Link>
           </nav>
@@ -135,42 +130,32 @@ export function Footer() {
           </h4>
 
           <nav className="space-y-4 text-sm font-medium">
-            <Link
-              to="/services#business-automation"
-              className="hover:text-[#05C3DE] text-white/80 block transition"
-            >
-              Business Automation
+            <Link to="/services#business-automation" className="hover:text-[#05C3DE] text-white/80 block transition">
+              Digital Marketing
             </Link>
 
-            <Link
-              to="/services#software-development"
-              className="hover:text-[#05C3DE] text-white/80 block transition"
-            >
+            <Link to="/services#software-development" className="hover:text-[#05C3DE] text-white/80 block transition">
               Web Development
             </Link>
 
-            <Link
-              to="/services#mobile-development"
-              className="hover:text-[#05C3DE] text-white/80 block transition"
-            >
-              Mobile Solutions
+            <Link to="/services#mobile-development" className="hover:text-[#05C3DE] text-white/80 block transition">
+              Mobile App Development
             </Link>
 
-            <Link
-              to="/services#ui-ux-design"
-              className="hover:text-[#05C3DE] text-white/80 block transition"
-            >
+            <Link to="/services#ui-ux-design" className="hover:text-[#05C3DE] text-white/80 block transition">
               UI/UX Design
             </Link>
           </nav>
         </div>
       </div>
 
-      {/* Col 4: Interactive 3D FikraTech Flip Card */}
+      {/* Col 4: Interactive 3D ByteLyx Flip Card */}
       <div className="group [perspective:1000px] col-span-full min-h-56 lg:col-span-1 cursor-pointer">
         <div className="relative h-full min-h-56 w-full rounded-2xl transition-all duration-1000 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] shadow-xl">
+
           {/* Card Front */}
           <div className="rounded-3xl border border-white/10 bg-[#0A141E] p-6 backdrop-blur-xl absolute inset-0 overflow-hidden [backface-visibility:hidden] grid place-items-center">
+
             {/* Glow */}
             <div className="pointer-events-none absolute left-1/2 top-1/2 -z-0 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#05c5de]/15 blur-3xl" />
 
@@ -183,21 +168,29 @@ export function Footer() {
               }}
             />
 
-            {/* FikraTech Logo */}
+            {/* Local Logo + ByteLyx Name */}
             <div className="relative z-10 flex flex-col items-center justify-center gap-4 text-center">
-              <img
-                src="/images/logo.svg"
-                alt="FikraTech"
-                className="h-12 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
-              />
+              <div className="flex items-center justify-center gap-3">
+                <img
+                  src={Logo}
+                  alt="ByteLyx Logo"
+                  className="h-12 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+                />
+
+                <span className="text-2xl font-bold tracking-wide text-white">
+                  ByteLyx
+                </span>
+              </div>
+
               <span className="text-xs text-white/60 font-light">
-                Hover to flip & contact
+                Build What's Next
               </span>
             </div>
           </div>
 
           {/* Card Back: Contact Information */}
           <div className="border border-white/10 bg-[#0A141E] backdrop-blur-xl rounded-3xl p-5 text-sm absolute inset-0 overflow-hidden [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col justify-center">
+
             {/* Inner Border Glow */}
             <div
               className="pointer-events-none absolute inset-0 rounded-3xl border border-transparent opacity-80"
@@ -221,25 +214,25 @@ export function Footer() {
               </h4>
 
               <a
-                href="tel:+971567347233"
+                href="tel:+918592943588"
                 className="hover:text-[#05C3DE] transition font-medium text-xs block text-white/80"
               >
-                +971-56-7347233
+                +91-8592943588
               </a>
 
               <a
                 href="mailto:info@fikratech.com"
                 className="hover:text-[#05C3DE] transition font-medium text-xs block text-white/80 break-words"
               >
-                info@fikratech.com
+                info@bytekyx@gmail.com
               </a>
 
               <address className="block not-italic text-xs text-white/70 leading-relaxed pt-1">
-                (1) - Abu Baker Al Siddique St - Deira, Dubai, AE
+                Kozhikode
               </address>
 
               <address className="block not-italic text-xs text-white/70 leading-relaxed">
-                (2) - Alabdali street, Amman, JO
+                Kerala
               </address>
             </div>
           </div>
@@ -248,8 +241,9 @@ export function Footer() {
 
       {/* Bottom Copyright */}
       <div className="col-span-full flex flex-wrap justify-center items-center gap-1 py-8 border-t border-white/10 mt-12 text-xs text-center text-white/60">
-        <p>© 2026 FikraTech. All rights reserved.</p>
+        <p>© 2026 ByteLyx. All rights reserved.</p>
       </div>
+
     </footer>
   );
 }

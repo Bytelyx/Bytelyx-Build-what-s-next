@@ -45,15 +45,15 @@ export function Header() {
         {/* Circular Logo */}
         <span
           className="
-            relative flex shrink-0 items-center
-            justify-center overflow-hidden rounded-full
-            border border-[#D4AF37]/60 bg-white
-            shadow-[0_0_12px_rgba(212,175,55,0.2)]
-            transition-all duration-300
-            group-hover:scale-105
-            group-hover:shadow-[0_0_22px_rgba(212,175,55,0.45)]
-          "
-          style={{ width: 44, height: 44 }}
+    relative flex shrink-0 items-center
+    justify-center overflow-hidden rounded-full
+    border border-[#D4AF37]/60 bg-transparent
+    shadow-[0_0_12px_rgba(212,175,55,0.2)]
+    transition-all duration-300
+    group-hover:scale-105
+    group-hover:shadow-[0_0_22px_rgba(212,175,55,0.45)]
+  "
+          style={{ width: 52, height: 52 }}
         >
           <span
             aria-hidden="true"
@@ -63,7 +63,7 @@ export function Header() {
               transition-colors duration-300
               group-hover:bg-[#D4AF37]/60
             "
-            style={{ width: 24, height: 24 }}
+            style={{ width: 28, height: 28 }}
           />
 
           <img
@@ -76,10 +76,10 @@ export function Header() {
               group-hover:scale-105
             "
             style={{
-              width: 30,
-              height: 30,
-              minWidth: 30,
-              maxWidth: 30,
+              width: 38,
+              height: 38,
+              minWidth: 38,
+              maxWidth: 38,
               flexShrink: 0,
             }}
           />
@@ -117,10 +117,9 @@ export function Header() {
                     relative block whitespace-nowrap py-2
                     text-sm font-medium transition-colors
                     duration-300 xl:text-base
-                    ${
-                      active
-                        ? 'text-[#D4AF37]'
-                        : 'text-white/85 hover:text-[#D4AF37]'
+                    ${active
+                      ? 'text-[#D4AF37]'
+                      : 'text-white/85 hover:text-[#D4AF37]'
                     }
                   `}
                 >
@@ -178,10 +177,9 @@ export function Header() {
           className={`
             h-0.5 w-5 rounded-full bg-white
             transition-transform duration-300
-            ${
-              mobileMenuOpen
-                ? '-translate-y-[7px] -rotate-45'
-                : ''
+            ${mobileMenuOpen
+              ? '-translate-y-[7px] -rotate-45'
+              : ''
             }
           `}
         />
@@ -213,10 +211,9 @@ export function Header() {
                 className={`
                   rounded-xl border px-4 py-3
                   text-base font-medium transition-colors
-                  ${
-                    active
-                      ? 'border-[#D4AF37]/30 bg-[#D4AF37]/10 text-[#D4AF37]'
-                      : 'border-transparent text-white/90 hover:bg-white/5 hover:text-[#D4AF37]'
+                  ${active
+                    ? 'border-[#D4AF37]/30 bg-[#D4AF37]/10 text-[#D4AF37]'
+                    : 'border-transparent text-white/90 hover:bg-white/5 hover:text-[#D4AF37]'
                   }
                 `}
               >

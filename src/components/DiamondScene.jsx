@@ -93,7 +93,7 @@ export function DiamondScene() {
         renderer.domElement.parentNode.removeChild(renderer.domElement);
       }
     };
-  }, []);
+  }, []);  
 
   return (
     <div

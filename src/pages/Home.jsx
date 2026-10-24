@@ -5,12 +5,110 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import confetti from 'canvas-confetti';
 import TrustedBy from '../components/TrustedBy';
 import { SpecialCard } from '../components/SpecialCard';
-import { DiamondScene } from '../components/DiamondScene';
 import { HeroScene } from '../components/HeroScene';
 import { ReadyToStart } from '../components/ReadyToStart';
 import { projectsData } from '../data/projectsData';
+import Logo from "../assets/logo-01.png"
 
 gsap.registerPlugin(ScrollTrigger);
+
+
+function PremiumServiceVisual({ type, label }) {
+  const common = (
+    <defs>
+      <linearGradient id={`metal-${type}`} x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stopColor="#F5FCFF" />
+        <stop offset="38%" stopColor="#65DDF7" />
+        <stop offset="72%" stopColor="#307FE2" />
+        <stop offset="100%" stopColor="#182C59" />
+      </linearGradient>
+      <linearGradient id={`glass-${type}`} x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stopColor="#FFFFFF" stopOpacity=".8" />
+        <stop offset="45%" stopColor="#75DFF8" stopOpacity=".28" />
+        <stop offset="100%" stopColor="#307FE2" stopOpacity=".12" />
+      </linearGradient>
+      <radialGradient id={`orb-${type}`}>
+        <stop offset="0%" stopColor="#7CF1FF" stopOpacity=".9" />
+        <stop offset="100%" stopColor="#307FE2" stopOpacity=".05" />
+      </radialGradient>
+      <filter id={`shadow-${type}`} x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="4" />
+      </filter>
+    </defs>
+  );
+  return (
+    <div className={`service-visual service-visual-${type} relative mx-auto flex h-40 w-full items-center justify-center overflow-hidden rounded-2xl`}>
+      <div className="service-orbit service-orbit-one" />
+      <div className="service-orbit service-orbit-two" />
+      <svg viewBox="0 0 280 170" role="img" aria-label={label} className="service-art relative z-10 h-full w-full overflow-visible">
+        {common}
+        <ellipse cx="140" cy="139" rx="72" ry="10" fill="#05C3DE" opacity=".18" filter={`url(#shadow-${type})`} />
+        {type === 'puzzle' && <>
+          <path d="M72 52 L111 30 L151 52 L111 75 Z" fill={`url(#metal-${type})`} stroke="#B7F5FF" strokeOpacity=".75" />
+          <path d="M72 52 L111 75 L111 120 L72 96 Z" fill="#2365B5" stroke="#82E9FF" strokeOpacity=".6" />
+          <path d="M111 75 L151 52 L151 96 L111 120 Z" fill="#15366E" stroke="#82E9FF" strokeOpacity=".65" />
+          <path d="M131 76 L170 54 L209 76 L170 99 Z" fill={`url(#glass-${type})`} stroke="#A9F4FF" strokeWidth="1.5" />
+          <path d="M131 76 L170 99 L170 128 L131 105 Z" fill="#174A8B" stroke="#5FD8F7" />
+          <path d="M170 99 L209 76 L209 105 L170 128 Z" fill="#10264F" stroke="#5FD8F7" />
+          <path d="M82 51 L111 35 L140 51" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" opacity=".8" />
+        </>}
+        {type === 'ui' && <>
+          <g transform="translate(68 25) rotate(-7 70 55)">
+            <rect x="5" y="7" width="130" height="94" rx="10" fill="#050F24" stroke="#4CA6E8" strokeWidth="2" />
+            <rect x="12" y="14" width="116" height="80" rx="6" fill={`url(#glass-${type})`} />
+            <rect x="22" y="24" width="36" height="7" rx="3.5" fill="#DDFBFF" />
+            <rect x="22" y="38" width="66" height="4" rx="2" fill="#6ACDEB" opacity=".7" />
+            <rect x="22" y="51" width="48" height="27" rx="5" fill="#307FE2" opacity=".8" />
+            <rect x="77" y="51" width="40" height="5" rx="2.5" fill="#E5FAFF" opacity=".9" />
+            <rect x="77" y="62" width="33" height="4" rx="2" fill="#74DFF7" opacity=".8" />
+            <rect x="77" y="72" width="26" height="4" rx="2" fill="#74DFF7" opacity=".5" />
+          </g>
+          <path d="M186 107 L202 123 L210 109 L220 106 Z" fill="#F4FCFF" stroke="#5ACDEB" strokeWidth="2" />
+          <circle cx="205" cy="48" r="18" fill={`url(#orb-${type})`} />
+        </>}
+        {type === 'mobile' && <>
+          <g transform="translate(74 17) rotate(-9 43 66)">
+            <rect x="5" y="4" width="74" height="132" rx="14" fill="#070F20" stroke="#A2F1FF" strokeWidth="2" />
+            <rect x="11" y="11" width="62" height="118" rx="10" fill={`url(#glass-${type})`} />
+            <rect x="31" y="16" width="22" height="3" rx="1.5" fill="#DDFBFF" opacity=".8" />
+            <rect x="19" y="32" width="46" height="32" rx="6" fill="#307FE2" />
+            <circle cx="32" cy="43" r="7" fill="#8AF0FF" />
+            <path d="M22 58 L33 49 L42 56 L51 45 L62 58" stroke="#E6FCFF" strokeWidth="2" fill="none" />
+            <rect x="19" y="73" width="42" height="5" rx="2.5" fill="#E9FBFF" />
+            <rect x="19" y="83" width="33" height="4" rx="2" fill="#80DDF4" />
+            <rect x="19" y="96" width="42" height="20" rx="6" fill="#1F69C3" stroke="#70DDF6" />
+          </g>
+          <g transform="translate(143 35) rotate(9 43 60)">
+            <rect x="4" y="4" width="70" height="116" rx="13" fill="#0A1830" stroke="#438FD9" strokeWidth="2" />
+            <rect x="10" y="11" width="58" height="102" rx="8" fill="#102B52" />
+            <circle cx="39" cy="43" r="17" fill={`url(#orb-${type})`} />
+            <path d="M25 44 L35 54 L54 32" stroke="#B7F8FF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            <rect x="19" y="71" width="40" height="5" rx="2.5" fill="#DFFAFF" />
+            <rect x="19" y="82" width="29" height="4" rx="2" fill="#69D5F2" />
+          </g>
+        </>}
+        {type === 'marketing' && <>
+          <path d="M54 122 L90 93 L122 105 L163 62 L204 76 L229 39" fill="none" stroke="#05C3DE" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M54 122 L90 93 L122 105 L163 62 L204 76 L229 39 L229 132 L54 132 Z" fill="#307FE2" opacity=".15" />
+          {[[54, 122], [90, 93], [122, 105], [163, 62], [204, 76], [229, 39]].map(([x, y], i) => <g key={i}><circle cx={x} cy={y} r="8" fill="#0A1C38" stroke="#A4F4FF" strokeWidth="2" /><circle cx={x} cy={y} r="3" fill="#74E9FF" /></g>)}
+          <rect x="80" y="28" width="120" height="20" rx="10" fill={`url(#glass-${type})`} stroke="#6ADDF5" strokeOpacity=".65" />
+          <circle cx="94" cy="38" r="3" fill="#8DF4FF" />
+          <rect x="103" y="35" width="73" height="5" rx="2.5" fill="#E5FCFF" opacity=".8" />
+          <rect x="69" y="139" width="142" height="3" rx="1.5" fill="#307FE2" opacity=".5" />
+        </>}
+        {type === 'ai' && <>
+          <g stroke="#56DDF7" strokeOpacity=".75" strokeWidth="1.5">
+            <path d="M140 83 L91 42 L188 42 L140 83 L82 112 L199 112 L188 42 L199 112 L91 42 L82 112" />
+            <path d="M140 83 L140 27 M140 83 L140 139 M140 83 L48 79 M140 83 L232 79" />
+          </g>
+          {[[140, 83, 18], [91, 42, 10], [188, 42, 10], [82, 112, 10], [199, 112, 10], [140, 27, 7], [140, 139, 7], [48, 79, 7], [232, 79, 7]].map(([x, y, r], i) => <g key={i}><circle cx={x} cy={y} r={r + 4} fill="#05C3DE" opacity=".12" /><circle cx={x} cy={y} r={r} fill={i === 0 ? '#5DEBFF' : '#1B4D8F'} stroke="#C2F8FF" strokeWidth="1.5" />{i === 0 && <circle cx={x} cy={y} r="7" fill="#F1FFFF" />}</g>)}
+          <ellipse cx="140" cy="83" rx="37" ry="55" stroke="#5CE4FF" strokeOpacity=".4" strokeDasharray="4 5" fill="none" />
+        </>}
+      </svg>
+    </div>
+  );
+}
+
 
 export function Home() {
   const navigate = useNavigate();
@@ -48,17 +146,26 @@ export function Home() {
     });
   };
 
+
   // GSAP Animations and ScrollTriggers
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // 1. Hero Entrance Animation
-      const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      // 1. Hero entrance animation
+      const heroTl = gsap.timeline({
+        defaults: { ease: 'power3.out' },
+      });
 
       if (heroHeadingRef.current) {
         heroTl.fromTo(
           heroHeadingRef.current,
           { opacity: 0, y: 35, scale: 0.98 },
-          { opacity: 1, y: 0, scale: 1, duration: 1.1, delay: 0.1 }
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 1.1,
+            delay: 0.1,
+          }
         );
       }
 
@@ -75,16 +182,25 @@ export function Home() {
         heroTl.fromTo(
           heroCtaRef.current,
           { opacity: 0, scale: 0.85, y: 20 },
-          { opacity: 1, scale: 1, y: 0, duration: 0.8, ease: 'back.out(1.4)' },
+          {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'back.out(1.4)',
+          },
           '-=0.6'
         );
       }
 
-      // 2. Section Scroll Reveals
-      const revealSections = document.querySelectorAll('.gsap-reveal-section');
-      revealSections.forEach((sec) => {
+      // 2. Section reveal animations
+      const revealSections = gsap.utils.toArray(
+        '.gsap-reveal-section'
+      );
+
+      revealSections.forEach((section) => {
         gsap.fromTo(
-          sec,
+          section,
           { opacity: 0, y: 40 },
           {
             opacity: 1,
@@ -92,7 +208,7 @@ export function Home() {
             duration: 0.9,
             ease: 'power2.out',
             scrollTrigger: {
-              trigger: sec,
+              trigger: section,
               start: 'top 85%',
               toggleActions: 'play none none none',
             },
@@ -100,9 +216,10 @@ export function Home() {
         );
       });
 
-      // 3. Staggered Bento Story Cards
-      const bentoCards = document.querySelectorAll('.gsap-bento-card');
-      if (bentoCards.length > 0) {
+      // 3. Bento cards
+      const bentoCards = gsap.utils.toArray('.gsap-bento-card');
+
+      if (bentoCards.length) {
         gsap.fromTo(
           bentoCards,
           { opacity: 0, y: 40 },
@@ -121,54 +238,80 @@ export function Home() {
         );
       }
 
-      // 4. Staggered Offer Cards
-      const offerCards = document.querySelectorAll('.gsap-offer-card');
-      if (offerCards.length > 0) {
-        gsap.fromTo(
-          offerCards,
-          { opacity: 0, y: 40 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: '.gsap-offer-grid',
-              start: 'top 80%',
-              toggleActions: 'play none none none',
-            },
-          }
-        );
-      }
+      // 4. Stack only the What We Offer cards.
+      const offerSection = document.querySelector(
+        '.gsap-offer-stack-section'
+      );
+      const offerGrid = offerSection?.querySelector(
+        '.gsap-offer-grid'
+      );
+      const offerCards = offerSection
+        ? gsap.utils.toArray(
+          offerSection.querySelectorAll('.gsap-offer-card')
+        )
+        : [];
 
-      // 5. Achievement Numeric Counter Animation
-      if (stat1Ref.current && stat2Ref.current && stat3Ref.current) {
-        const statsObj = { count1: 0, count2: 0, count3: 0 };
-        ScrollTrigger.create({
-          trigger: stat1Ref.current,
-          start: 'top 85%',
-          once: true,
-          onEnter: () => {
-            gsap.to(statsObj, {
-              count1: 100,
-              count2: 15,
-              count3: 20,
-              duration: 2.2,
-              ease: 'power2.out',
-              onUpdate: () => {
-                if (stat1Ref.current) stat1Ref.current.innerText = `${Math.floor(statsObj.count1)}%`;
-                if (stat2Ref.current) stat2Ref.current.innerText = `${Math.floor(statsObj.count2)}+`;
-                if (stat3Ref.current) stat3Ref.current.innerText = `${Math.floor(statsObj.count3)}+`;
-              },
-            });
+      if (offerSection && offerGrid && offerCards.length) {
+        const getCardOffsets = () => {
+          const gridRect = offerGrid.getBoundingClientRect();
+
+          return offerCards.map((card) => {
+            const cardRect = card.getBoundingClientRect();
+
+            return (
+              gridRect.left +
+              gridRect.width / 2 -
+              (cardRect.left + cardRect.width / 2)
+            );
+          });
+        };
+
+        gsap.set(offerCards, {
+          transformOrigin: '50% 50%',
+          zIndex: (index) => index + 1,
+        });
+
+        const stackTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: offerGrid,
+            start: 'top 70%',
+            end: '+=450',
+            scrub: 1,
+            pin: false,
+            invalidateOnRefresh: true,
           },
         });
+
+        offerCards.forEach((card, index) => {
+          stackTimeline.to(
+            card,
+            {
+              x: () => getCardOffsets()[index],
+              y: (index - (offerCards.length - 1) / 2) * 7,
+              rotation:
+                (index - (offerCards.length - 1) / 2) * 5,
+              scale: 0.88,
+              zIndex: index + 1,
+              duration: 1,
+              ease: 'power2.inOut',
+            },
+            0
+          );
+        });
+
+        // Recalculate the stack after viewport size changes.
+        ScrollTrigger.addEventListener(
+          'refreshInit',
+          () => gsap.set(offerCards, { x: 0, y: 0, rotation: 0, scale: 1 })
+        );
       }
     }, mainRef);
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+    };
   }, []);
+
 
   return (
     <div ref={mainRef} className="flex w-full flex-col items-center">
@@ -248,26 +391,26 @@ export function Home() {
         <TrustedBy />
       </div>
 
-      {/* 3. THE STORY OF FIKRATECH */}
+      {/* 3. THE STORY OF BYTELYX */}
       <section className="gsap-reveal-section 3xl:container 2.5xl:px-32 3xl:px-48 mx-auto mt-20 w-full max-w-7xl space-y-10 px-4 md:px-10 lg:my-24 lg:px-8 xl:mb-20 xl:mt-32 xl:space-y-16 xl:px-14 2xl:px-24" aria-label="The Story of FikraTech">
         {/* Section Header */}
         <div className="m-auto flex flex-col items-center justify-center gap-2 text-center lg:gap-4 xl:gap-6">
           <div className="bottomBorder flex items-center rounded-full border-t border-white/10 bg-[#0A1825] px-3 py-1">
             <span className="me-2 size-1.5 rounded-full bg-gradient-to-t from-primary-from to-primary-to shadow-sm" />
             <span className="bg-gradient-to-b from-[#307FE2] to-[#05C3DE] bg-clip-text py-1 text-[0.6rem] font-semibold text-transparent md:text-xs">
-              What is FikraTech
+              What is ByteLyx
             </span>
           </div>
 
           <h2 className="bg-gradient-to-b from-foreground-from to-foreground-to bg-clip-text text-2xl font-medium text-transparent md:text-4xl lg:text-5xl xl:text-6xl">
             The Story of{' '}
             <span className="bg-gradient-to-b from-primary-from to-primary-to bg-clip-text text-transparent">
-              FikraTech
+              ByteLyx
             </span>
           </h2>
 
           <p className="max-w-3xl text-[0.85rem] font-light text-[#818B95] md:text-lg lg:text-sm xl:text-base xl:leading-6">
-            More than a tech company — we are your innovation partner. Discover how FikraTech blends expertise, passion, and technology to redefine digital success.
+            More than a software company — ByteLyx turns innovative ideas into powerful digital solutions.
           </p>
         </div>
 
@@ -276,7 +419,7 @@ export function Home() {
           {/* Card 1: What is FikraTech? */}
           <SpecialCard className="gsap-bento-card group col-span-12 flex flex-col items-start p-6 md:p-8 lg:col-span-4">
             <h3 className="mb-3 font-bold text-white md:text-3xl lg:text-base xl:mb-5 xl:text-2xl">
-              What is FikraTech?
+              What is ByteLyx?
             </h3>
 
             <p className="text-start text-xs font-light leading-5 text-[#828282] md:text-xl lg:text-xs xl:text-sm xl:leading-7">
@@ -285,13 +428,15 @@ export function Home() {
 
             {/* Concentric Rotating Squircle Rings with FikraTech Logo */}
             <div className="relative m-auto mt-4 flex size-40 items-center justify-center md:mt-8 md:size-64 lg:size-44 xl:size-56">
-              <span className="absolute z-10 ms-3 size-[40%] rounded-[35%] transition-transform duration-500 group-hover:scale-110">
+
+              <span className="absolute z-10 flex size-[55%] items-center justify-center transition-transform duration-500 group-hover:scale-110">
                 <img
-                  src="/images/home/story/image1.svg"
+                  src={Logo}
                   alt="FikraTech Symbol"
                   className="h-full w-full object-contain"
                 />
               </span>
+
 
               {/* Concentric Gradient Rings */}
               <span className="absolute size-[60%] rounded-[35%] border-2 border-[#307FE2]/50 opacity-90 transition-transform duration-700 group-hover:rotate-45" />
@@ -313,7 +458,7 @@ export function Home() {
               </h3>
 
               <p className="max-w-2xl text-start text-xs font-light leading-5 text-[#828282] md:text-xl lg:text-xs xl:text-sm xl:leading-7">
-                At FikraTech, we believe technology has no borders. Our vision is to create a future where ideas, people, and businesses are seamlessly connected — building a smarter, more unified world.
+                At ByeLyx, we believe technology has no borders. Our vision is to create a future where ideas, people, and businesses are seamlessly connected — building a smarter, more unified world.
               </p>
 
               {/* World Map with interactive network overlay */}
@@ -321,9 +466,8 @@ export function Home() {
                 <img
                   src="/images/home/story/image2.svg"
                   alt="FikraTech Global Vision Map"
-                  className={`relative z-10 h-full w-full object-contain transition-all duration-700 ${
-                    visionHovered ? 'brightness-125 drop-shadow-[0_0_18px_rgba(5,195,222,0.25)]' : ''
-                  }`}
+                  className={`relative z-10 h-full w-full object-contain transition-all duration-700 ${visionHovered ? 'brightness-125 drop-shadow-[0_0_18px_rgba(5,195,222,0.25)]' : ''
+                    }`}
                 />
 
                 {/* Network Constellation Nodes */}
@@ -331,9 +475,8 @@ export function Home() {
                   aria-hidden="true"
                   viewBox="0 0 689 290"
                   preserveAspectRatio="xMidYMid meet"
-                  className={`pointer-events-none absolute inset-0 z-20 h-full w-full transition-opacity duration-500 ${
-                    visionHovered ? 'opacity-100' : 'opacity-0'
-                  }`}
+                  className={`pointer-events-none absolute inset-0 z-20 h-full w-full transition-opacity duration-500 ${visionHovered ? 'opacity-100' : 'opacity-0'
+                    }`}
                 >
                   <defs>
                     <mask id="fikra-continent-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="689" height="290">
@@ -367,9 +510,8 @@ export function Home() {
 
                 {/* Subtle Radial Atmosphere */}
                 <div
-                  className={`pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,rgba(48,127,226,0.2),transparent_70%)] transition-opacity duration-700 ${
-                    visionHovered ? 'opacity-100' : 'opacity-0'
-                  }`}
+                  className={`pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,rgba(48,127,226,0.2),transparent_70%)] transition-opacity duration-700 ${visionHovered ? 'opacity-100' : 'opacity-0'
+                    }`}
                 />
               </div>
             </SpecialCard>
@@ -382,21 +524,20 @@ export function Home() {
             </h3>
 
             <p className="text-start text-xs font-light leading-5 text-[#828282] md:text-xl lg:text-[0.65rem] lg:leading-4 xl:text-xs xl:leading-5">
-              At FikraTech, we turn ideas into smart, scalable digital solutions. From intuitive apps to powerful platforms, we design, develop, and deliver technology that drives real impact.
+              At ByteLyx, we turn ideas into smart, scalable digital solutions. From intuitive apps to powerful platforms, we design, develop, and deliver technology that drives real impact.
             </p>
 
             {/* Marquee Tags */}
             <div className="my-5 w-full space-y-3 overflow-hidden xl:space-y-4">
               {[
-                ['App Development', 'Web Platforms', 'IT Consulting', 'Fintech Solutions', 'Edtech Solutions'],
-                ['Business Automation', 'Data Analytics', 'Custom Software', 'Business Automation', 'Data Analytics'],
-                ['App Development', 'Web Platforms', 'IT Consulting', 'Fintech Solutions', 'Edtech Solutions'],
+                ['App Development', 'Full Stack Development', 'Frontend', 'Backend', 'Digital Marketing', 'AI',],
+                ['ReactJS', 'Flutter', 'Vite', 'TailwindCSS', 'GSAP', 'ThreeJS', 'Framer-Motion'],
+                ['NodeJS', 'ExpressJS', 'MongoDB', 'GIT', 'GitHub', 'Dart'],
               ].map((items, rowIndex) => (
                 <div key={rowIndex} className="w-full overflow-hidden">
                   <div
-                    className={`flex w-max gap-2 ${
-                      rowIndex === 1 ? 'animate-marquee-reverse' : 'animate-marquee-slow'
-                    }`}
+                    className={`flex w-max gap-2 ${rowIndex === 1 ? 'animate-marquee-reverse' : 'animate-marquee-slow'
+                      }`}
                   >
                     {[0, 1].map((copy) => (
                       <div key={copy} aria-hidden={copy === 1 ? 'true' : undefined} className="flex shrink-0 gap-2">
@@ -482,17 +623,74 @@ export function Home() {
               We innovate with purpose, act with integrity, deliver with excellence, grow through collaboration, and always push beyond limits.
             </p>
 
-            {/* Three.js 3D Interactive Diamond Scene */}
-            <div className="relative mt-auto flex h-44 w-full flex-none items-center justify-center overflow-visible transition-all duration-700 group-hover:brightness-125 md:h-52 lg:h-40 xl:h-48">
-              <div className="pointer-events-none absolute inset-0 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(5,195,222,0.2),transparent_65%)] opacity-70 transition-opacity duration-700 group-hover:opacity-100" />
-              <DiamondScene />
+            {/* Silver faceted diamond — inline SVG so it renders without a Three.js dependency */}
+            <div className="relative mt-auto flex h-44 w-full flex-none items-center justify-center overflow-visible transition-all duration-700 md:h-52 lg:h-40 xl:h-48">
+              {/* Soft spotlight behind the diamond */}
+              <div className="pointer-events-none absolute inset-0 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(210,220,245,0.24),rgba(105,125,165,0.10)_35%,transparent_70%)] opacity-70 transition-all duration-700 group-hover:scale-110 group-hover:bg-[radial-gradient(ellipse_at_center,rgba(235,242,255,0.52),rgba(130,165,235,0.26)_38%,transparent_72%)] group-hover:opacity-100" />
+              <svg
+                viewBox="0 0 240 180"
+                role="img"
+                aria-label="Silver faceted diamond"
+                className="relative z-10 h-full w-full max-w-[220px] overflow-visible drop-shadow-[0_8px_18px_rgba(205,215,240,0.24)] transition-all duration-700 group-hover:scale-105 group-hover:brightness-150 group-hover:drop-shadow-[0_0_34px_rgba(225,235,255,1)]"
+              >
+                <defs>
+                  <linearGradient id="diamondTop" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#F9FAFF" />
+                    <stop offset="55%" stopColor="#DDE1EC" />
+                    <stop offset="100%" stopColor="#9299AA" />
+                  </linearGradient>
+                  <linearGradient id="diamondLeft" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#D5D9E4" />
+                    <stop offset="100%" stopColor="#737B8E" />
+                  </linearGradient>
+                  <linearGradient id="diamondRight" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#F1F3FA" />
+                    <stop offset="100%" stopColor="#8B91A2" />
+                  </linearGradient>
+                  <linearGradient id="diamondPoint" x1="0" y1="0" x2="0.9" y2="1">
+                    <stop offset="0%" stopColor="#AEB4C3" />
+                    <stop offset="100%" stopColor="#555D70" />
+                  </linearGradient>
+                  <filter id="diamondGlow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="5" />
+                  </filter>
+                </defs>
+
+                {/* Faint halo and tiny floating sparkles */}
+                <ellipse cx="120" cy="91" rx="77" ry="49" fill="#DCE5FF" opacity="0.16" filter="url(#diamondGlow)" className="transition-all duration-700 group-hover:fill-[#F0F5FF] group-hover:opacity-90" />
+                <g fill="#DDE6FA" opacity="0.7">
+                  <circle cx="39" cy="38" r="2.2" />
+                  <circle cx="65" cy="17" r="1.6" />
+                  <circle cx="184" cy="22" r="2.1" />
+                  <circle cx="207" cy="45" r="2.8" />
+                  <circle cx="171" cy="8" r="1.3" />
+                </g>
+
+                {/* Outer silhouette */}
+                <path d="M43 62 L73 29 L165 27 L198 62 L120 151 Z" fill="#8B91A2" />
+                {/* Upper crown facets */}
+                <path d="M43 62 L73 29 L91 62 Z" fill="url(#diamondLeft)" />
+                <path d="M73 29 L165 27 L150 62 L91 62 Z" fill="url(#diamondTop)" />
+                <path d="M165 27 L198 62 L150 62 Z" fill="#C7CCD8" />
+                {/* Bright central table and crown */}
+                <path d="M91 62 L104 35 L145 35 L159 62 Z" fill="#FFFFFF" opacity="0.96" />
+                <path d="M104 35 L145 35 L151 46 L99 46 Z" fill="#FFFFFF" />
+                {/* Lower facets */}
+                <path d="M43 62 L91 62 L120 151 Z" fill="#8B91A2" />
+                <path d="M91 62 L159 62 L120 151 Z" fill="url(#diamondPoint)" />
+                <path d="M159 62 L198 62 L120 151 Z" fill="#6D7486" />
+                <path d="M91 62 L120 81 L120 151 Z" fill="#AEB4C2" opacity="0.78" />
+                <path d="M120 81 L159 62 L120 151 Z" fill="#737B8E" opacity="0.68" />
+                <path d="M43 62 L91 62 L75 78 Z" fill="#C4C9D5" opacity="0.7" />
+                <path d="M159 62 L198 62 L164 78 Z" fill="#B7BDCC" opacity="0.55" />
+              </svg>
             </div>
           </SpecialCard>
         </div>
       </section>
 
       {/* 4. WHAT WE OFFER */}
-      <section className="gsap-reveal-section 3xl:container 2.5xl:px-32 3xl:px-48 mx-auto w-full max-w-7xl space-y-10 overflow-hidden px-4 py-10 pt-20 md:px-10 lg:px-8 xl:space-y-16 xl:px-14 2xl:px-24" aria-label="What We Offer">
+      <section className="gsap-reveal-section gsap-offer-stack-section 3xl:container 2.5xl:px-32 3xl:px-48 mx-auto mb-30 w-full max-w-7xl space-y-10 overflow-visible px-4 pt-20 pb-40 md:mb-32 md:px-10 md:pb-48 lg:px-8 xl:space-y-16 xl:px-14 xl:pb-56 2xl:px-24" aria-label="What We Offer">
         {/* Section Header */}
         <div className="m-auto flex flex-col items-center justify-center gap-2 text-center lg:gap-4 xl:gap-6">
           <div className="bottomBorder flex items-center rounded-full border-t border-white/10 bg-[#0A1825] px-3 py-1">
@@ -514,152 +712,93 @@ export function Home() {
           </p>
         </div>
 
-        {/* 4 Cards Grid */}
-        <div className="gsap-offer-grid grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {/* 1. Business Automation (Puzzle) */}
+        {/* Five service cards in one horizontal row */}
+        <div className="gsap-offer-stack-viewport w-full overflow-visible pb-4">
           <div
-            onMouseEnter={() => setPuzzleHovered(true)}
-            onMouseLeave={() => setPuzzleHovered(false)}
-            className="gsap-offer-card h-full"
+            className="gsap-offer-grid relative !grid min-w-[1200px] !grid-cols-5 gap-6"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(5, minmax(0, 1fr))',
+              gridAutoFlow: 'column',
+              minWidth: '1200px',
+            }}
           >
-            <SpecialCard className="group flex h-full min-h-[22rem] flex-col justify-between p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#307FE2]/50 hover:shadow-[0_12px_35px_rgba(48,127,226,0.15)]">
-              {/* 4 Puzzle SVGs */}
-              <div className="relative mx-auto h-40 w-full max-w-[15rem] overflow-hidden transition-transform duration-500 group-hover:scale-105">
-                <span
-                  className={`absolute left-4 top-4 w-28 transition-transform duration-500 ${
-                    puzzleHovered ? '-translate-x-1 -translate-y-1' : ''
-                  }`}
-                >
-                  <img src="/images/home/offer/Puzzle/image1.svg" alt="Puzzle piece 1" className="w-full object-contain" />
-                </span>
-                <span
-                  className={`absolute left-4 top-16 w-28 transition-transform duration-500 ${
-                    puzzleHovered ? '-translate-x-1 translate-y-1' : ''
-                  }`}
-                >
-                  <img src="/images/home/offer/Puzzle/image2.svg" alt="Puzzle piece 2" className="w-full object-contain" />
-                </span>
-                <span
-                  className={`absolute left-16 top-16 w-28 transition-transform duration-500 ${
-                    puzzleHovered ? 'translate-x-1 translate-y-1' : ''
-                  }`}
-                >
-                  <img src="/images/home/offer/Puzzle/image3.svg" alt="Puzzle piece 3" className="w-full object-contain" />
-                </span>
-                <span
-                  className={`absolute left-16 top-4 w-28 transition-transform duration-500 ${
-                    puzzleHovered ? 'translate-x-1 -translate-y-1' : ''
-                  }`}
-                >
-                  <img src="/images/home/offer/Puzzle/image4.svg" alt="Puzzle piece 4" className="w-full object-contain" />
-                </span>
-              </div>
+            {/* 1. Business Automation (Puzzle) */}
+            <div
+              onMouseEnter={() => setPuzzleHovered(true)}
+              onMouseLeave={() => setPuzzleHovered(false)}
+              className="gsap-offer-card h-full"
+            >
+              <SpecialCard className="group flex h-full min-h-[22rem] flex-col justify-between p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#307FE2]/50 hover:shadow-[0_12px_35px_rgba(48,127,226,0.15)]">
+                <PremiumServiceVisual type="puzzle" label="Premium 3D full-stack development illustration" />
 
-              <div className="mt-4 space-y-2 text-start">
-                <h3 className="text-base font-semibold text-white">Business Automation</h3>
-                <p className="text-xs font-light leading-relaxed text-[#828282]">
-                  FikraTech provides business automation solutions to save time and money, streamlining operations for clients.
-                </p>
-              </div>
-            </SpecialCard>
-          </div>
-
-          {/* 2. UI/UX Design */}
-          <div className="gsap-offer-card h-full">
-            <SpecialCard className="group flex h-full min-h-[22rem] flex-col justify-between p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#307FE2]/50 hover:shadow-[0_12px_35px_rgba(48,127,226,0.15)]">
-              {/* Layered UI SVGs */}
-              <div className="relative mx-auto flex h-40 w-full items-center justify-center overflow-hidden transition-transform duration-500 group-hover:scale-110">
-                <div className="flex flex-col gap-2">
-                  <img src="/images/home/offer/uiUx/image1.svg" alt="UI icon" className="w-10 object-contain" />
-                  <img src="/images/home/offer/uiUx/image2.svg" alt="UI elements" className="w-16 object-contain" />
-                  <div className="flex gap-2">
-                    <img src="/images/home/offer/uiUx/image3.svg" alt="UI button" className="w-12 object-contain" />
-                    <img src="/images/home/offer/uiUx/image4.svg" alt="UI badge" className="w-4 object-contain" />
-                  </div>
-                  <div className="relative h-12 w-16">
-                    <img src="/images/home/offer/uiUx/image5.svg" alt="UI card" className="h-full w-full object-contain" />
-                    <span className="absolute inset-0 h-full w-full">
-                      <img src="/images/home/offer/uiUx/image6.svg" alt="UI overlay" className="h-full w-full object-contain" />
-                    </span>
-                    <span className="absolute inset-0 h-full w-full">
-                      <img src="/images/home/offer/uiUx/image7.svg" alt="UI cursor" className="h-full w-full object-contain" />
-                    </span>
-                  </div>
+                <div className="mt-4 space-y-2 text-start">
+                  <h3 className="text-base font-semibold text-white">Full Stack Development</h3>
+                  <p className="text-xs font-light leading-relaxed text-[#828282]">
+                    We build complete MERN stack applications with powerful frontend experiences and reliable backend systems.
+                  </p>
                 </div>
-              </div>
+              </SpecialCard>
+            </div>
 
-              <div className="mt-4 space-y-2 text-start">
-                <h3 className="text-base font-semibold text-white">UI/UX Design</h3>
-                <p className="text-xs font-light leading-relaxed text-[#828282]">
-                  Fikratech crafts seamless user experiences and stunning interfaces that feel natural, intuitive, and unforgettable.
-                </p>
-              </div>
-            </SpecialCard>
-          </div>
+            {/* 2. UI/UX Design */}
+            <div className="gsap-offer-card h-full">
+              <SpecialCard className="group flex h-full min-h-[22rem] flex-col justify-between p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#307FE2]/50 hover:shadow-[0_12px_35px_rgba(48,127,226,0.15)]">
+                <PremiumServiceVisual type="ui" label="Premium 3D user interface design illustration" />
 
-          {/* 3. Mobile App Development */}
-          <div
-            onMouseEnter={() => setMobileHovered(true)}
-            onMouseLeave={() => setMobileHovered(false)}
-            className="gsap-offer-card h-full"
-          >
-            <SpecialCard className="group flex h-full min-h-[22rem] flex-col justify-between p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#307FE2]/50 hover:shadow-[0_12px_35px_rgba(48,127,226,0.15)]">
-              {/* Mobile Wireframe Mockups */}
-              <div className="relative mx-auto h-40 w-full overflow-hidden transition-transform duration-500 group-hover:scale-105">
-                <span className="absolute left-2 top-4 w-24">
-                  <img src="/images/home/offer/mobile/Clippath1.svg" alt="Mobile mask" className="w-full object-contain" />
-                </span>
-                <span className="absolute left-2 top-4 w-24">
-                  <img src="/images/home/offer/mobile/Clippath2.svg" alt="Mobile frame" className="w-full object-contain" />
-                </span>
-                <span className={`absolute left-16 top-16 w-6 transition-transform duration-500 ${mobileHovered ? 'translate-x-1' : ''}`}>
-                  <img src="/images/home/offer/mobile/arrow1.svg" alt="Arrow 1" className="w-full object-contain" />
-                </span>
-                <span className="absolute left-12 top-2 w-32">
-                  <img src="/images/home/offer/mobile/Frame21.svg" alt="Screen 1" className="w-full object-contain" />
-                </span>
-                <span className="absolute left-12 top-2 w-32">
-                  <img src="/images/home/offer/mobile/Frame22.svg" alt="Screen 2" className="w-full object-contain" />
-                </span>
-                <span className={`absolute left-28 top-12 w-5 transition-transform duration-500 ${mobileHovered ? '-translate-x-1' : ''}`}>
-                  <img src="/images/home/offer/mobile/arrow2.svg" alt="Arrow 2" className="w-full object-contain" />
-                </span>
-                <span className="absolute left-24 top-2 w-28">
-                  <img src="/images/home/offer/mobile/Frame11.svg" alt="Screen 3" className="w-full object-contain" />
-                </span>
-                <span className="absolute left-24 top-2 w-28">
-                  <img src="/images/home/offer/mobile/Frame12.svg" alt="Screen 4" className="w-full object-contain" />
-                </span>
-              </div>
+                <div className="mt-4 space-y-2 text-start">
+                  <h3 className="text-base font-semibold text-white">UI/UX Design</h3>
+                  <p className="text-xs font-light leading-relaxed text-[#828282]">
+                    ByteLyx crafts seamless user experiences and stunning interfaces that feel natural, intuitive, and unforgettable.
+                  </p>
+                </div>
+              </SpecialCard>
+            </div>
 
-              <div className="mt-4 space-y-2 text-start">
-                <h3 className="text-base font-semibold text-white">Mobile App Development</h3>
-                <p className="text-xs font-light leading-relaxed text-[#828282]">
-                  Fikratech is known for its mobile app development, showcasing expertise across iOS and Android ecosystems.
-                </p>
-              </div>
-            </SpecialCard>
-          </div>
+            {/* 3. Mobile App Development */}
+            <div
+              onMouseEnter={() => setMobileHovered(true)}
+              onMouseLeave={() => setMobileHovered(false)}
+              className="gsap-offer-card h-full"
+            >
+              <SpecialCard className="group flex h-full min-h-[22rem] flex-col justify-between p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#307FE2]/50 hover:shadow-[0_12px_35px_rgba(48,127,226,0.15)]">
+                <PremiumServiceVisual type="mobile" label="Premium 3D mobile app illustration" />
 
-          {/* 4. Software Development */}
-          <div className="gsap-offer-card h-full">
-            <SpecialCard className="group flex h-full min-h-[22rem] flex-col justify-between p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#307FE2]/50 hover:shadow-[0_12px_35px_rgba(48,127,226,0.15)]">
-              {/* Software Architecture SVG */}
-              <div className="relative mx-auto flex h-40 w-full items-center justify-center overflow-hidden transition-transform duration-500 group-hover:scale-105">
-                <img
-                  src="/images/home/offer/image1.svg"
-                  alt="Software development architecture"
-                  className="w-full object-contain"
-                />
-              </div>
+                <div className="mt-4 space-y-2 text-start">
+                  <h3 className="text-base font-semibold text-white">Mobile App Development</h3>
+                  <p className="text-xs font-light leading-relaxed text-[#828282]">
+                    We create smooth, responsive Flutter applications for Android and IOS devices.
+                  </p>
+                </div>
+              </SpecialCard>
+            </div>
 
-              <div className="mt-4 space-y-2 text-start">
-                <h3 className="text-base font-semibold text-white">Software Development</h3>
-                <p className="text-xs font-light leading-relaxed text-[#828282]">
-                  FikraTech excels in creating innovative and creative web platforms tailored to meet diverse enterprise needs.
-                </p>
-              </div>
-            </SpecialCard>
+            {/* 4. Software Development */}
+            <div className="gsap-offer-card h-full">
+              <SpecialCard className="group flex h-full min-h-[22rem] flex-col justify-between p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#307FE2]/50 hover:shadow-[0_12px_35px_rgba(48,127,226,0.15)]">
+                <PremiumServiceVisual type="marketing" label="Premium 3D digital marketing analytics illustration" />
+
+                <div className="mt-4 space-y-2 text-start">
+                  <h3 className="text-base font-semibold text-white">Digital Marketing</h3>
+                  <p className="text-xs font-light leading-relaxed text-[#828282]">
+                    We help businesses grow through strategic digital campaigns, SEO, and online engagement.
+                  </p>
+                </div>
+              </SpecialCard>
+            </div>
+
+            {/* 5. Artificial Intelligence */}
+            <div className="gsap-offer-card h-full">
+              <SpecialCard className="group flex h-full min-h-[22rem] flex-col justify-between p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#307FE2]/50 hover:shadow-[0_12px_35px_rgba(48,127,226,0.15)]">
+                <PremiumServiceVisual type="ai" label="Premium 3D artificial intelligence network illustration" />
+                <div className="mt-4 space-y-2 text-start">
+                  <h3 className="text-base font-semibold text-white">Artificial Intelligence</h3>
+                  <p className="text-xs font-light leading-relaxed text-[#828282]">
+                    We build intelligent AI-powered solutions that automate tasks and turn data into useful insights.
+                  </p>
+                </div>
+              </SpecialCard>
+            </div>
           </div>
         </div>
       </section>
@@ -690,11 +829,10 @@ export function Home() {
             <button
               type="button"
               onClick={() => setProjectTab('private')}
-              className={`cursor-pointer rounded-full px-6 py-2 text-xs font-medium transition ${
-                projectTab === 'private'
-                  ? 'bg-gradient-to-r from-[#307FE2] to-[#05C3DE] text-white shadow-md'
-                  : 'text-white/70 hover:text-white'
-              }`}
+              className={`cursor-pointer rounded-full px-6 py-2 text-xs font-medium transition ${projectTab === 'private'
+                ? 'bg-gradient-to-r from-[#307FE2] to-[#05C3DE] text-white shadow-md'
+                : 'text-white/70 hover:text-white'
+                }`}
             >
               Private Projects
             </button>
@@ -702,11 +840,10 @@ export function Home() {
             <button
               type="button"
               onClick={() => setProjectTab('government')}
-              className={`cursor-pointer rounded-full px-6 py-2 text-xs font-medium transition ${
-                projectTab === 'government'
-                  ? 'bg-gradient-to-r from-[#307FE2] to-[#05C3DE] text-white shadow-md'
-                  : 'text-white/70 hover:text-white'
-              }`}
+              className={`cursor-pointer rounded-full px-6 py-2 text-xs font-medium transition ${projectTab === 'government'
+                ? 'bg-gradient-to-r from-[#307FE2] to-[#05C3DE] text-white shadow-md'
+                : 'text-white/70 hover:text-white'
+                }`}
             >
               Government Projects
             </button>
@@ -714,7 +851,7 @@ export function Home() {
         </div>
 
         {/* Sticky Stacking Project Cards */}
-        <div className="relative space-y-8 lg:space-y-16">
+        <div className="relative space-y-6 lg:space-y-0">
           {activeProjects.map((proj, idx) => (
             <div
               key={proj.id}
@@ -824,6 +961,103 @@ export function Home() {
       <ReadyToStart />
 
       <style>{`
+        /* Premium animated visuals for all five service cards */
+        .service-visual {
+          isolation: isolate;
+          position: relative;
+          border: 1px solid rgba(105, 165, 230, 0.10);
+          background: radial-gradient(ellipse at 50% 48%, rgba(48, 127, 226, 0.14), rgba(5, 195, 222, 0.035) 45%, transparent 75%);
+          transition: background 450ms ease, border-color 450ms ease, box-shadow 450ms ease;
+        }
+        .service-visual::before {
+          content: "";
+          position: absolute;
+          z-index: 0;
+          inset: 14%;
+          border-radius: 9999px;
+          pointer-events: none;
+          background: radial-gradient(circle, rgba(5, 195, 222, 0.22), rgba(48, 127, 226, 0.12) 42%, transparent 72%);
+          filter: blur(20px);
+          opacity: 0.72;
+          animation: serviceGlowPulse 3.6s ease-in-out infinite alternate;
+        }
+        .service-orbit {
+          position: absolute;
+          border: 1px solid rgba(90, 220, 250, 0.18);
+          border-radius: 50%;
+          pointer-events: none;
+          transform: rotate(-18deg);
+          animation: serviceOrbit 12s linear infinite;
+        }
+        .service-orbit-one { width: 190px; height: 72px; }
+        .service-orbit-two { width: 220px; height: 94px; transform: rotate(42deg); animation-direction: reverse; opacity: .55; }
+        .service-art { filter: drop-shadow(0 8px 12px rgba(0, 0, 0, .22)); animation: serviceFloat 4s ease-in-out infinite; }
+        .service-visual-puzzle .service-art { animation-duration: 4.3s; }
+        .service-visual-ui .service-art { animation-name: serviceFloatRotate; animation-duration: 5s; }
+        .service-visual-mobile .service-art { animation-duration: 3.8s; }
+        .service-visual-marketing .service-art { animation-name: serviceFloatScale; animation-duration: 4.2s; }
+        .service-visual-ai .service-art { animation-duration: 3.5s; }
+        .gsap-offer-card:hover .service-art { filter: brightness(1.2) drop-shadow(0 0 14px rgba(5, 195, 222, .42)); }
+        @keyframes serviceOrbit { to { rotate: 342deg; } }
+        .service-visual img,
+        .service-visual svg {
+          position: relative;
+          z-index: 1;
+          transform-origin: center;
+          filter: drop-shadow(0 0 8px rgba(48, 127, 226, 0.16));
+          animation: serviceFloat 4s ease-in-out infinite;
+          transition: filter 450ms ease;
+        }
+        .service-visual-puzzle img:nth-of-type(2n) { animation-delay: -1.1s; }
+        .service-visual-puzzle img:nth-of-type(3n) { animation-delay: -2.1s; }
+        .service-visual-ui img:nth-of-type(2n) { animation-delay: -1.4s; }
+        .service-visual-ui img:nth-of-type(3n) { animation-delay: -2.2s; }
+        .service-visual-mobile img:nth-of-type(2n) { animation-delay: -1.2s; }
+        .service-visual-mobile img:nth-of-type(3n) { animation-delay: -2.4s; }
+        .service-visual-ui img { animation-name: serviceFloatRotate; animation-duration: 5s; }
+        .service-visual-mobile img { animation-duration: 3.8s; }
+        .service-visual-marketing img { animation-name: serviceFloatScale; animation-duration: 4.2s; }
+        .service-visual-ai svg { animation-duration: 3.5s; }
+        .gsap-offer-card:hover .service-visual {
+          border-color: rgba(5, 195, 222, 0.38);
+          background: radial-gradient(ellipse at 50% 48%, rgba(48, 127, 226, 0.24), rgba(5, 195, 222, 0.09) 46%, transparent 76%);
+          box-shadow: inset 0 0 24px rgba(48, 127, 226, 0.07), 0 0 25px rgba(5, 195, 222, 0.09);
+        }
+        .gsap-offer-card:hover .service-visual img,
+        .gsap-offer-card:hover .service-visual svg {
+          filter: brightness(1.28) drop-shadow(0 0 12px rgba(5, 195, 222, 0.38));
+        }
+        .gsap-offer-card:hover .service-visual::before { opacity: 1; animation-duration: 1.7s; }
+        @keyframes serviceFloat {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-7px); }
+        }
+        @keyframes serviceFloatRotate {
+          0%, 100% { transform: translateY(0) rotate(-1deg); }
+          50% { transform: translateY(-6px) rotate(1deg); }
+        }
+        @keyframes serviceFloatScale {
+          0%, 100% { transform: translateY(0) scale(0.97); }
+          50% { transform: translateY(-6px) scale(1.03); }
+        }
+        @keyframes serviceGlowPulse {
+          0% { opacity: 0.42; transform: scale(0.88); }
+          100% { opacity: 0.95; transform: scale(1.12); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .service-visual::before,
+          .service-visual img,
+          .service-visual svg { animation: none !important; }
+        }
+
+        .gsap-offer-stack-section { position: relative; isolation: isolate; }
+        .gsap-offer-stack-viewport { position: relative; }
+        .gsap-offer-stack-grid { position: relative; }
+        .gsap-offer-stack-section .gsap-offer-card { will-change: transform; backface-visibility: hidden; }
+        @media (max-width: 767px) {
+          .gsap-offer-stack-section { overflow: visible; }
+        }
+
         @keyframes marqueeTrack {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }

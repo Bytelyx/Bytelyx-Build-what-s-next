@@ -8,7 +8,8 @@ import { SpecialCard } from '../components/SpecialCard';
 import { HeroScene } from '../components/HeroScene';
 import { ReadyToStart } from '../components/ReadyToStart';
 import { projectsData } from '../data/projectsData';
-import Logo from "../assets/logo-01.png"
+import Logo from "../assets/logo-01.png";
+import lawish from '../assets/lawish.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -312,6 +313,39 @@ export function Home() {
     };
   }, []);
 
+  // Project cards: zoom smoothly as each card enters the viewport.
+  // This separate effect also re-runs when the Private/Government tab changes.
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const projectCards = gsap.utils.toArray('.gsap-project-card');
+
+      projectCards.forEach((card) => {
+        gsap.fromTo(
+          card,
+          {
+            scale: 0.88,
+            opacity: 0.65,
+            transformOrigin: 'center center',
+          },
+          {
+            scale: 1,
+            opacity: 1,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 85%',
+              end: 'top 40%',
+              scrub: 1,
+              invalidateOnRefresh: true,
+            },
+          }
+        );
+      });
+    }, mainRef);
+
+    ScrollTrigger.refresh();
+    return () => ctx.revert();
+  }, [projectTab]);
 
   return (
     <div ref={mainRef} className="flex w-full flex-col items-center">
@@ -856,7 +890,7 @@ export function Home() {
             <div
               key={proj.id}
               onClick={() => navigate(`/projects/view/${proj.name}`)}
-              className="group relative z-0 flex h-72 cursor-pointer items-center justify-center overflow-hidden rounded-3xl border border-white/10 pe-5 shadow-2xl transition-all duration-700 md:h-[30rem] lg:sticky lg:top-24 lg:h-[82vh]"
+              className="gsap-project-card group relative z-0 flex h-72 cursor-pointer items-center justify-center overflow-hidden rounded-3xl border border-white/10 pe-5 shadow-2xl transition-all duration-700 md:h-[30rem] lg:sticky lg:top-24 lg:h-[82vh]"
               style={{
                 backgroundColor: proj.bgColor,
                 top: `${96 + idx * 8}px`,
@@ -871,11 +905,11 @@ export function Home() {
               />
 
               {/* Decorative Stickers (Sahab) */}
-              {proj.id === 'sahab' && (
+              {proj.id === 'lawish' && (
                 <>
                   <div className="pointer-events-none absolute end-[2rem] top-[3rem] w-16 md:end-[5rem] md:top-[6rem] md:w-32 lg:top-1/3 lg:w-36 xl:end-64 xl:w-52">
                     <img
-                      src="/images/projects/sahab/sahab2.svg"
+                      src={lawish}
                       alt="Sahab Decor 2"
                       className="h-full w-full object-contain"
                     />

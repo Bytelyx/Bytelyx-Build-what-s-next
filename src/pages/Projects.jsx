@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { TrustedBy } from '../components/TrustedBy';
+import TrustedBy from '../components/TrustedBy';
 import { DeviceMockup } from '../components/DeviceMockup';
 import { OurPartners } from '../components/OurPartners';
 import { ReadyToStart } from '../components/ReadyToStart';

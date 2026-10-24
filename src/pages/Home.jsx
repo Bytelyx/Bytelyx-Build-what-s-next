@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import confetti from 'canvas-confetti';
-import { TrustedBy } from '../components/TrustedBy';
+import TrustedBy from '../components/TrustedBy';
 import { SpecialCard } from '../components/SpecialCard';
 import { DiamondScene } from '../components/DiamondScene';
 import { HeroScene } from '../components/HeroScene';

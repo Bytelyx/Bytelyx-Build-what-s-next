@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SpecialCard } from '../components/SpecialCard';
 import { Accordion } from '../components/Accordion';
-import { TrustedBy } from '../components/TrustedBy';
+import TrustedBy from '../components/TrustedBy';
 import { ReadyToStart } from '../components/ReadyToStart';
 import { Phone, Mail, MapPin, Send, CheckCircle2, MessageCircle } from 'lucide-react';
 

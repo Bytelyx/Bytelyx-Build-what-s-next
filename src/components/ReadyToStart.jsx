@@ -6,19 +6,27 @@ export function ReadyToStart() {
   const [toggled, setToggled] = useState(false);
 
   const handleToggle = () => {
+    if (toggled) return;
+
     setToggled(true);
+
     setTimeout(() => {
       navigate('/contact');
     }, 450);
   };
 
   return (
-    <section className="relative my-20 w-full overflow-hidden text-center md:my-32" aria-label="Ready to Start">
+    <section
+      className="relative my-20 w-full overflow-hidden text-center md:my-32"
+      aria-label="Ready to Start"
+    >
       {/* Container */}
       <div className="3xl:container 2.5xl:px-32 3xl:px-48 mx-auto flex flex-col items-center justify-center gap-4 px-4 md:px-10 lg:gap-6 lg:px-8 xl:gap-8 xl:px-14 2xl:px-24">
+
         {/* Badge */}
         <div className="bottomBorder flex items-center rounded-full border-t border-white/10 bg-[#0A1825] px-3 py-1">
           <span className="me-2 size-1.5 rounded-full bg-gradient-to-t from-primary-from to-primary-to shadow-sm" />
+
           <span className="bg-gradient-to-b from-[#307FE2] to-[#05C3DE] bg-clip-text py-1 text-[0.6rem] font-semibold text-transparent md:text-xs">
             idea to project
           </span>
@@ -31,11 +39,12 @@ export function ReadyToStart() {
 
         {/* Subtitle */}
         <p className="max-w-2xl text-[0.85rem] font-light leading-relaxed text-[#818B95] md:text-lg lg:text-sm xl:text-base">
-          Take the first step toward innovation. <br className="hidden sm:inline" />
+          Take the first step toward innovation.
+          <br className="hidden sm:inline" />
           Say Yes, and let’s build something extraordinary together.
         </p>
 
-        {/* Interactive YES Toggle Capsule Switch */}
+        {/* Interactive YES Toggle */}
         <div
           role="button"
           tabIndex={0}
@@ -48,22 +57,25 @@ export function ReadyToStart() {
           }}
           className="group relative z-10 my-4 flex h-[5.5rem] w-[13rem] cursor-pointer items-center justify-between rounded-full bg-gradient-to-r from-[#307FE2] to-[#05C3DE] p-2 shadow-2xl shadow-cyan-500/25 transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#05c5de]"
           aria-label="Click Yes to get in touch"
+          aria-disabled={toggled}
         >
           {/* YES Text */}
-          <span className="ps-6 text-3xl font-black tracking-wider text-white select-none">
+          <span className="ps-6 select-none text-3xl font-black tracking-wider text-white">
             YES
           </span>
 
-          {/* Toggle Circular Knob */}
+          {/* Toggle Circle */}
           <div
-            className={`flex size-18 items-center justify-center rounded-full bg-[#FBFBFB] shadow-xl shadow-black/40 transition-transform duration-500 ${
-              toggled ? 'translate-x-2' : 'group-hover:translate-x-1'
+            className={`flex size-18 shrink-0 items-center justify-center rounded-full bg-[#FBFBFB] shadow-xl shadow-black/40 transition-transform duration-500 ease-in-out ${
+              toggled
+                ? '-translate-x-2'
+                : 'group-hover:-translate-x-2 group-focus-visible:-translate-x-2'
             }`}
           >
-            <div className="size-14 rounded-full bg-[#ECEFF6] shadow-inner shadow-black/30 flex items-center justify-center">
+            <div className="flex size-14 items-center justify-center rounded-full bg-[#ECEFF6] shadow-inner shadow-black/30">
               <svg
                 viewBox="0 0 24 24"
-                className="size-6 text-[#307FE2] transition-transform duration-300 group-hover:translate-x-0.5"
+                className="size-6 text-[#307FE2] transition-transform duration-300 group-hover:-translate-x-0.5"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2.5"

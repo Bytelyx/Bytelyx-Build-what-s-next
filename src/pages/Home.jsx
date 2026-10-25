@@ -840,7 +840,11 @@ export function Home() {
       </section>
 
       {/* 5. INNOVATION THROUGH PROJECTS */}
-      <section className="gsap-reveal-section 3xl:container 2.5xl:px-32 3xl:px-48 mx-auto my-16 w-full max-w-7xl space-y-10 px-4 md:px-10 lg:px-8 xl:px-14 2xl:px-24" aria-label="Innovation Through Projects">
+
+      <section
+        className="gsap-reveal-section 3xl:container 2.5xl:px-32 3xl:px-48 mx-auto mt-24 mb-16 w-full max-w-7xl space-y-10 px-4 md:mt-20 md:mb-16 md:px-10 lg:mt-24 lg:px-8 xl:mt-32 xl:px-14 2xl:px-24"
+        aria-label="Innovation Through Projects"
+      >
         <div className="m-auto flex flex-col items-center justify-center gap-2 text-center lg:gap-4 xl:gap-6">
           <div className="bottomBorder flex items-center rounded-full border-t border-white/10 bg-[#0A1825] px-3 py-1">
             <span className="me-2 size-1.5 rounded-full bg-gradient-to-t from-primary-from to-primary-to shadow-sm" />

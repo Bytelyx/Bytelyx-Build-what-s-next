@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/logo-01.png';
@@ -45,14 +44,14 @@ export function Header() {
         {/* Circular Logo */}
         <span
           className="
-    relative flex shrink-0 items-center
-    justify-center overflow-hidden rounded-full
-    border border-[#D4AF37]/60 bg-transparent
-    shadow-[0_0_12px_rgba(212,175,55,0.2)]
-    transition-all duration-300
-    group-hover:scale-105
-    group-hover:shadow-[0_0_22px_rgba(212,175,55,0.45)]
-  "
+            relative flex shrink-0 items-center
+            justify-center overflow-hidden rounded-full
+            border border-[#D4AF37]/60 bg-transparent
+            shadow-[0_0_12px_rgba(212,175,55,0.2)]
+            transition-all duration-300
+            group-hover:scale-105
+            group-hover:shadow-[0_0_22px_rgba(212,175,55,0.45)]
+          "
           style={{ width: 52, height: 52 }}
         >
           <span
@@ -117,9 +116,10 @@ export function Header() {
                     relative block whitespace-nowrap py-2
                     text-sm font-medium transition-colors
                     duration-300 xl:text-base
-                    ${active
-                      ? 'text-[#D4AF37]'
-                      : 'text-white/85 hover:text-[#D4AF37]'
+                    ${
+                      active
+                        ? 'text-[#D4AF37]'
+                        : 'text-white/85 hover:text-[#D4AF37]'
                     }
                   `}
                 >
@@ -161,7 +161,11 @@ export function Header() {
           className={`
             h-0.5 w-5 rounded-full bg-white
             transition-transform duration-300
-            ${mobileMenuOpen ? 'translate-y-[7px] rotate-45' : ''}
+            ${
+              mobileMenuOpen
+                ? 'translate-y-[7px] rotate-45'
+                : ''
+            }
           `}
         />
 
@@ -177,52 +181,61 @@ export function Header() {
           className={`
             h-0.5 w-5 rounded-full bg-white
             transition-transform duration-300
-            ${mobileMenuOpen
-              ? '-translate-y-[7px] -rotate-45'
-              : ''
+            ${
+              mobileMenuOpen
+                ? '-translate-y-[7px] -rotate-45'
+                : ''
             }
           `}
         />
       </button>
 
-      {/* Mobile Dropdown */}
-      {mobileMenuOpen && (
-        <nav
-          id="bytelyx-mobile-navigation"
-          aria-label="Mobile navigation"
-          className="
-            absolute left-0 right-0 top-full z-[110] mt-3
-            flex flex-col gap-1.5
-            rounded-2xl border border-white/15
-            bg-[#07111B] p-3
-            shadow-[0_20px_45px_rgba(0,0,0,0.7)]
-            lg:hidden
-          "
-        >
-          {navLinks.map(({ label, path }) => {
-            const active = isCurrent(path);
+      {/* Mobile Dropdown - Slides from Right */}
+      <nav
+        id="bytelyx-mobile-navigation"
+        aria-label="Mobile navigation"
+        aria-hidden={!mobileMenuOpen}
+        inert={!mobileMenuOpen}
+        className={`
+          absolute right-0 top-full z-[110] mt-3
+          flex w-[85%] max-w-[320px] flex-col gap-1.5
+          rounded-2xl border border-white/15
+          bg-black p-3
+          shadow-[0_20px_45px_rgba(0,0,0,0.7)]
+          transition-[transform,opacity,visibility]
+          duration-300 ease-in-out
+          lg:hidden
+          ${
+            mobileMenuOpen
+              ? 'visible translate-x-0 opacity-100'
+              : 'invisible translate-x-8 opacity-0 pointer-events-none'
+          }
+        `}
+      >
+        {navLinks.map(({ label, path }) => {
+          const active = isCurrent(path);
 
-            return (
-              <Link
-                key={path}
-                to={path}
-                aria-current={active ? 'page' : undefined}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`
-                  rounded-xl border px-4 py-3
-                  text-base font-medium transition-colors
-                  ${active
+          return (
+            <Link
+              key={path}
+              to={path}
+              aria-current={active ? 'page' : undefined}
+              onClick={() => setMobileMenuOpen(false)}
+              className={`
+                rounded-xl border px-4 py-3
+                text-base font-medium transition-colors
+                ${
+                  active
                     ? 'border-[#D4AF37]/30 bg-[#D4AF37]/10 text-[#D4AF37]'
-                    : 'border-transparent text-white/90 hover:bg-white/5 hover:text-[#D4AF37]'
-                  }
-                `}
-              >
-                {label}
-              </Link>
-            );
-          })}
-        </nav>
-      )}
+                    : 'border-transparent text-white/90 hover:bg-white/10 hover:text-[#D4AF37]'
+                }
+              `}
+            >
+              {label}
+            </Link>
+          );
+        })}
+      </nav>
 
       {/* Subtle Border */}
       <span

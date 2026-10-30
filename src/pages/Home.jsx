@@ -10,6 +10,7 @@ import { ReadyToStart } from '../components/ReadyToStart';
 import { projectsData } from '../data/projectsData';
 import Logo from "../assets/logo-01.png";
 import lawish from '../assets/lawish.png';
+import '../components/Home.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -436,7 +437,6 @@ export function Home() {
           </p>
         </div>
 
-        {/* 12-Column Bento Grid */}
         <div className="gsap-bento-grid grid grid-cols-1 gap-y-5 lg:grid-cols-12 lg:gap-4 xl:gap-8">
           {/* Card 1: What is FikraTech? */}
           <SpecialCard className="gsap-bento-card group col-span-12 flex flex-col items-start p-6 md:p-8 lg:col-span-4">
@@ -448,7 +448,7 @@ export function Home() {
               We are a global technology partner that transforms bold ideas into smart, scalable solutions empowering businesses to grow, connect, and lead in the digital era.
             </p>
 
-            {/* Concentric Rotating Squircle Rings with FikraTech Logo */}
+            {/* Logo */}
             <div className="relative m-auto mt-4 flex size-40 items-center justify-center md:mt-8 md:size-64 lg:size-44 xl:size-56">
 
               <span className="absolute z-10 flex size-[55%] items-center justify-center transition-transform duration-500 group-hover:scale-110">
@@ -459,8 +459,6 @@ export function Home() {
                 />
               </span>
 
-
-              {/* Concentric Gradient Rings */}
               <span className="absolute size-[60%] rounded-[35%] border-2 border-[#307FE2]/50 opacity-90 transition-transform duration-700 group-hover:rotate-45" />
               <span className="absolute size-[75%] rounded-[35%] border-2 border-[#05C3DE]/40 opacity-70 transition-transform duration-700 group-hover:-rotate-45" />
               <span className="absolute size-[90%] rounded-[35%] border-2 border-[#307FE2]/30 opacity-40 transition-transform duration-700 group-hover:rotate-90" />
@@ -483,7 +481,7 @@ export function Home() {
                 At ByeLyx, we believe technology has no borders. Our vision is to create a future where ideas, people, and businesses are seamlessly connected — building a smarter, more unified world.
               </p>
 
-              {/* World Map with interactive network overlay */}
+              {/* World Map */}
               <div className="relative m-auto mt-4 flex h-[12rem] w-full max-w-[42rem] items-center justify-center overflow-hidden md:h-[18rem] lg:h-[14rem] xl:h-[18rem]">
                 <img
                   src="/images/home/story/image2.svg"
@@ -827,8 +825,7 @@ export function Home() {
         </div>
       </section>
 
-      {/* 5. INNOVATION THROUGH PROJECTS */}
-
+      {/* 5.PROJECTS */}
       <section
         className="gsap-reveal-section 3xl:container 2.5xl:px-32 3xl:px-48 mx-auto mt-24 mb-16 w-full max-w-7xl space-y-10 px-4 md:mt-20 md:mb-16 md:px-10 lg:mt-24 lg:px-8 xl:mt-32 xl:px-14 2xl:px-24"
         aria-label="Innovation Through Projects"
@@ -987,122 +984,6 @@ export function Home() {
 
       {/* 6. READY TO START CTA */}
       <ReadyToStart />
-
-      <style>{`
-        /* Premium animated visuals for all five service cards */
-        .service-visual {
-          isolation: isolate;
-          position: relative;
-          border: 1px solid rgba(105, 165, 230, 0.10);
-          background: radial-gradient(ellipse at 50% 48%, rgba(48, 127, 226, 0.14), rgba(5, 195, 222, 0.035) 45%, transparent 75%);
-          transition: background 450ms ease, border-color 450ms ease, box-shadow 450ms ease;
-        }
-        .service-visual::before {
-          content: "";
-          position: absolute;
-          z-index: 0;
-          inset: 14%;
-          border-radius: 9999px;
-          pointer-events: none;
-          background: radial-gradient(circle, rgba(5, 195, 222, 0.22), rgba(48, 127, 226, 0.12) 42%, transparent 72%);
-          filter: blur(20px);
-          opacity: 0.72;
-          animation: serviceGlowPulse 3.6s ease-in-out infinite alternate;
-        }
-        .service-orbit {
-          position: absolute;
-          border: 1px solid rgba(90, 220, 250, 0.18);
-          border-radius: 50%;
-          pointer-events: none;
-          transform: rotate(-18deg);
-          animation: serviceOrbit 12s linear infinite;
-        }
-        .service-orbit-one { width: 190px; height: 72px; }
-        .service-orbit-two { width: 220px; height: 94px; transform: rotate(42deg); animation-direction: reverse; opacity: .55; }
-        .service-art { filter: drop-shadow(0 8px 12px rgba(0, 0, 0, .22)); animation: serviceFloat 4s ease-in-out infinite; }
-        .service-visual-puzzle .service-art { animation-duration: 4.3s; }
-        .service-visual-ui .service-art { animation-name: serviceFloatRotate; animation-duration: 5s; }
-        .service-visual-mobile .service-art { animation-duration: 3.8s; }
-        .service-visual-marketing .service-art { animation-name: serviceFloatScale; animation-duration: 4.2s; }
-        .service-visual-ai .service-art { animation-duration: 3.5s; }
-        .gsap-offer-card:hover .service-art { filter: brightness(1.2) drop-shadow(0 0 14px rgba(5, 195, 222, .42)); }
-        @keyframes serviceOrbit { to { rotate: 342deg; } }
-        .service-visual img,
-        .service-visual svg {
-          position: relative;
-          z-index: 1;
-          transform-origin: center;
-          filter: drop-shadow(0 0 8px rgba(48, 127, 226, 0.16));
-          animation: serviceFloat 4s ease-in-out infinite;
-          transition: filter 450ms ease;
-        }
-        .service-visual-puzzle img:nth-of-type(2n) { animation-delay: -1.1s; }
-        .service-visual-puzzle img:nth-of-type(3n) { animation-delay: -2.1s; }
-        .service-visual-ui img:nth-of-type(2n) { animation-delay: -1.4s; }
-        .service-visual-ui img:nth-of-type(3n) { animation-delay: -2.2s; }
-        .service-visual-mobile img:nth-of-type(2n) { animation-delay: -1.2s; }
-        .service-visual-mobile img:nth-of-type(3n) { animation-delay: -2.4s; }
-        .service-visual-ui img { animation-name: serviceFloatRotate; animation-duration: 5s; }
-        .service-visual-mobile img { animation-duration: 3.8s; }
-        .service-visual-marketing img { animation-name: serviceFloatScale; animation-duration: 4.2s; }
-        .service-visual-ai svg { animation-duration: 3.5s; }
-        .gsap-offer-card:hover .service-visual {
-          border-color: rgba(5, 195, 222, 0.38);
-          background: radial-gradient(ellipse at 50% 48%, rgba(48, 127, 226, 0.24), rgba(5, 195, 222, 0.09) 46%, transparent 76%);
-          box-shadow: inset 0 0 24px rgba(48, 127, 226, 0.07), 0 0 25px rgba(5, 195, 222, 0.09);
-        }
-        .gsap-offer-card:hover .service-visual img,
-        .gsap-offer-card:hover .service-visual svg {
-          filter: brightness(1.28) drop-shadow(0 0 12px rgba(5, 195, 222, 0.38));
-        }
-        .gsap-offer-card:hover .service-visual::before { opacity: 1; animation-duration: 1.7s; }
-        @keyframes serviceFloat {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-7px); }
-        }
-        @keyframes serviceFloatRotate {
-          0%, 100% { transform: translateY(0) rotate(-1deg); }
-          50% { transform: translateY(-6px) rotate(1deg); }
-        }
-        @keyframes serviceFloatScale {
-          0%, 100% { transform: translateY(0) scale(0.97); }
-          50% { transform: translateY(-6px) scale(1.03); }
-        }
-        @keyframes serviceGlowPulse {
-          0% { opacity: 0.42; transform: scale(0.88); }
-          100% { opacity: 0.95; transform: scale(1.12); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .service-visual::before,
-          .service-visual img,
-          .service-visual svg { animation: none !important; }
-        }
-
-        .gsap-offer-stack-section { position: relative; isolation: isolate; }
-        .gsap-offer-stack-viewport { position: relative; }
-        .gsap-offer-stack-grid { position: relative; }
-        .gsap-offer-stack-section .gsap-offer-card { will-change: transform; backface-visibility: hidden; }
-        @media (max-width: 767px) {
-          .gsap-offer-stack-section { overflow: visible; }
-        }
-
-        @keyframes marqueeTrack {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        @keyframes marqueeTrackReverse {
-          0% { transform: translateX(-50%); }
-          100% { transform: translateX(0); }
-        }
-        .animate-marquee-slow {
-          animation: marqueeTrack 24s linear infinite;
-          will-change: transform;
-        }
-        .animate-marquee-reverse {
-          animation: marqueeTrackReverse 24s linear infinite;
-          will-change: transform;
-        }
-      `}</style>
     </div>
   );
 }

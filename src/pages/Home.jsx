@@ -313,8 +313,6 @@ export function Home() {
     };
   }, []);
 
-  // Project cards: zoom smoothly as each card enters the viewport.
-  // This separate effect also re-runs when the Private/Government tab changes.
   useEffect(() => {
     const ctx = gsap.context(() => {
       const projectCards = gsap.utils.toArray('.gsap-project-card');
@@ -351,12 +349,8 @@ export function Home() {
     <div ref={mainRef} className="flex w-full flex-col items-center">
       {/* 1. HERO SECTION */}
       <section className="relative mx-auto mb-16 w-full max-w-7xl isolate overflow-hidden px-4 pt-4 text-center md:px-10 lg:px-8 lg:pt-6 xl:px-14 xl:pt-10 2xl:px-24 2.5xl:px-32 3xl:container 3xl:px-48" aria-label="Hero">
-        {/* Three.js Interactive Particle Background */}
         <HeroScene />
-
-        {/* Ambient Top Glow */}
         <div className="pointer-events-none absolute -top-20 left-1/2 z-0 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,_#20375699,_#05c5de00)] opacity-75 blur-[100px] md:w-[900px]" />
-
         {/* Main Heading */}
         <h1
           ref={heroHeadingRef}
@@ -372,10 +366,7 @@ export function Home() {
 
         {/* Subtitle & CTA */}
         <div className="group relative isolate space-y-6 py-4 pb-10 md:pb-14 lg:space-y-12 lg:py-8 lg:pb-16 3xl:space-y-16">
-          <p
-            ref={heroSubtitleRef}
-            className="relative z-10 mx-auto mb-8 max-w-2xl text-xs font-light leading-6 text-white/90 md:text-xl lg:mb-8 lg:text-base 3xl:mb-16"
-          >
+          <p ref={heroSubtitleRef} className="relative z-10 mx-auto mb-8 max-w-2xl text-xs font-light leading-6 text-white/90 md:text-xl lg:mb-8 lg:text-base 3xl:mb-16">
             We build exceptional digital products that bring ideas to life.
           </p>
 
@@ -385,7 +376,6 @@ export function Home() {
               to="/services"
               className="relative inline-flex items-center justify-center gap-4 overflow-hidden rounded-full border border-white/20 bg-gradient-to-r from-[#307FE2] to-[#05C3DE] px-6 py-3.5 text-xs font-medium text-white shadow-[0_0_20px_rgba(48,127,226,0.3)] transition-all duration-500 hover:scale-105 hover:shadow-[0_0_35px_rgba(48,127,226,0.5),0_0_60px_rgba(5,195,222,0.3)] md:px-8 md:py-4 md:text-lg lg:px-6 lg:py-3 lg:text-sm xl:px-8 xl:py-4"
             >
-              {/* Spinning gradient ray */}
               <div className="pointer-events-none absolute inset-0 rounded-full border-2 border-transparent bg-clip-border">
                 <div className="absolute -left-36 h-20 w-64 origin-right animate-spin rounded-full bg-gradient-to-b from-white/30 to-transparent duration-5000" />
               </div>
@@ -408,12 +398,10 @@ export function Home() {
                 Discover Services
               </span>
 
-              {/* Bottom Light Glow */}
               <div className="pointer-events-none absolute -bottom-6 left-0 z-20 h-10 w-full bg-white/20 blur-lg" />
             </Link>
           </div>
 
-          {/* Radial Light Orb & Horizontal Beam */}
           <div className="pointer-events-none absolute -bottom-36 left-1/2 z-0 size-40 -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,_#81a1f9_0%,_#6ac8ff_44%,_#6ee2fc_54%,_#245bf1_100%)] opacity-70 blur-2xl transition-transform duration-1000 group-hover:scale-125 lg:-bottom-40 lg:size-48 lg:blur-3xl xl:-bottom-80 xl:size-80 xl:blur-[100px]" />
           <div className="pointer-events-none absolute bottom-0 left-1/2 z-0 h-64 w-3/4 -translate-x-1/2 rounded-[50%] bg-[radial-gradient(ellipse_at_center,_rgba(48,127,226,0.45)_0%,_rgba(5,195,222,0.25)_35%,_transparent_75%)] opacity-90 blur-[60px]" />
           <div className="pointer-events-none absolute bottom-0 left-1/2 z-20 h-[2px] w-3/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-[#6DA5FF] to-transparent shadow-[0_-2px_10px_rgba(80,150,255,0.4)]" />

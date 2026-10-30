@@ -62,6 +62,14 @@ const technologies = [
     src: 'https://cdn.simpleicons.org/android/3DDC84',
   },
   {
+    name: 'macOS',
+    src: 'https://cdn.simpleicons.org/macos/FFFFFF',
+  },
+  {
+    name: 'iOS',
+    src: 'https://cdn.simpleicons.org/ios/FFFFFF',
+  },
+  {
     name: 'Git',
     src: 'https://cdn.simpleicons.org/git/F05032',
   },
@@ -78,18 +86,7 @@ const technologies = [
 function TechnologyCard({ technology }) {
   return (
     <div
-      className="
-        group flex h-[68px] w-[172px] shrink-0 items-center gap-3
-        rounded-xl border border-white/[0.08]
-        bg-[#0A141E]/90 px-3.5
-        transition-all duration-300 ease-out
-        hover:-translate-y-1 hover:border-cyan-400/30
-        hover:bg-[#101F2C]
-        hover:shadow-[0_8px_30px_rgba(6,182,212,0.10)]
-        sm:h-[72px] sm:w-[184px]
-        md:h-[76px] md:w-[196px]
-      "
-    >
+      className="group flex h-[68px] w-[172px] shrink-0 items-center gap-3 rounded-xl border border-white/[0.08] bg-[#0A141E]/90 px-3.5 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-cyan-400/30 hover:bg-[#101F2C] hover:shadow-[0_8px_30px_rgba(6,182,212,0.10)] sm:h-[72px] sm:w-[184px] md:h-[76px] md:w-[196px] ">
       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/[0.04] transition-colors duration-300 group-hover:bg-white/[0.08]">
         <img
           src={technology.src}
@@ -138,9 +135,7 @@ export default function TrustedBy() {
       </div>
 
       <div className="marquee-wrapper relative">
-        {/* Side fade effects */}
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-[#030E18] to-transparent sm:w-24" />
-
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-[#030E18] to-transparent sm:w-24" />
 
         <div className="marquee-track flex w-max items-center gap-4 py-4 sm:gap-5">

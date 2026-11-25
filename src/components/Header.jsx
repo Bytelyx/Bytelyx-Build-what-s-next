@@ -24,12 +24,17 @@ export function Header() {
 
   return (
     <header
+      style={{
+        backgroundColor: 'rgba(7, 17, 27, 0.85)',
+        backdropFilter: 'blur(22px)',
+        WebkitBackdropFilter: 'blur(22px)',
+      }}
       className="
         relative z-[100] isolate
         flex w-full min-w-0 items-center
         justify-between gap-4
         rounded-full border border-white/10
-        bg-[#07111B] px-4 py-3
+        px-4 py-3
         shadow-lg shadow-black/30
         sm:px-6 lg:px-8
       "
@@ -106,6 +111,7 @@ export function Header() {
         <ul className="flex items-center gap-4 xl:gap-8">
           {navLinks.map(({ label, path }) => {
             const active = isCurrent(path);
+            const isContactActive = active && path === '/contact';
 
             return (
               <li key={path} className="shrink-0">
@@ -117,9 +123,11 @@ export function Header() {
                     text-sm font-medium transition-colors
                     duration-300 xl:text-base
                     ${
-                      active
-                        ? 'text-[#D4AF37]'
-                        : 'text-white/85 hover:text-[#D4AF37]'
+                      isContactActive
+                        ? 'bg-gradient-to-b from-[#307FE2] to-[#05C3DE] bg-clip-text text-transparent'
+                        : active
+                          ? 'text-[#D4AF37]'
+                          : 'text-white/85 hover:text-[#D4AF37]'
                     }
                   `}
                 >
@@ -130,7 +138,7 @@ export function Header() {
                       absolute bottom-0 left-0 h-0.5
                       rounded-full bg-[#D4AF37]
                       transition-all duration-300
-                      ${active ? 'w-full' : 'w-0'}
+                      ${active && !isContactActive ? 'w-full' : 'w-0'}
                     `}
                   />
                 </Link>
@@ -147,9 +155,10 @@ export function Header() {
         aria-expanded={mobileMenuOpen}
         aria-controls="bytelyx-mobile-navigation"
         onClick={() => setMobileMenuOpen((open) => !open)}
+        style={{ gap: '5px' }}
         className="
           flex size-10 shrink-0 flex-col
-          items-center justify-center gap-[5px]
+          items-center justify-center
           rounded-full transition-colors
           hover:bg-white/10
           focus-visible:outline-none
@@ -158,8 +167,9 @@ export function Header() {
         "
       >
         <span
+          style={{ width: '20px', height: '2px' }}
           className={`
-            h-0.5 w-5 rounded-full bg-white
+            block rounded-full bg-white
             transition-transform duration-300
             ${
               mobileMenuOpen
@@ -170,16 +180,18 @@ export function Header() {
         />
 
         <span
+          style={{ width: '20px', height: '2px' }}
           className={`
-            h-0.5 w-5 rounded-full bg-white
+            block rounded-full bg-white
             transition-opacity duration-200
             ${mobileMenuOpen ? 'opacity-0' : ''}
           `}
         />
 
         <span
+          style={{ width: '20px', height: '2px' }}
           className={`
-            h-0.5 w-5 rounded-full bg-white
+            block rounded-full bg-white
             transition-transform duration-300
             ${
               mobileMenuOpen
@@ -214,6 +226,7 @@ export function Header() {
       >
         {navLinks.map(({ label, path }) => {
           const active = isCurrent(path);
+          const isContactActive = active && path === '/contact';
 
           return (
             <Link
@@ -225,9 +238,11 @@ export function Header() {
                 rounded-xl border px-4 py-3
                 text-base font-medium transition-colors
                 ${
-                  active
-                    ? 'border-[#D4AF37]/30 bg-[#D4AF37]/10 text-[#D4AF37]'
-                    : 'border-transparent text-white/90 hover:bg-white/10 hover:text-[#D4AF37]'
+                  isContactActive
+                    ? 'border-[#307FE2]/40 bg-[#307FE2]/10 text-[#307FE2]'
+                    : active
+                      ? 'border-[#D4AF37]/30 bg-[#D4AF37]/10 text-[#D4AF37]'
+                      : 'border-transparent text-white/90 hover:bg-white/10 hover:text-[#D4AF37]'
                 }
               `}
             >

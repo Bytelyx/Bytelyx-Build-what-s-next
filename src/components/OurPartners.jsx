@@ -9,21 +9,21 @@ export function OurPartners() {
     {
       name: 'James Carter',
       role: 'Marketing Director, Innolystic',
-      quote: '“FikraTech’s intelligent digital tools transformed how we operate, saving hours of manual workflow and driving our productivity forward.”',
+      quote: '“Bytelyx’s intelligent digital tools transformed how we operate, saving hours of manual workflow and driving our productivity forward.”',
       avatar: '/images/projects/ourPartner1.avif',
       rating: 5,
     },
     {
       name: 'Emily Zhang',
       role: 'CEO, FutureSync Global',
-      quote: '“The team at FikraTech delivered outstanding results, elevating our platform performance and operational efficiency beyond what we imagined!”',
+      quote: '“The team at Bytelyx delivered outstanding results, elevating our platform performance and operational efficiency beyond what we imagined!”',
       avatar: '/images/projects/ourPartner2.avif',
       rating: 5,
     },
     {
       name: 'Priya Sharma',
       role: 'Founder & CTO, NexGen Ventures',
-      quote: '“FikraTech’s engineering excellence, transparency, and agility helped us build and launch our mission-critical fintech solution ahead of schedule.”',
+      quote: '“Bytelyx’s engineering excellence, transparency, and agility helped us build and launch our mission-critical fintech solution ahead of schedule.”',
       avatar: '/images/projects/ourPartner3.avif',
       rating: 5,
     },
@@ -53,7 +53,7 @@ export function OurPartners() {
           </span>
         </h2>
         <p className="text-sm md:text-base text-foreground/75 leading-relaxed">
-          Our clients’ success is our greatest achievement. Here’s what founders, teams, and partners say about working with FikraTech.
+          Our clients’ success is our greatest achievement. Here’s what founders, teams, and partners say about working with Bytelyx.
         </p>
       </div>
 

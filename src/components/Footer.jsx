@@ -221,7 +221,7 @@ export function Footer() {
               </a>
 
               <a
-                href="mailto:info@fikratech.com"
+                href="mailto:info@bytelyx.com"
                 className="hover:text-[#05C3DE] transition font-medium text-xs block text-white/80 break-words"
               >
                 info@bytekyx@gmail.com

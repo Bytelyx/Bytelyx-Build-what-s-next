@@ -39,7 +39,7 @@ export function Projects() {
           </span>
         </h1>
         <p className="text-base sm:text-lg text-foreground/75 font-light max-w-3xl mx-auto leading-relaxed mb-8">
-          From business automation platforms to consumer mobile apps, Fikratech creates digital experiences that solve real-world challenges. Here’s a look at our work—and the impact it’s had.
+          From business automation platforms to consumer mobile apps, Bytelyx creates digital experiences that solve real-world challenges. Here’s a look at our work—and the impact it’s had.
         </p>
       </section>
 

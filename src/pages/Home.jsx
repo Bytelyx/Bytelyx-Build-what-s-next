@@ -14,7 +14,6 @@ import '../components/Home.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-
 function PremiumServiceVisual({ type, label }) {
   const common = (
     <defs>
@@ -38,13 +37,30 @@ function PremiumServiceVisual({ type, label }) {
       </filter>
     </defs>
   );
+
   return (
     <div className={`service-visual service-visual-${type} relative mx-auto flex h-40 w-full items-center justify-center overflow-hidden rounded-2xl`}>
       <div className="service-orbit service-orbit-one" />
       <div className="service-orbit service-orbit-two" />
-      <svg viewBox="0 0 280 170" role="img" aria-label={label} className="service-art relative z-10 h-full w-full overflow-visible">
+
+      <svg
+        viewBox="0 0 280 170"
+        role="img"
+        aria-label={label}
+        className="service-art relative z-10 h-full w-full overflow-visible"
+      >
         {common}
-        <ellipse cx="140" cy="139" rx="72" ry="10" fill="#05C3DE" opacity=".18" filter={`url(#shadow-${type})`} />
+
+        <ellipse
+          cx="140"
+          cy="139"
+          rx="72"
+          ry="10"
+          fill="#05C3DE"
+          opacity=".18"
+          filter={`url(#shadow-${type})`}
+        />
+
         {type === 'puzzle' && <>
           <path d="M72 52 L111 30 L151 52 L111 75 Z" fill={`url(#metal-${type})`} stroke="#B7F5FF" strokeOpacity=".75" />
           <path d="M72 52 L111 75 L111 120 L72 96 Z" fill="#2365B5" stroke="#82E9FF" strokeOpacity=".6" />
@@ -54,6 +70,7 @@ function PremiumServiceVisual({ type, label }) {
           <path d="M170 99 L209 76 L209 105 L170 128 Z" fill="#10264F" stroke="#5FD8F7" />
           <path d="M82 51 L111 35 L140 51" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" opacity=".8" />
         </>}
+
         {type === 'ui' && <>
           <g transform="translate(68 25) rotate(-7 70 55)">
             <rect x="5" y="7" width="130" height="94" rx="10" fill="#050F24" stroke="#4CA6E8" strokeWidth="2" />
@@ -68,6 +85,7 @@ function PremiumServiceVisual({ type, label }) {
           <path d="M186 107 L202 123 L210 109 L220 106 Z" fill="#F4FCFF" stroke="#5ACDEB" strokeWidth="2" />
           <circle cx="205" cy="48" r="18" fill={`url(#orb-${type})`} />
         </>}
+
         {type === 'mobile' && <>
           <g transform="translate(74 17) rotate(-9 43 66)">
             <rect x="5" y="4" width="74" height="132" rx="14" fill="#070F20" stroke="#A2F1FF" strokeWidth="2" />
@@ -80,6 +98,7 @@ function PremiumServiceVisual({ type, label }) {
             <rect x="19" y="83" width="33" height="4" rx="2" fill="#80DDF4" />
             <rect x="19" y="96" width="42" height="20" rx="6" fill="#1F69C3" stroke="#70DDF6" />
           </g>
+
           <g transform="translate(143 35) rotate(9 43 60)">
             <rect x="4" y="4" width="70" height="116" rx="13" fill="#0A1830" stroke="#438FD9" strokeWidth="2" />
             <rect x="10" y="11" width="58" height="102" rx="8" fill="#102B52" />
@@ -89,28 +108,40 @@ function PremiumServiceVisual({ type, label }) {
             <rect x="19" y="82" width="29" height="4" rx="2" fill="#69D5F2" />
           </g>
         </>}
+
         {type === 'marketing' && <>
           <path d="M54 122 L90 93 L122 105 L163 62 L204 76 L229 39" fill="none" stroke="#05C3DE" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
           <path d="M54 122 L90 93 L122 105 L163 62 L204 76 L229 39 L229 132 L54 132 Z" fill="#307FE2" opacity=".15" />
-          {[[54, 122], [90, 93], [122, 105], [163, 62], [204, 76], [229, 39]].map(([x, y], i) => <g key={i}><circle cx={x} cy={y} r="8" fill="#0A1C38" stroke="#A4F4FF" strokeWidth="2" /><circle cx={x} cy={y} r="3" fill="#74E9FF" /></g>)}
+          {[[54, 122], [90, 93], [122, 105], [163, 62], [204, 76], [229, 39]].map(([x, y], i) => (
+            <g key={i}>
+              <circle cx={x} cy={y} r="8" fill="#0A1C38" stroke="#A4F4FF" strokeWidth="2" />
+              <circle cx={x} cy={y} r="3" fill="#74E9FF" />
+            </g>
+          ))}
           <rect x="80" y="28" width="120" height="20" rx="10" fill={`url(#glass-${type})`} stroke="#6ADDF5" strokeOpacity=".65" />
           <circle cx="94" cy="38" r="3" fill="#8DF4FF" />
           <rect x="103" y="35" width="73" height="5" rx="2.5" fill="#E5FCFF" opacity=".8" />
           <rect x="69" y="139" width="142" height="3" rx="1.5" fill="#307FE2" opacity=".5" />
         </>}
+
         {type === 'ai' && <>
           <g stroke="#56DDF7" strokeOpacity=".75" strokeWidth="1.5">
             <path d="M140 83 L91 42 L188 42 L140 83 L82 112 L199 112 L188 42 L199 112 L91 42 L82 112" />
             <path d="M140 83 L140 27 M140 83 L140 139 M140 83 L48 79 M140 83 L232 79" />
           </g>
-          {[[140, 83, 18], [91, 42, 10], [188, 42, 10], [82, 112, 10], [199, 112, 10], [140, 27, 7], [140, 139, 7], [48, 79, 7], [232, 79, 7]].map(([x, y, r], i) => <g key={i}><circle cx={x} cy={y} r={r + 4} fill="#05C3DE" opacity=".12" /><circle cx={x} cy={y} r={r} fill={i === 0 ? '#5DEBFF' : '#1B4D8F'} stroke="#C2F8FF" strokeWidth="1.5" />{i === 0 && <circle cx={x} cy={y} r="7" fill="#F1FFFF" />}</g>)}
+          {[[140, 83, 18], [91, 42, 10], [188, 42, 10], [82, 112, 10], [199, 112, 10], [140, 27, 7], [140, 139, 7], [48, 79, 7], [232, 79, 7]].map(([x, y, r], i) => (
+            <g key={i}>
+              <circle cx={x} cy={y} r={r + 4} fill="#05C3DE" opacity=".12" />
+              <circle cx={x} cy={y} r={r} fill={i === 0 ? '#5DEBFF' : '#1B4D8F'} stroke="#C2F8FF" strokeWidth="1.5" />
+              {i === 0 && <circle cx={x} cy={y} r="7" fill="#F1FFFF" />}
+            </g>
+          ))}
           <ellipse cx="140" cy="83" rx="37" ry="55" stroke="#5CE4FF" strokeOpacity=".4" strokeDasharray="4 5" fill="none" />
         </>}
       </svg>
     </div>
   );
 }
-
 
 export function Home() {
   const navigate = useNavigate();
@@ -135,6 +166,7 @@ export function Home() {
   // Trigger celebration confetti
   const triggerConfetti = (e) => {
     setAchievementsHovered(true);
+
     const rect = e.currentTarget.getBoundingClientRect();
     const x = (rect.left + rect.width / 2) / window.innerWidth;
     const y = (rect.top + rect.height / 2) / window.innerHeight;
@@ -147,7 +179,6 @@ export function Home() {
       disableForReducedMotion: true,
     });
   };
-
 
   // GSAP Animations and ScrollTriggers
   useEffect(() => {
@@ -196,9 +227,7 @@ export function Home() {
       }
 
       // 2. Section reveal animations
-      const revealSections = gsap.utils.toArray(
-        '.gsap-reveal-section'
-      );
+      const revealSections = gsap.utils.toArray('.gsap-reveal-section');
 
       revealSections.forEach((section) => {
         gsap.fromTo(
@@ -241,16 +270,10 @@ export function Home() {
       }
 
       // 4. Stack only the What We Offer cards.
-      const offerSection = document.querySelector(
-        '.gsap-offer-stack-section'
-      );
-      const offerGrid = offerSection?.querySelector(
-        '.gsap-offer-grid'
-      );
+      const offerSection = document.querySelector('.gsap-offer-stack-section');
+      const offerGrid = offerSection?.querySelector('.gsap-offer-grid');
       const offerCards = offerSection
-        ? gsap.utils.toArray(
-          offerSection.querySelectorAll('.gsap-offer-card')
-        )
+        ? gsap.utils.toArray(offerSection.querySelectorAll('.gsap-offer-card'))
         : [];
 
       if (offerSection && offerGrid && offerCards.length) {
@@ -290,8 +313,7 @@ export function Home() {
             {
               x: () => getCardOffsets()[index],
               y: (index - (offerCards.length - 1) / 2) * 7,
-              rotation:
-                (index - (offerCards.length - 1) / 2) * 5,
+              rotation: (index - (offerCards.length - 1) / 2) * 5,
               scale: 0.88,
               zIndex: index + 1,
               duration: 1,
@@ -314,9 +336,14 @@ export function Home() {
     };
   }, []);
 
+  // 5. Project card ScrollTrigger - Mobile + Desktop
   useEffect(() => {
+    let refreshFrame;
+
     const ctx = gsap.context(() => {
       const projectCards = gsap.utils.toArray('.gsap-project-card');
+
+      if (!projectCards.length) return;
 
       projectCards.forEach((card) => {
         gsap.fromTo(
@@ -329,7 +356,7 @@ export function Home() {
           {
             scale: 1,
             opacity: 1,
-            ease: 'power3.out',
+            ease: 'none',
             scrollTrigger: {
               trigger: card,
               start: 'top 85%',
@@ -342,17 +369,28 @@ export function Home() {
       });
     }, mainRef);
 
-    ScrollTrigger.refresh();
-    return () => ctx.revert();
+    refreshFrame = requestAnimationFrame(() => {
+      ScrollTrigger.refresh();
+    });
+
+    return () => {
+      cancelAnimationFrame(refreshFrame);
+      ctx.revert();
+    };
   }, [projectTab]);
 
   return (
     <div ref={mainRef} className="flex w-full flex-col items-center">
+
       {/* 1. HERO SECTION */}
-      <section className="relative mx-auto mb-16 w-full max-w-7xl isolate overflow-hidden px-4 pt-4 text-center md:px-10 lg:px-8 lg:pt-6 xl:px-14 xl:pt-10 2xl:px-24 2.5xl:px-32 3xl:container 3xl:px-48" aria-label="Hero">
+      <section
+        className="relative mx-auto mb-16 w-full max-w-7xl isolate overflow-hidden px-4 pt-4 text-center md:px-10 lg:px-8 lg:pt-6 xl:px-14 xl:pt-10 2xl:px-24 2.5xl:px-32 3xl:container 3xl:px-48"
+        aria-label="Hero"
+      >
         <HeroScene />
+
         <div className="pointer-events-none absolute -top-20 left-1/2 z-0 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,_#20375699,_#05c5de00)] opacity-75 blur-[100px] md:w-[900px]" />
-        {/* Main Heading */}
+
         <h1
           ref={heroHeadingRef}
           className="relative z-10 mx-auto w-full text-3xl font-medium leading-tight md:text-5xl lg:mb-2 lg:w-4/5 lg:text-5xl 2xl:text-7xl 3xl:mb-16 2.5xl:mb-12"
@@ -366,13 +404,14 @@ export function Home() {
           </span>
         </h1>
 
-        {/* Subtitle & CTA */}
         <div className="group relative isolate space-y-6 py-4 pb-10 md:pb-14 lg:space-y-12 lg:py-8 lg:pb-16 3xl:space-y-16">
-          <p ref={heroSubtitleRef} className="relative z-10 mx-auto mb-8 max-w-2xl text-xs font-light leading-6 text-white/90 md:text-xl lg:mb-8 lg:text-base 3xl:mb-16">
+          <p
+            ref={heroSubtitleRef}
+            className="relative z-10 mx-auto mb-8 max-w-2xl text-xs font-light leading-6 text-white/90 md:text-xl lg:mb-8 lg:text-base 3xl:mb-16"
+          >
             We build exceptional digital products that bring ideas to life.
           </p>
 
-          {/* Glowing Discover Services CTA Button */}
           <div ref={heroCtaRef} className="relative z-10 inline-block">
             <Link
               to="/services"
@@ -382,7 +421,6 @@ export function Home() {
                 <div className="absolute -left-36 h-20 w-64 origin-right animate-spin rounded-full bg-gradient-to-b from-white/30 to-transparent duration-5000" />
               </div>
 
-              {/* Sparkle Stars */}
               <div className="relative flex items-center">
                 <span className="animate-pulse text-white">
                   <svg viewBox="0 0 24 24" className="size-4 fill-current">
@@ -405,7 +443,9 @@ export function Home() {
           </div>
 
           <div className="pointer-events-none absolute -bottom-36 left-1/2 z-0 size-40 -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,_#81a1f9_0%,_#6ac8ff_44%,_#6ee2fc_54%,_#245bf1_100%)] opacity-70 blur-2xl transition-transform duration-1000 group-hover:scale-125 lg:-bottom-40 lg:size-48 lg:blur-3xl xl:-bottom-80 xl:size-80 xl:blur-[100px]" />
+
           <div className="pointer-events-none absolute bottom-0 left-1/2 z-0 h-64 w-3/4 -translate-x-1/2 rounded-[50%] bg-[radial-gradient(ellipse_at_center,_rgba(48,127,226,0.45)_0%,_rgba(5,195,222,0.25)_35%,_transparent_75%)] opacity-90 blur-[60px]" />
+
           <div className="pointer-events-none absolute bottom-0 left-1/2 z-20 h-[2px] w-3/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-[#6DA5FF] to-transparent shadow-[0_-2px_10px_rgba(80,150,255,0.4)]" />
         </div>
       </section>
@@ -416,8 +456,10 @@ export function Home() {
       </div>
 
       {/* 3. THE STORY OF BYTELYX */}
-      <section className="gsap-reveal-section 3xl:container 2.5xl:px-32 3xl:px-48 mx-auto mt-20 w-full max-w-7xl space-y-10 px-4 md:px-10 lg:my-24 lg:px-8 xl:mb-20 xl:mt-32 xl:space-y-16 xl:px-14 2xl:px-24" aria-label="The Story of FikraTech">
-        {/* Section Header */}
+      <section
+        className="gsap-reveal-section 3xl:container 2.5xl:px-32 3xl:px-48 mx-auto mt-20 w-full max-w-7xl space-y-10 px-4 md:px-10 lg:my-24 lg:px-8 xl:mb-20 xl:mt-32 xl:space-y-16 xl:px-14 2xl:px-24"
+        aria-label="The Story of FikraTech"
+      >
         <div className="m-auto flex flex-col items-center justify-center gap-2 text-center lg:gap-4 xl:gap-6">
           <div className="bottomBorder flex items-center rounded-full border-t border-white/10 bg-[#0A1825] px-3 py-1">
             <span className="me-2 size-1.5 rounded-full bg-gradient-to-t from-primary-from to-primary-to shadow-sm" />
@@ -439,7 +481,8 @@ export function Home() {
         </div>
 
         <div className="gsap-bento-grid grid grid-cols-1 gap-y-5 lg:grid-cols-12 lg:gap-4 xl:gap-8">
-          {/* Card 1: What is FikraTech? */}
+
+          {/* Card 1: What is ByteLyx? */}
           <SpecialCard className="gsap-bento-card group col-span-12 flex flex-col items-start p-6 md:p-8 lg:col-span-4">
             <h3 className="mb-3 font-bold text-white md:text-3xl lg:text-base xl:mb-5 xl:text-2xl">
               What is ByteLyx?
@@ -449,13 +492,11 @@ export function Home() {
               We are a global technology partner that transforms bold ideas into smart, scalable solutions empowering businesses to grow, connect, and lead in the digital era.
             </p>
 
-            {/* Logo */}
             <div className="relative m-auto mt-4 flex size-40 items-center justify-center md:mt-8 md:size-64 lg:size-44 xl:size-56">
-
               <span className="absolute z-10 flex size-[55%] items-center justify-center transition-transform duration-500 group-hover:scale-110">
                 <img
                   src={Logo}
-                  alt="FikraTech Symbol"
+                  alt="Bytelyx Symbol"
                   className="h-full w-full object-contain"
                 />
               </span>
@@ -482,35 +523,47 @@ export function Home() {
                 At ByeLyx, we believe technology has no borders. Our vision is to create a future where ideas, people, and businesses are seamlessly connected — building a smarter, more unified world.
               </p>
 
-              {/* World Map */}
               <div className="relative m-auto mt-4 flex h-[12rem] w-full max-w-[42rem] items-center justify-center overflow-hidden md:h-[18rem] lg:h-[14rem] xl:h-[18rem]">
                 <img
                   src="/images/home/story/image2.svg"
-                  alt="FikraTech Global Vision Map"
-                  className={`relative z-10 h-full w-full object-contain transition-all duration-700 ${visionHovered ? 'brightness-125 drop-shadow-[0_0_18px_rgba(5,195,222,0.25)]' : ''
-                    }`}
+                  alt="Bytelyx Global Vision Map"
+                  className={`relative z-10 h-full w-full object-contain transition-all duration-700 ${
+                    visionHovered
+                      ? 'brightness-125 drop-shadow-[0_0_18px_rgba(5,195,222,0.25)]'
+                      : ''
+                  }`}
                 />
 
-                {/* Network Constellation Nodes */}
                 <svg
                   aria-hidden="true"
                   viewBox="0 0 689 290"
                   preserveAspectRatio="xMidYMid meet"
-                  className={`pointer-events-none absolute inset-0 z-20 h-full w-full transition-opacity duration-500 ${visionHovered ? 'opacity-100' : 'opacity-0'
-                    }`}
+                  className={`pointer-events-none absolute inset-0 z-20 h-full w-full transition-opacity duration-500 ${
+                    visionHovered ? 'opacity-100' : 'opacity-0'
+                  }`}
                 >
                   <defs>
                     <mask id="fikra-continent-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="689" height="290">
-                      <image href="/images/home/story/image2.svg" x="0" y="0" width="689" height="290" preserveAspectRatio="none" />
+                      <image
+                        href="/images/home/story/image2.svg"
+                        x="0"
+                        y="0"
+                        width="689"
+                        height="290"
+                        preserveAspectRatio="none"
+                      />
                     </mask>
                   </defs>
+
                   <g mask="url(#fikra-continent-mask)">
                     {Array.from({ length: 36 }, (_, row) =>
                       Array.from({ length: 80 }, (_, col) => {
                         const x = col * 8.6 + (row % 2) * 4.3 + 5;
                         const y = row * 7.5 + 5;
                         const visible = (row * 13 + col * 17) % 4 !== 0;
+
                         if (!visible || x > 684 || y > 286) return null;
+
                         const cyan = (row + col) % 3 === 0;
 
                         return (
@@ -521,7 +574,9 @@ export function Home() {
                             r={cyan ? 1.6 : 1.1}
                             fill={cyan ? '#05C3DE' : '#307FE2'}
                             className="animate-pulse"
-                            style={{ animationDelay: `${((row * 2 + col) % 10) * 100}ms` }}
+                            style={{
+                              animationDelay: `${((row * 2 + col) % 10) * 100}ms`,
+                            }}
                           />
                         );
                       })
@@ -529,10 +584,10 @@ export function Home() {
                   </g>
                 </svg>
 
-                {/* Subtle Radial Atmosphere */}
                 <div
-                  className={`pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,rgba(48,127,226,0.2),transparent_70%)] transition-opacity duration-700 ${visionHovered ? 'opacity-100' : 'opacity-0'
-                    }`}
+                  className={`pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,rgba(48,127,226,0.2),transparent_70%)] transition-opacity duration-700 ${
+                    visionHovered ? 'opacity-100' : 'opacity-0'
+                  }`}
                 />
               </div>
             </SpecialCard>
@@ -548,20 +603,26 @@ export function Home() {
               At ByteLyx, we turn ideas into smart, scalable digital solutions. From intuitive apps to powerful platforms, we design, develop, and deliver technology that drives real impact.
             </p>
 
-            {/* Marquee Tags */}
             <div className="my-5 w-full space-y-3 overflow-hidden xl:space-y-4">
               {[
-                ['App Development', 'Full Stack Development', 'Frontend', 'Backend', 'Digital Marketing', 'AI',],
+                ['App Development', 'Full Stack Development', 'Frontend', 'Backend', 'Digital Marketing', 'AI'],
                 ['ReactJS', 'Flutter', 'Vite', 'TailwindCSS', 'GSAP', 'ThreeJS', 'Framer-Motion'],
                 ['NodeJS', 'ExpressJS', 'MongoDB', 'GIT', 'GitHub', 'Dart'],
               ].map((items, rowIndex) => (
                 <div key={rowIndex} className="w-full overflow-hidden">
                   <div
-                    className={`flex w-max gap-2 ${rowIndex === 1 ? 'animate-marquee-reverse' : 'animate-marquee-slow'
-                      }`}
+                    className={`flex w-max gap-2 ${
+                      rowIndex === 1
+                        ? 'animate-marquee-reverse'
+                        : 'animate-marquee-slow'
+                    }`}
                   >
                     {[0, 1].map((copy) => (
-                      <div key={copy} aria-hidden={copy === 1 ? 'true' : undefined} className="flex shrink-0 gap-2">
+                      <div
+                        key={copy}
+                        aria-hidden={copy === 1 ? 'true' : undefined}
+                        className="flex shrink-0 gap-2"
+                      >
                         {items.map((item, idx) => (
                           <span
                             key={`${item}-${idx}`}
@@ -593,7 +654,6 @@ export function Home() {
                 Every number tells a story of challenges overcome, partnerships built, and dreams realized. Our achievements are not just milestones; they are a reflection of the trust our clients place in us and the passion that drives us forward.
               </p>
 
-              {/* Numeric Counters */}
               <div className="relative z-10 m-auto mt-4 flex w-full justify-around py-8 md:py-10">
                 <div className="text-center">
                   <span
@@ -644,10 +704,9 @@ export function Home() {
               We innovate with purpose, act with integrity, deliver with excellence, grow through collaboration, and always push beyond limits.
             </p>
 
-            {/* Silver faceted diamond — inline SVG so it renders without a Three.js dependency */}
             <div className="relative mt-auto flex h-44 w-full flex-none items-center justify-center overflow-visible transition-all duration-700 md:h-52 lg:h-40 xl:h-48">
-              {/* Soft spotlight behind the diamond */}
               <div className="pointer-events-none absolute inset-0 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(210,220,245,0.24),rgba(105,125,165,0.10)_35%,transparent_70%)] opacity-70 transition-all duration-700 group-hover:scale-110 group-hover:bg-[radial-gradient(ellipse_at_center,rgba(235,242,255,0.52),rgba(130,165,235,0.26)_38%,transparent_72%)] group-hover:opacity-100" />
+
               <svg
                 viewBox="0 0 240 180"
                 role="img"
@@ -677,8 +736,17 @@ export function Home() {
                   </filter>
                 </defs>
 
-                {/* Faint halo and tiny floating sparkles */}
-                <ellipse cx="120" cy="91" rx="77" ry="49" fill="#DCE5FF" opacity="0.16" filter="url(#diamondGlow)" className="transition-all duration-700 group-hover:fill-[#F0F5FF] group-hover:opacity-90" />
+                <ellipse
+                  cx="120"
+                  cy="91"
+                  rx="77"
+                  ry="49"
+                  fill="#DCE5FF"
+                  opacity="0.16"
+                  filter="url(#diamondGlow)"
+                  className="transition-all duration-700 group-hover:fill-[#F0F5FF] group-hover:opacity-90"
+                />
+
                 <g fill="#DDE6FA" opacity="0.7">
                   <circle cx="39" cy="38" r="2.2" />
                   <circle cx="65" cy="17" r="1.6" />
@@ -687,16 +755,12 @@ export function Home() {
                   <circle cx="171" cy="8" r="1.3" />
                 </g>
 
-                {/* Outer silhouette */}
                 <path d="M43 62 L73 29 L165 27 L198 62 L120 151 Z" fill="#8B91A2" />
-                {/* Upper crown facets */}
                 <path d="M43 62 L73 29 L91 62 Z" fill="url(#diamondLeft)" />
                 <path d="M73 29 L165 27 L150 62 L91 62 Z" fill="url(#diamondTop)" />
                 <path d="M165 27 L198 62 L150 62 Z" fill="#C7CCD8" />
-                {/* Bright central table and crown */}
                 <path d="M91 62 L104 35 L145 35 L159 62 Z" fill="#FFFFFF" opacity="0.96" />
                 <path d="M104 35 L145 35 L151 46 L99 46 Z" fill="#FFFFFF" />
-                {/* Lower facets */}
                 <path d="M43 62 L91 62 L120 151 Z" fill="#8B91A2" />
                 <path d="M91 62 L159 62 L120 151 Z" fill="url(#diamondPoint)" />
                 <path d="M159 62 L198 62 L120 151 Z" fill="#6D7486" />
@@ -714,7 +778,7 @@ export function Home() {
       <section
         className="hidden md:block gsap-reveal-section gsap-offer-stack-section 3xl:container 2.5xl:px-32 3xl:px-48 mx-auto mb-30 w-full max-w-7xl space-y-10 overflow-visible px-4 pt-20 pb-40 md:mb-32 md:px-10 md:pb-48 lg:px-8 xl:space-y-16 xl:px-14 xl:pb-56 2xl:px-24"
         aria-label="What We Offer"
-      >        {/* Section Header */}
+      >
         <div className="m-auto flex flex-col items-center justify-center gap-2 text-center lg:gap-4 xl:gap-6">
           <div className="bottomBorder flex items-center rounded-full border-t border-white/10 bg-[#0A1825] px-3 py-1">
             <span className="me-2 size-1.5 rounded-full bg-gradient-to-t from-primary-from to-primary-to shadow-sm" />
@@ -735,7 +799,6 @@ export function Home() {
           </p>
         </div>
 
-        {/* Five service cards in one horizontal row */}
         <div className="gsap-offer-stack-viewport w-full overflow-visible pb-4">
           <div
             className="gsap-offer-grid relative !grid min-w-[1200px] !grid-cols-5 gap-6"
@@ -746,7 +809,7 @@ export function Home() {
               minWidth: '1200px',
             }}
           >
-            {/* 1. Business Automation (Puzzle) */}
+            {/* 1. Business Automation */}
             <div
               onMouseEnter={() => setPuzzleHovered(true)}
               onMouseLeave={() => setPuzzleHovered(false)}
@@ -814,6 +877,7 @@ export function Home() {
             <div className="gsap-offer-card h-full">
               <SpecialCard className="group flex h-full min-h-[22rem] flex-col justify-between p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#307FE2]/50 hover:shadow-[0_12px_35px_rgba(48,127,226,0.15)]">
                 <PremiumServiceVisual type="ai" label="Premium 3D artificial intelligence network illustration" />
+
                 <div className="mt-4 space-y-2 text-start">
                   <h3 className="text-base font-semibold text-white">Artificial Intelligence</h3>
                   <p className="text-xs font-light leading-relaxed text-[#828282]">
@@ -826,11 +890,12 @@ export function Home() {
         </div>
       </section>
 
-      {/* 5.PROJECTS */}
+      {/* 5. PROJECTS */}
       <section
         className="gsap-reveal-section 3xl:container 2.5xl:px-32 3xl:px-48 mx-auto mt-24 mb-16 w-full max-w-7xl space-y-10 px-4 md:mt-20 md:mb-16 md:px-10 lg:mt-24 lg:px-8 xl:mt-32 xl:px-14 2xl:px-24"
         aria-label="Innovation Through Projects"
       >
+        {/* Section Header */}
         <div className="m-auto flex flex-col items-center justify-center gap-2 text-center lg:gap-4 xl:gap-6">
           <div className="bottomBorder flex items-center rounded-full border-t border-white/10 bg-[#0A1825] px-3 py-1">
             <span className="me-2 size-1.5 rounded-full bg-gradient-to-t from-primary-from to-primary-to shadow-sm" />
@@ -855,10 +920,11 @@ export function Home() {
             <button
               type="button"
               onClick={() => setProjectTab('private')}
-              className={`cursor-pointer rounded-full px-6 py-2 text-xs font-medium transition ${projectTab === 'private'
-                ? 'bg-gradient-to-r from-[#307FE2] to-[#05C3DE] text-white shadow-md'
-                : 'text-white/70 hover:text-white'
-                }`}
+              className={`cursor-pointer rounded-full px-6 py-2 text-xs font-medium transition ${
+                projectTab === 'private'
+                  ? 'bg-gradient-to-r from-[#307FE2] to-[#05C3DE] text-white shadow-md'
+                  : 'text-white/70 hover:text-white'
+              }`}
             >
               Private Projects
             </button>
@@ -866,26 +932,54 @@ export function Home() {
             <button
               type="button"
               onClick={() => setProjectTab('government')}
-              className={`cursor-pointer rounded-full px-6 py-2 text-xs font-medium transition ${projectTab === 'government'
-                ? 'bg-gradient-to-r from-[#307FE2] to-[#05C3DE] text-white shadow-md'
-                : 'text-white/70 hover:text-white'
-                }`}
+              className={`cursor-pointer rounded-full px-6 py-2 text-xs font-medium transition ${
+                projectTab === 'government'
+                  ? 'bg-gradient-to-r from-[#307FE2] to-[#05C3DE] text-white shadow-md'
+                  : 'text-white/70 hover:text-white'
+              }`}
             >
               Government Projects
             </button>
           </div>
         </div>
 
-        {/* Sticky Stacking Project Cards */}
-        <div className="relative space-y-6 lg:space-y-0">
+        {/* Sticky Stacking Project Cards - All Devices */}
+        <div className="relative space-y-0">
           {activeProjects.map((proj, idx) => (
             <div
               key={proj.id}
               onClick={() => navigate(`/projects/view/${proj.name}`)}
-              className="gsap-project-card group relative z-0 flex h-72 cursor-pointer items-center justify-center overflow-hidden rounded-3xl border border-white/10 pe-5 shadow-2xl transition-all duration-700 md:h-[30rem] lg:sticky lg:top-24 lg:h-[82vh]"
+              className="
+                gsap-project-card
+                group
+                sticky
+                top-20
+                z-0
+                flex
+                h-[65vh]
+                min-h-[420px]
+                max-h-[650px]
+                w-full
+                cursor-pointer
+                items-center
+                justify-center
+                overflow-hidden
+                rounded-3xl
+                border
+                border-white/10
+                pe-3
+                shadow-2xl
+                transition-all
+                duration-700
+                sm:h-[70vh]
+                sm:min-h-[480px]
+                md:top-24
+                md:h-[75vh]
+                lg:h-[82vh]
+              "
               style={{
                 backgroundColor: proj.bgColor,
-                top: `${96 + idx * 8}px`,
+                zIndex: idx + 1,
               }}
             >
               {/* Radial Center Glow */}
@@ -918,7 +1012,7 @@ export function Home() {
               )}
 
               {/* Device Mockup with Project Screenshot */}
-              <div className="relative -z-10 -mt-4 w-[20rem] duration-1000 ease-in-out group-hover:scale-[106%] md:w-[34rem] lg:w-[42rem] xl:w-[48rem] 3xl:w-[56rem]">
+              <div className="relative -z-10 -mt-4 w-[17rem] duration-1000 ease-in-out group-hover:scale-[106%] sm:w-[24rem] md:w-[34rem] lg:w-[42rem] xl:w-[48rem] 3xl:w-[56rem]">
                 {proj.device === 'imac' ? (
                   <div className="relative w-full">
                     <img
@@ -930,6 +1024,7 @@ export function Home() {
                       alt={proj.titleEn}
                       className="absolute left-[6.5%] top-[6.5%] h-[58%] w-[87%] rounded-t-sm object-cover object-top"
                     />
+
                     <img
                       src="/images/projects/iMac.svg"
                       alt="iMac Mockup"
@@ -945,8 +1040,9 @@ export function Home() {
                           : proj.projectImage
                       }
                       alt={proj.titleEn}
-                      className="absolute left-[2.25rem] top-[0.4rem] h-[78%] w-[78%] rounded-t-md object-cover object-left-top md:left-[3.8rem] md:top-[0.7rem] lg:left-[4.5rem] lg:rounded-t-lg xl:left-[5.6rem] xl:top-[1rem] 3xl:left-[6.8rem] 3xl:top-[1.2rem]"
+                      className="absolute left-[2.25rem] top-[0.4rem] h-[78%] w-[78%] rounded-t-md object-cover object-left-top sm:left-[3rem] md:left-[3.8rem] md:top-[0.7rem] lg:left-[4.5rem] lg:rounded-t-lg xl:left-[5.6rem] xl:top-[1rem] 3xl:left-[6.8rem] 3xl:top-[1.2rem]"
                     />
+
                     <img
                       src="/images/projects/MacbookPro.svg"
                       alt="Macbook Pro Mockup"
@@ -957,21 +1053,22 @@ export function Home() {
               </div>
 
               {/* Glassmorphic Project Info Bar */}
-              <div className="absolute bottom-0 left-0 z-20 flex h-14 w-full items-center justify-between border-t border-white/10 bg-[#09090952] px-6 shadow-[0px_-2px_40px_0px_rgba(209,209,209,0),0px_-2px_10px_0px_rgba(217,217,217,0.11)] backdrop-blur-[22px] duration-700 ease-in-out md:h-20 lg:h-24 lg:translate-y-24 lg:group-hover:translate-y-0 xl:h-28 xl:px-8">
-                <div className="space-y-1">
-                  <span className="block bg-gradient-to-b from-foreground-from to-foreground-to bg-clip-text text-sm font-semibold text-transparent md:text-2xl xl:text-3xl">
+              <div className="absolute bottom-0 left-0 z-20 flex h-14 w-full items-center justify-between border-t border-white/10 bg-[#09090952] px-4 shadow-[0px_-2px_40px_0px_rgba(209,209,209,0),0px_-2px_10px_0px_rgba(217,217,217,0.11)] backdrop-blur-[22px] duration-700 ease-in-out md:h-20 md:px-6 lg:h-24 lg:translate-y-24 lg:group-hover:translate-y-0 xl:h-28 xl:px-8">
+                <div className="min-w-0 space-y-1">
+                  <span className="block truncate bg-gradient-to-b from-foreground-from to-foreground-to bg-clip-text text-sm font-semibold text-transparent sm:text-lg md:text-2xl xl:text-3xl">
                     {proj.titleEn}
                   </span>
-                  <p className="text-[0.65rem] font-light text-white/70 md:text-sm">
+
+                  <p className="text-[0.6rem] font-light text-white/70 sm:text-xs md:text-sm">
                     {proj.categoryEn}
                   </p>
                 </div>
 
-                <div className="flex gap-2">
+                <div className="ms-2 flex shrink-0 gap-2">
                   {(proj.badgesEn || []).slice(0, 3).map((badge, bIdx) => (
                     <span
                       key={bIdx}
-                      className="hidden rounded-md border border-white/20 bg-white/5 px-3 py-1 text-xs font-medium text-white/90 sm:inline-block"
+                      className="hidden rounded-md border border-white/20 bg-white/5 px-3 py-1 text-xs font-medium text-white/90 lg:inline-block"
                     >
                       {badge}
                     </span>

@@ -55,7 +55,7 @@ export function ApplyModal({ isOpen, onClose, jobRole }) {
             <p className="text-sm text-foreground/75 max-w-xs mb-6">
               {isRtl
                 ? 'شكراً لاهتمامك بالانضمام إلى فريق فكرة تك. سنقوم بمراجعة سيرتك الذاتية والتواصل معك قريباً.'
-                : 'Thank you for your interest in joining FikraTech. Our talent team will review your application and be in touch soon.'}
+                : 'Thank you for your interest in joining Bytelyx. Our talent team will review your application and be in touch soon.'}
             </p>
             <button
               type="button"

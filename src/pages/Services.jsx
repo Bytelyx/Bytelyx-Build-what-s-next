@@ -108,7 +108,7 @@ export function Services() {
 
 
       {/* CODE EDITOR SECTION */}
-      <section aria-label="Fikratech Code Editor" className="relative mb-16 w-full"
+      <section aria-label="ByteLyx Code Editor" className="relative mb-16 w-full"
         style={{
           width: 'calc(100% - 32px)',
           maxWidth: '1435px',
@@ -136,7 +136,7 @@ export function Services() {
                   ref={codeLinesRef}
                   style={{width: '82%', maxWidth: '680px', marginInline: 'auto', overflow: 'hidden',borderRadius: '8px',border: '1px solid rgba(255,255,255,.07)', background: 'rgba(13,16,22,.94)', padding: '8px 12px 12px',fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',fontSize: '13px', lineHeight: '1.68', color: '#E5E7EB',}}>
                   {[
-                    <><span style={{ color: '#7B8491' }}>// Welcome to Fikratech</span></>,
+                    <><span style={{ color: '#7B8491' }}>// Welcome to ByteLyx</span></>,
                     <><span style={{ color: '#EC4899' }}>const</span> idea = <span style={{ color: '#7DD3FC' }}>&quot;Your bold idea&quot;</span>;</>,
                     <><span style={{ color: '#EC4899' }}>const</span> team = <span style={{ color: '#818CF8' }}>buildTeam</span>([<span style={{ color: '#7DD3FC' }}>&quot;Design&quot;</span>, <span style={{ color: '#7DD3FC' }}>&quot;Development&quot;</span>, <span style={{ color: '#7DD3FC' }}>&quot;AI&quot;</span>, <span style={{ color: '#7DD3FC' }}>&quot;Cloud&quot;</span>]);</>,
                     <><span style={{ color: '#EC4899' }}>const</span> product = <span style={{ color: '#818CF8' }}>launchProduct</span>({'{'}</>,
@@ -147,7 +147,7 @@ export function Services() {
                     <><span style={{ color: '#D9A441' }}>  deploy</span>: <span style={{ color: '#818CF8' }}>toCloud</span>(<span style={{ color: '#7DD3FC' }}>&quot;AWS&quot;</span>)</>,
                     <>{'});'}</>,
                     <><span style={{ color: '#6D7785' }}>if (product.success) {'{'}</span></>,
-                    <><span style={{ color: '#6D7785' }}>  console.log(</span><span style={{ color: '#244C63' }}>&quot;🚀 Your product is live – powered by Fikratech.&quot;</span><span style={{ color: '#6D7785' }}>);</span></>,
+                    <><span style={{ color: '#6D7785' }}>  console.log(</span><span style={{ color: '#244C63' }}>&quot;🚀 Your product is live – powered by ByteLyx.&quot;</span><span style={{ color: '#6D7785' }}>);</span></>,
                     <><span style={{ color: '#293746' }}>{'}'}</span></>,
                   ].map((line, index) => (
                     <div
@@ -205,7 +205,7 @@ export function Services() {
                 </h3>
               </div>
               <p className="text-sm leading-6 text-slate-300">
-                Fikratech empowers businesses by automating manual, time-consuming workflows through custom software, integrations, and AI-driven systems. Whether you're streamlining internal operations, digitizing processes, or connecting your existing tools—we help you save time, cut costs, and scale smarter.
+                ByteLyx empowers businesses by automating manual, time-consuming workflows through custom software, integrations, and AI-driven systems. Whether you're streamlining internal operations, digitizing processes, or connecting your existing tools—we help you save time, cut costs, and scale smarter.
               </p>
             </div>
             <div className="relative z-10 flex min-h-[210px] min-w-0 items-center justify-center overflow-hidden rounded-2xl border border-white/[0.06] bg-[radial-gradient(ellipse_at_center,rgba(20,115,180,0.18),rgba(3,15,29,0.2)_68%)] p-3 md:min-h-[240px]">
@@ -257,7 +257,7 @@ export function Services() {
                 </h3>
               </div>
               <p className="text-sm leading-6 text-slate-300">
-                Fikratech specializes in crafting scalable and high-performance mobile applications for both iOS and Android platforms. We take your ideas from initial concept to successful launch, ensuring each app is technically robust, visually stunning, and optimized for performance and user experience.
+                ByteLyx specializes in crafting scalable and high-performance mobile applications for both iOS and Android platforms. We take your ideas from initial concept to successful launch, ensuring each app is technically robust, visually stunning, and optimized for performance and user experience.
               </p>
             </div>
             <div className="relative z-10 flex min-h-[210px] min-w-0 items-center justify-center overflow-hidden rounded-2xl border border-white/[0.06] bg-[radial-gradient(ellipse_at_center,rgba(20,115,180,0.18),rgba(3,15,29,0.2)_68%)] p-3 md:min-h-[240px]">
@@ -283,7 +283,7 @@ export function Services() {
                 </h3>
               </div>
               <p className="text-sm leading-6 text-slate-300">
-                At Fikratech, we create everything from intuitive internal dashboards to comprehensive platforms that are reliable, secure, and scalable. Our team uses modern technology stacks, clean coding practices, and agile development methodologies to deliver software solutions tailored to your business needs.
+                At ByteLyx, we create everything from intuitive internal dashboards to comprehensive platforms that are reliable, secure, and scalable. Our team uses modern technology stacks, clean coding practices, and agile development methodologies to deliver software solutions tailored to your business needs.
               </p>
             </div>
             <div className="relative z-10 flex min-h-[210px] min-w-0 items-center justify-center overflow-hidden rounded-2xl border border-white/[0.06] bg-[radial-gradient(ellipse_at_center,rgba(20,115,180,0.18),rgba(3,15,29,0.2)_68%)] p-3 md:min-h-[240px]">
@@ -334,9 +334,9 @@ export function Services() {
         <div className="mx-auto max-w-[900px] space-y-4">
           {[
             {
-              question: "What services does Fikratech offer?",
+              question: "What services does ByteLyx offer?",
               answer:
-                "Fikratech offers business automation, UI/UX design, mobile app development, and custom software development to help businesses build efficient digital solutions.",
+                "ByteLyx offers business automation, UI/UX design, mobile app development, and custom software development to help businesses build efficient digital solutions.",
             },
             {
               question: "How can business automation help my company?",
@@ -384,12 +384,12 @@ export function Services() {
                 "We consider maintainability, architecture, performance, and future requirements during development so the solution can be designed to support your expected growth.",
             },
             {
-              question: "How much does a project with Fikratech cost?",
+              question: "How much does a project with ByteLyx cost?",
               answer:
                 "Pricing depends on the project scope, complexity, features, integrations, and timeline. Share your requirements with us so we can discuss a suitable solution and estimate.",
             },
             {
-              question: "How do I start a project with Fikratech?",
+              question: "How do I start a project with ByteLyx?",
               answer:
                 "Contact our team and explain your idea, business goals, and required features. We can discuss your needs, explore possible solutions, and determine the next steps together.",
             },

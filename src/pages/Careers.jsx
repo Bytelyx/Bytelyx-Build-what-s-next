@@ -116,7 +116,7 @@ export function Careers() {
         </h1>
 
         <p className="relative z-10 mx-auto mt-4 max-w-2xl text-xs font-light leading-relaxed text-[#818B95] md:text-lg lg:text-base">
-          Become a part of our expanding team at FikraTech, where we inspire individuals to elevate their productivity to new heights.
+          Become a part of our expanding team at Bytelyx, where we inspire individuals to elevate their productivity to new heights.
         </p>
       </section>
 
@@ -173,7 +173,7 @@ export function Careers() {
             </span>
           </h2>
           <p className="mx-auto mt-2 max-w-2xl text-xs font-light text-[#818B95] md:text-sm">
-            At FikraTech, we deeply appreciate innovative ideas, meaningful impact, and the talented individuals who bring them to life.
+            At Bytelyx, we deeply appreciate innovative ideas, meaningful impact, and the talented individuals who bring them to life.
           </p>
         </div>
 
@@ -221,7 +221,7 @@ export function Careers() {
         </div>
       </section>
 
-      {/* 4. The FikraTech Mindset */}
+      {/* 4. The Bytelyx Mindset */}
       <section className="3xl:container mx-auto my-16 w-full max-w-7xl px-4 md:px-10 lg:px-8 xl:px-14 2xl:px-24">
         <div className="mb-10 text-center">
           <div className="bottomBorder mx-auto mb-3 flex w-fit items-center rounded-full border-t border-white/10 bg-[#0A1825] px-3 py-1">
@@ -230,7 +230,7 @@ export function Careers() {
             </span>
           </div>
           <h2 className="text-2xl font-bold text-white md:text-4xl">
-            The FikraTech{' '}
+            The Bytelyx{' '}
             <span className="bg-gradient-to-r from-[#307FE2] to-[#05C3DE] bg-clip-text text-transparent">
               Mindset
             </span>

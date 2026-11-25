@@ -6,7 +6,7 @@ export function ConfettiEffect({ active = true }) {
   useEffect(() => {
     if (!active) return;
 
-    // Colors matching FikraTech's exact classes
+    // Colors matching Bytelyx's exact classes
     const colors = [
       'bg-yellow-400',
       'bg-red-400',

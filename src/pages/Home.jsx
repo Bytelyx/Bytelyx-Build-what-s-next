@@ -358,10 +358,11 @@ export function Home() {
           className="relative z-10 mx-auto w-full text-3xl font-medium leading-tight md:text-5xl lg:mb-2 lg:w-4/5 lg:text-5xl 2xl:text-7xl 3xl:mb-16 2.5xl:mb-12"
         >
           <span className="block bg-gradient-to-b from-foreground-from via-white to-foreground-to bg-clip-text py-2 text-transparent">
-            Building What's Next {' '}
-            <span className="bg-gradient-to-r from-[#307FE2] to-[#05C3DE] bg-clip-text text-transparent">
-              Shaping Tomorrow's Digital World.
-            </span>
+            Building What's Next
+          </span>
+
+          <span className="block bg-gradient-to-r from-[#307FE2] to-[#05C3DE] bg-clip-text py-2 text-transparent">
+            Where Ideas Become Reality.
           </span>
         </h1>
 

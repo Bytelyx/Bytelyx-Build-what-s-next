@@ -121,15 +121,14 @@ export default function TrustedBy() {
       aria-label="Technologies we use"
     >
       <div className="mx-auto mb-9 max-w-7xl px-5 text-center sm:mb-12 sm:px-8">
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400 sm:text-sm">
-          Our Tech Stack
-        </p>
+        <h2 className="bg-gradient-to-b from-foreground-from to-foreground-to bg-clip-text text-2xl font-medium text-transparent md:text-4xl lg:text-5xl xl:text-6xl">
+            Technologies{' '}
+            <span className="bg-gradient-to-b from-primary-from to-primary-to bg-clip-text text-transparent">
+              What We Use
+            </span>
+          </h2>
 
-        <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl">
-          Technologies We Use
-        </h2>
-
-        <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-slate-400 sm:text-base">
+        <p className="mx-auto mt-3 max-w-xl text-sm leading-6 font-light text-[#818B95] md:text-lg lg:text-sm xl:text-base xl:leading-6 sm:text-base">
           Powering our digital solutions with modern, reliable technologies.
         </p>
       </div>

@@ -1,61 +1,8 @@
+
 export const projectsData = [
   {
-    id: 'car-rental-platform',
-    number: '01',
-    title: 'Car Rental Platform',
-    category: 'Web',
-    filterCategory: 'Web',
-    secondaryCategory: 'Enterprise',
-    tagline: 'Seamless vehicle discovery, booking pipeline, and real-time fleet telemetry.',
-    description: 'An enterprise-scale mobility platform providing end-to-end car discovery, booking state machines, and real-time GPS telemetry for fleet operators.',
-    tags: ['Full-Stack', 'Fleet Telemetry', 'Cloud Native'],
-    architecture: ['Next.js 14', 'PostgreSQL', 'Redis Telemetry', 'Tailwind CSS', 'Stripe Connect'],
-    accentColor: '#38BDF8',
-    gradient: 'from-blue-600/30 via-cyan-500/20 to-transparent',
-    metrics: [
-      { label: 'Booking Latency', value: '< 240ms' },
-      { label: 'Telemetry Sync', value: 'Real-Time GPS' },
-      { label: 'Fleet Scale', value: '1,500+ Vehicles' }
-    ],
-    features: [
-      'Instant vehicle catalog with multi-variant faceted filter',
-      'Telemetry ingestion pipe with live vehicle status & battery/fuel level',
-      'Automated KYC driver license validation engine',
-      'Zero-friction reservation pipeline with integrated digital contract signing'
-    ],
-    githubUrl: 'https://github.com/bytelyx',
-    demoUrl: '#demo-car-rental'
-  },
-  {
-    id: 'dr-appointment-booking',
-    number: '02',
-    title: 'Dr. Appointment Booking',
-    category: 'Enterprise',
-    filterCategory: 'Enterprise',
-    secondaryCategory: 'Web',
-    tagline: 'HIPAA-compliant patient management, tele-consultation, and doctor slot scheduler.',
-    description: 'A clinical-grade healthcare hub featuring encrypted WebRTC video consultation, automated doctor slot coordination, and digital prescription dispatch.',
-    tags: ['Healthcare', 'Tele-Health', 'HIPAA Compliant'],
-    architecture: ['React', 'WebRTC', 'Node.js / Express', 'Socket.io', 'HIPAA Cloud'],
-    accentColor: '#60A5FA',
-    gradient: 'from-blue-500/30 via-indigo-500/20 to-transparent',
-    metrics: [
-      { label: 'Security Grade', value: 'HIPAA-Ready' },
-      { label: 'Video Latency', value: '< 80ms WebRTC' },
-      { label: 'Doctor Capacity', value: '450+ Clinics' }
-    ],
-    features: [
-      'Encrypted end-to-end tele-consultation rooms with screen sharing',
-      'Dynamic multi-doctor availability matrix with instant conflict avoidance',
-      'Electronic Health Records (EHR) timeline with digital signature',
-      'Automated reminder dispatch via WhatsApp, SMS, and Calendar push'
-    ],
-    githubUrl: 'https://github.com/bytelyx',
-    demoUrl: '#demo-dr-booking'
-  },
-  {
     id: 'anara-govt-job-portal',
-    number: '03',
+    number: '01',
     title: 'Anara (Karnataka Govt Job Portal)',
     category: 'Enterprise',
     filterCategory: 'Enterprise',
@@ -81,8 +28,89 @@ export const projectsData = [
     demoUrl: '#demo-anara'
   },
   {
-    id: 'soukariyam-catering-events',
+    id: 'taskpro-marketplace',
+    number: '02',
+    title: 'Taskpro (On-Demand Worker Platform)',
+    category: 'Enterprise',
+    filterCategory: 'Enterprise',
+    secondaryCategory: 'AI',
+    tagline: 'A three-way marketplace connecting clients, freelancers, and administrators.',
+    description: 'A multi-tenant gig marketplace featuring financial escrow workflows, milestone tracking, and intelligent AI-powered task matching.',
+    tags: ['Multi-Tenant', 'Escrow Fintech', 'Marketplace', 'AI Matching'],
+    architecture: ['Next.js 14', 'Microservices', 'Escrow Smart Logic', 'Tailwind', 'Stripe Connect'],
+    accentColor: '#38BDF8',
+    gradient: 'from-blue-600/30 via-indigo-500/20 to-transparent',
+    metrics: [
+      { label: 'Tenant Modes', value: 'Client / Worker / Admin' },
+      { label: 'Escrow Security', value: 'Escrow Workflow' },
+      { label: 'Match Accuracy', value: 'AI Scored' }
+    ],
+    features: [
+      'Three dedicated interfaces customized for Clients, Freelancers, and Super Admins',
+      'Automated milestone escrow release tied to deliverable review deadlines',
+      'AI-driven skill matching algorithm pairing job specs to contractor portfolios',
+      'Dispute resolution audit room with tamper-proof messaging records'
+    ],
+    githubUrl: 'https://github.com/bytelyx',
+    demoUrl: '#demo-taskpro'
+  },
+  {
+    id: 'pt-portal-os',
+    number: '03',
+    title: 'PT Portal (Personal Trainer & Client OS)',
+    category: 'Mobile',
+    filterCategory: 'Mobile',
+    secondaryCategory: 'Web',
+    tagline: 'Real-time progress trackers, client regimen management, and automated booking.',
+    description: 'A mobile-first health and performance operating system connecting fitness coaches with clients through dynamic regimen charts and one-tap bookings.',
+    tags: ['Fitness Tech', 'Mobile OS', 'Real-Time Sync'],
+    architecture: ['React Native', 'GraphQL', 'Supabase', 'Chart.js', 'Push Engine'],
+    accentColor: '#38BDF8',
+    gradient: 'from-cyan-500/30 via-blue-600/20 to-transparent',
+    metrics: [
+      { label: 'Daily Engagement', value: '84% Retention' },
+      { label: 'Sync Speed', value: '< 15ms Supabase' },
+      { label: 'Platform', value: 'iOS & Android' }
+    ],
+    features: [
+      'Interactive body composition and progressive overload trajectory charts',
+      'Custom exercise and macro regimen builder with video guide embeds',
+      'One-tap calendar rescheduling with trainer slot synchronization',
+      'Real-time trainer chat with voice memos and workout video feedback'
+    ],
+    githubUrl: 'https://github.com/bytelyx',
+    demoUrl: '#demo-pt-portal'
+  },
+  {
+    id: 'lawish-films',
     number: '04',
+    title: 'Lawish Films (Cinematic Showcase)',
+    category: 'Web',
+    filterCategory: 'Web',
+    secondaryCategory: 'AI',
+    tagline: 'A cinematic digital showcase crafted for premium visual storytelling.',
+    description: 'A visually immersive creative portfolio featuring full-bleed visuals, cinematic transitions, and secure client media delivery.',
+    tags: ['Creative Studio', 'WebGL Cinema', 'High Performance'],
+    architecture: ['React', 'GSAP / WebGL', 'Cloudinary CDN', 'HLS Video Streaming', 'Tailwind'],
+    accentColor: '#60A5FA',
+    gradient: 'from-blue-600/30 via-sky-500/20 to-transparent',
+    metrics: [
+      { label: 'Lighthouse Score', value: '98/100' },
+      { label: 'Video Quality', value: '4K HLS 60fps' },
+      { label: 'Media Vault', value: 'Encrypted Delivery' }
+    ],
+    features: [
+      'Adaptive bitrate 4K video canvas with cinematic audio controls',
+      'Interactive reel showcase with magnetic cursor physics and frame scrubbing',
+      'Private client delivery vaults with password protection and batch asset download',
+      'Sub-second page transitions powered by GSAP FLIP choreography'
+    ],
+    githubUrl: 'https://github.com/bytelyx',
+    demoUrl: '#demo-lawish'
+  },
+  {
+    id: 'soukariyam-catering-events',
+    number: '05',
     title: 'Soukariyam (Catering & Event OS)',
     category: 'Web',
     filterCategory: 'Web',
@@ -108,92 +136,38 @@ export const projectsData = [
     demoUrl: '#demo-soukariyam'
   },
   {
-    id: 'lawish-films',
-    number: '05',
-    title: 'Lawish Films (Cinematic Showcase)',
+    id: 'solmare-jewellery',
+    number: '06',
+    title: 'Solmare (Jewellery E-commerce)',
     category: 'Web',
     filterCategory: 'Web',
-    secondaryCategory: 'AI',
-    tagline: 'Cinematic full-bleed visual portfolio with custom asset delivery workflows.',
-    description: 'A visually arresting, Awwwards-style creative portfolio tailored for premier cinematographers with custom WebGL transitions and secure client media delivery.',
-    tags: ['Creative Studio', 'WebGL Cinema', 'High Performance'],
-    architecture: ['React', 'GSAP / WebGL', 'Cloudinary CDN', 'HLS Video Streaming', 'Tailwind'],
-    accentColor: '#60A5FA',
-    gradient: 'from-blue-600/30 via-sky-500/20 to-transparent',
+    secondaryCategory: 'E-commerce',
+    tagline: 'Where timeless elegance meets a seamless digital shopping experience.',
+    description: 'A premium jewellery e-commerce experience designed to showcase exquisite collections through elegant product storytelling, refined visuals, and a seamless online shopping journey.',
+    tags: ['E-commerce', 'Luxury Branding', 'Online Shopping'],
+    architecture: ['React', 'Node.js', 'MongoDB', 'Tailwind CSS', 'Payment Integration'],
+    accentColor: '#263B2D',
+    gradient: 'from-amber-500/30 via-yellow-600/20 to-transparent',
     metrics: [
-      { label: 'Lighthouse Score', value: '98/100' },
-      { label: 'Video Quality', value: '4K HLS 60fps' },
-      { label: 'Media Vault', value: 'Encrypted Delivery' }
+      { label: 'Store Experience', value: 'Premium UI' },
+      { label: 'Shopping', value: 'Seamless Checkout' },
+      { label: 'Platform', value: 'Responsive Web' }
     ],
     features: [
-      'Adaptive bitrate 4K video canvas with cinematic audio controls',
-      'Interactive reel showcase with magnetic cursor physics and frame scrubbing',
-      'Private client delivery vaults with password protection and batch asset download',
-      'Sub-second page transitions powered by GSAP FLIP choreography'
+      'Elegant jewellery collection and category browsing',
+      'Detailed product pages with high-quality product imagery',
+      'Shopping cart and streamlined checkout experience',
+      'Responsive luxury storefront optimized for desktop and mobile'
     ],
     githubUrl: 'https://github.com/bytelyx',
-    demoUrl: '#demo-lawish'
-  },
-  {
-    id: 'pt-portal-os',
-    number: '06',
-    title: 'PT Portal (Personal Trainer & Client OS)',
-    category: 'Mobile',
-    filterCategory: 'Mobile',
-    secondaryCategory: 'Web',
-    tagline: 'Real-time progress trackers, client regimen management, and automated booking.',
-    description: 'A mobile-first health and performance operating system connecting elite fitness coaches with clients through dynamic regimen charts and 1-tap bookings.',
-    tags: ['Fitness Tech', 'Mobile OS', 'Real-Time Sync'],
-    architecture: ['React Native', 'GraphQL', 'Supabase', 'Chart.js', 'Push Engine'],
-    accentColor: '#38BDF8',
-    gradient: 'from-cyan-500/30 via-blue-600/20 to-transparent',
-    metrics: [
-      { label: 'Daily Engagement', value: '84% Retention' },
-      { label: 'Sync Speed', value: '< 15ms Supabase' },
-      { label: 'Platform', value: 'iOS & Android' }
-    ],
-    features: [
-      'Interactive body composition & progressive overload trajectory charts',
-      'Custom exercise & macro regimen builder with video guide embeds',
-      'One-tap calendar rescheduling with trainer slot synchronization',
-      'Real-time trainer chat with voice memos and workout video feedback'
-    ],
-    githubUrl: 'https://github.com/bytelyx',
-    demoUrl: '#demo-pt-portal'
-  },
-  {
-    id: 'taskpro-marketplace',
-    number: '07',
-    title: 'Taskpro (On-Demand Worker Platform)',
-    category: 'Enterprise',
-    filterCategory: 'Enterprise',
-    secondaryCategory: 'AI',
-    tagline: '3-way multi-tenant ecosystem (Client, Freelance Worker, Admin) with escrow and milestone tracking.',
-    description: 'A high-integrity gig marketplace platform engineered with financial escrow contracts, milestone releases, and intelligent AI task matching.',
-    tags: ['Multi-Tenant', 'Escrow Fintech', 'Marketplace', 'AI Matching'],
-    architecture: ['Next.js 14', 'Microservices', 'Escrow Smart Logic', 'Tailwind', 'Stripe Connect'],
-    accentColor: '#38BDF8',
-    gradient: 'from-blue-600/30 via-indigo-500/20 to-transparent',
-    metrics: [
-      { label: 'Tenant Modes', value: 'Client / Worker / Admin' },
-      { label: 'Escrow Security', value: '100% Guaranteed' },
-      { label: 'Match Accuracy', value: '94% AI Scored' }
-    ],
-    features: [
-      'Three dedicated interfaces customized for Clients, Freelancers, and Super Admins',
-      'Automated milestone escrow release tied to deliverable review deadlines',
-      'AI-driven skill matching algorithm pairing job specs to contractor portfolios',
-      'Dispute resolution audit room with tamper-proof messaging records'
-    ],
-    githubUrl: 'https://github.com/bytelyx',
-    demoUrl: '#demo-taskpro'
+    demoUrl: '#demo-solmare'
   }
 ];
 
 export const projectFilterCategories = [
-  { id: 'All', label: 'All Projects', count: 7 },
-  { id: 'Web', label: 'Web Development', count: 5 },
-  { id: 'Mobile', label: 'Mobile Apps', count: 2 },
-  { id: 'Enterprise', label: 'Enterprise Systems', count: 4 },
+  { id: 'All', label: 'All Projects', count: 6 },
+  { id: 'Web', label: 'Web Development', count: 4 },
+  { id: 'Mobile', label: 'Mobile Apps', count: 1 },
+  { id: 'Enterprise', label: 'Enterprise Systems', count: 2 },
   { id: 'AI', label: 'AI & Intelligent', count: 2 }
 ];

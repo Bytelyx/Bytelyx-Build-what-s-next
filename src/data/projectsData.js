@@ -1,6 +1,5 @@
-
 import anara from '../assets/anara.png';
-import taskpro from '../assets/Taskpro.png';
+import taskpro from '../assets/Taskpro.jpeg';
 import ptportal from '../assets/PT-portal.png';
 import lawish from '../assets/lawish.png';
 import catering from '../assets/catering.png';
@@ -16,20 +15,21 @@ export const projectsData = [
     titleEn: 'Anara - Karnataka Govt Job Portal',
     categoryEn: 'Government Job Portal',
     clientEn: 'ANARA',
+    liveLink: 'https://www.anaraskills.org/',
     timelineEn: '3 Months',
     yearEn: '2025',
-    accentColor: '#5ED436',
+    accentColor: '#F3D999',
 
     descriptionEn:
       'A government employment portal designed to help candidates discover Karnataka government job opportunities, explore recruitment information, and track application updates.',
 
-    bgColor: '#080D27',
-    bgLight: '#182B65',
+    bgColor: '#100D09',
+    bgLight: '#D4AF7244',
 
     projectImage: anara,
     heroImage: '/images/projects/anara/anaraHero.avif',
-    heroGlowColor: 'rgba(37, 99, 235, 0.42)',
-    heroLineColor: '#3B82F6',
+    heroGlowColor: 'rgba(243, 217, 153, 0.36)',
+    heroLineColor: '#F3D999',
 
     badgesEn: [
       'GovTech',
@@ -99,6 +99,7 @@ export const projectsData = [
     titleEn: 'Taskpro',
     categoryEn: 'On-Demand Worker Platform',
     clientEn: 'TASKPRO',
+    liveLink: 'https://www.amazon.com/abhinraj-Taskpro/dp/B0DFWZY8GT',
     timelineEn: '3 Months',
     yearEn: '2024',
     accentColor: '#5ED436',
@@ -183,6 +184,7 @@ export const projectsData = [
     categoryEn: 'Personal Trainer & Client Platform',
     clientEn: 'PT PORTAL',
     timelineEn: '2 Months',
+    liveLink: 'https://www.amazon.com/abhinraj-PT-Portal/dp/B0CW1B2Q8M',
     yearEn: '2024',
     accentColor: '#5ED436',
 
@@ -203,7 +205,7 @@ export const projectsData = [
       'Workout Management'
     ],
 
-    device: 'mobile',
+    device: 'imac',
     isSecondBg: false,
 
     overviewEn:
@@ -286,7 +288,7 @@ export const projectsData = [
       'Creative Portfolio'
     ],
 
-    device: 'macbook',
+    device: 'imac',
     isSecondBg: false,
 
     overviewEn:
@@ -369,7 +371,7 @@ export const projectsData = [
       'Wedding Planning'
     ],
 
-    device: 'macbook',
+    device: 'imac',
     isSecondBg: false,
 
     overviewEn:
@@ -452,7 +454,7 @@ export const projectsData = [
       'Luxury Branding'
     ],
 
-    device: 'macbook',
+    device: 'imac',
     isSecondBg: false,
 
     overviewEn:

@@ -4,11 +4,12 @@
   background-color: #030e18;
   color: #e3e3e3;
   overflow-x: clip;
+  scroll-margin-top: 0;
   font-family: TheSans, ui-sans-serif, system-ui, -apple-system, sans-serif;
 }
 
 /* =========================================================
-   01. HERO SECTION
+1. HERO SECTION
 ========================================================= */
 .pv-hero {
   position: relative;
@@ -245,7 +246,7 @@
 }
 
 /* =========================================================
-   02. PROJECT OVERVIEW & 03. METADATA
+02. PROJECT OVERVIEW & 03. METADATA
 ========================================================= */
 .pv-overview-section {
   max-width: 1180px;
@@ -313,7 +314,7 @@
 }
 
 /* =========================================================
-   04. VISUAL SHOWCASE
+04. VISUAL SHOWCASE
 ========================================================= */
 .pv-showcase {
   max-width: 1180px;
@@ -370,7 +371,7 @@
 }
 
 /* =========================================================
-   05. PAIN POINTS, KEY CHALLENGES & OUR OBJECTIVE
+05. PAIN POINTS, KEY CHALLENGES & OUR OBJECTIVE
 ========================================================= */
 .pv-challenges-grid {
   max-width: 1180px;
@@ -632,7 +633,7 @@
 }
 
 /* =========================================================
-   12. PROJECT OUTCOMES
+12. PROJECT OUTCOMES
 ========================================================= */
 .pv-outcomes-section {
   max-width: 1180px;
@@ -705,7 +706,7 @@
 }
 
 /* =========================================================
-   13. FROM OUR PARTNERS
+13. FROM OUR PARTNERS
 ========================================================= */
 .pv-partners-section {
   max-width: 1060px;

@@ -1,0 +1,405 @@
+/* =========================================================
+   PROJECTS PAGE — SHOWCASE STYLES
+   Matches the dark atmospheric full-width reference layout
+   ========================================================= */
+
+.projects-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: clip;
+}
+
+/* ---------------------------------------------------------
+   PROJECT SECTION INTRODUCTION
+   --------------------------------------------------------- */
+.projects-intro-section {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2.5rem 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .projects-intro-section {
+    padding: 3.5rem 2rem 3.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .projects-intro-section {
+    padding: 4rem 2rem 4rem;
+  }
+}
+
+.projects-intro-heading {
+  font-size: clamp(1.95rem, 4.3vw, 3.75rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.projects-intro-heading-primary {
+  background: linear-gradient(180deg, #ffffff 0%, #9ea8b3 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.projects-intro-heading-accent {
+  background: linear-gradient(180deg, #307fe2 0%, #05c3de 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.projects-intro-desc {
+  max-width: 44rem;
+  margin: 1.125rem auto 0;
+  font-size: clamp(0.875rem, 1.25vw, 1rem);
+  line-height: 1.7;
+  font-weight: 300;
+  color: #818b95;
+}
+
+/* Compact pill-shaped category filter */
+.projects-filter-track {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-top: 2rem;
+  padding: 0.375rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  max-width: 100%;
+}
+
+.projects-filter-btn {
+  border: none;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.25;
+  color: rgba(255, 255, 255, 0.72);
+  background: transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+@media (min-width: 640px) {
+  .projects-filter-btn {
+    padding: 0.55rem 1.45rem;
+    font-size: 0.8125rem;
+  }
+}
+
+.projects-filter-btn:hover {
+  color: #ffffff;
+}
+
+.projects-filter-btn.is-active {
+  color: #ffffff;
+  background: linear-gradient(90deg, #307fe2 0%, #05c3de 100%);
+  box-shadow: 0 4px 16px rgba(5, 195, 222, 0.26);
+}
+
+/* ---------------------------------------------------------
+   FULL-WIDTH PROJECT SHOWCASE LIST
+   --------------------------------------------------------- */
+.projects-showcase-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-showcase-band {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: var(--proj-bg, #050a18);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  transition: border-color 0.45s ease;
+  outline: none;
+}
+
+.project-showcase-band:focus-visible {
+  box-shadow: inset 0 0 0 2px #05c3de;
+}
+
+/* Atmospheric dark edge vignette around the showcase */
+.project-showcase-band::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(3, 14, 24, 0.48) 0%,
+    transparent 16%,
+    transparent 84%,
+    rgba(3, 14, 24, 0.52) 100%
+  );
+}
+
+/* Radial project-specific ambient glow */
+.project-showcase-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse 64% 62% at 50% 44%,
+      var(--proj-glow, rgba(40, 85, 199, 0.35)) 0%,
+      transparent 72%
+    ),
+    radial-gradient(
+      circle at 50% 48%,
+      var(--proj-hero-glow, rgba(5, 195, 222, 0.16)) 0%,
+      transparent 64%
+    );
+  filter: blur(56px);
+  opacity: 0.72;
+  transition: opacity 0.6s ease, transform 0.8s ease;
+}
+
+.project-showcase-band:hover .project-showcase-glow {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+/* Centered preview stage */
+.project-showcase-stage {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.25rem 1rem 1.75rem;
+}
+
+@media (min-width: 640px) {
+  .project-showcase-stage {
+    padding: 3rem 2rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .project-showcase-stage {
+    min-height: clamp(460px, 64vh, 640px);
+    padding: 3.75rem 3rem 2.25rem;
+  }
+}
+
+/* Aspect-ratio-preserving showcase image */
+.projects-showcase-mockup {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 1440px) {
+  .projects-showcase-mockup {
+    max-width: 1080px;
+  }
+}
+
+.projects-showcase-image {
+  width: 100%;
+  height: auto;
+  max-height: 62vh;
+  object-fit: contain;
+  display: block;
+  border-radius: 18px;
+  user-select: none;
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0%, #000 5%, #000 95%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, #000 5%, #000 92%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, transparent 0%, #000 5%, #000 95%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, #000 5%, #000 92%, transparent 100%);
+  mask-composite: intersect;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-showcase-band:hover .projects-showcase-image {
+  transform: scale(1.028);
+}
+
+/* ---------------------------------------------------------
+   BOTTOM TRANSLUCENT GLASSMORPHISM INFORMATION BAR
+   --------------------------------------------------------- */
+.project-info-bar {
+  position: relative;
+  z-index: 20;
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 16, 24, 0.56) 0%,
+    rgba(5, 9, 16, 0.84) 100%
+  );
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow:
+    0 -4px 40px rgba(0, 0, 0, 0.32),
+    0 -1px 14px rgba(217, 217, 217, 0.1);
+}
+
+@media (min-width: 1024px) {
+  .project-info-bar {
+    margin-top: -1rem;
+  }
+}
+
+/* Subtle top hairline light sheen */
+.project-info-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.24) 50%,
+    transparent 100%
+  );
+}
+
+.project-info-inner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 1.15rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.85rem;
+}
+
+@media (min-width: 768px) {
+  .project-info-inner {
+    flex-direction: row;
+    align-items: center;
+    padding: 1.35rem 2.25rem;
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .project-info-inner {
+    padding: 1.5rem 3.25rem;
+  }
+}
+
+.project-info-meta {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.project-info-title {
+  margin: 0;
+  font-size: clamp(1.2rem, 2.2vw, 1.875rem);
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -0.015em;
+  background: linear-gradient(180deg, #ffffff 0%, #c8d1dc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.project-info-category {
+  margin: 0.25rem 0 0;
+  font-size: clamp(0.75rem, 1vw, 0.9375rem);
+  font-weight: 300;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.project-info-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .project-info-badges {
+    justify-content: flex-end;
+    flex-shrink: 0;
+    max-width: 52%;
+  }
+}
+
+.project-info-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.375rem 0.85rem;
+  border-radius: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.25;
+  color: rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.project-showcase-band:hover .project-info-badge {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.projects-empty-state {
+  padding: 4rem 1.5rem;
+  text-align: center;
+  color: #818b95;
+  font-size: 0.95rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-showcase-glow,
+  .projects-showcase-image,
+  .project-info-badge,
+  .projects-filter-btn {
+    transition: none;
+  }
+
+  .project-showcase-band:hover .projects-showcase-image,
+  .project-showcase-band:hover .project-showcase-glow {
+    transform: none;
+  }
+}

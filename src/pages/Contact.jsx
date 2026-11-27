@@ -415,13 +415,6 @@ export function Contact() {
         </div>
       </section>
 
-      {/* Technologies what we use */}
-      <section className="contact-trusted-section" aria-label="Trusted by Innovators and Industry Leaders">
-        <div className="contact-trusted-inner">
-          <TrustedBy />
-        </div>
-      </section>
-
       {/* 4. FAQ Section */}
       <section className="contact-faq-section" aria-label="Frequently asked questions">
         <div className="contact-section-header">

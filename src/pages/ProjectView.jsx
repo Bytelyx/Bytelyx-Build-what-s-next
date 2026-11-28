@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -8,6 +8,87 @@ import { ReadyToStart } from '../components/ReadyToStart';
 import './ProjectView.css';
 
 gsap.registerPlugin(ScrollTrigger);
+
+const DEFAULT_TIMELINE_ROWS = [
+  [
+    { label: 'Discovery & Analysis', start: 0, span: 2.5, tone: 'indigo' },
+  ],
+  [
+    { label: 'UI/UX Design', start: 1.0, span: 1.45, tone: 'violet' },
+    { label: 'Design Update', start: 4.0, span: 1.5, tone: 'violet' },
+  ],
+  [
+    { label: 'Core Development', start: 1.45, span: 2.35, tone: 'cyan' },
+  ],
+  [
+    { label: 'Compliance Integration', start: 4.15, span: 3.35, tone: 'teal' },
+  ],
+  [
+    { label: 'QA & User Testing', start: 2.0, span: 6.2, tone: 'blue' },
+  ],
+  [
+    { label: 'Deployment', start: 7.5, span: 1.5, tone: 'indigo' },
+  ],
+];
+
+const TIMELINE_AXIS_LABELS = [
+  { label: 'I Month', positionPct: 0 },
+  { label: 'III Month', positionPct: 25 },
+  { label: 'V Month', positionPct: 50 },
+  { label: 'VII Month', positionPct: 75 },
+  { label: 'IX Month', positionPct: 100 },
+];
+
+const TOTAL_MONTHS = 9;
+
+const PHASE_OVERRIDES = {
+  'ui/ux design': { start: 1.0, span: 1.45, tone: 'violet' },
+  'design update': { start: 4.0, span: 1.5, tone: 'violet' },
+  'core development': { start: 1.45, span: 2.35, tone: 'cyan' },
+  'qa & user testing': { start: 2.0, span: 6.2, tone: 'blue' },
+};
+
+function applyPhaseOverride(item) {
+  const key = item?.label?.toLowerCase();
+  if (key && PHASE_OVERRIDES[key]) {
+    return { ...item, ...PHASE_OVERRIDES[key] };
+  }
+  return item;
+}
+
+function normalizeTimelineRows(rawTimeline) {
+  if (!Array.isArray(rawTimeline) || rawTimeline.length === 0) {
+    return DEFAULT_TIMELINE_ROWS;
+  }
+  if (Array.isArray(rawTimeline[0])) {
+    return rawTimeline.map((row) => row.map(applyPhaseOverride));
+  }
+
+  const rows = [];
+  let designUpdateItem = null;
+
+  for (const rawItem of rawTimeline) {
+    const item = applyPhaseOverride(rawItem);
+
+    if (item.label?.toLowerCase() === 'design update') {
+      designUpdateItem = item;
+      continue;
+    }
+
+    rows.push([item]);
+
+    if (item.label?.toLowerCase() === 'ui/ux design' && designUpdateItem) {
+      rows[rows.length - 1].push(designUpdateItem);
+      designUpdateItem = null;
+    }
+  }
+
+  if (designUpdateItem) {
+    rows.push([designUpdateItem]);
+  }
+
+  return rows;
+}
 
 function OutcomeIcon({ type }) {
   switch (type) {
@@ -73,6 +154,13 @@ function SectionTitle({ primary, accent }) {
 export function ProjectView() {
   const { name } = useParams();
   const { pathname } = useLocation();
+  const pageRef = useRef(null);
+  const timelineScrollRef = useRef(null);
+  const dragStateRef = useRef({
+    isDown: false,
+    startX: 0,
+    scrollLeft: 0,
+  });
 
   const project =
     projectsData.find(
@@ -110,15 +198,70 @@ export function ProjectView() {
     };
   }, [pathname, name, project?.name]);
 
-  // Unified Blue + Cyan Theme
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from('.pv-timeline-bar', {
+        scaleX: 0.85,
+        opacity: 0,
+        transformOrigin: 'left center',
+        duration: 0.65,
+        stagger: 0.08,
+        ease: 'power2.out',
+        clearProps: 'transform,opacity',
+        scrollTrigger: {
+          trigger: '.pv-timeline-board',
+          start: 'top 84%',
+          once: true,
+        },
+      });
+    }, pageRef);
+
+    return () => ctx.revert();
+  }, [project?.name]);
+
+  const handleTimelineMouseDown = (e) => {
+    const el = timelineScrollRef.current;
+    if (!el) return;
+    dragStateRef.current = {
+      isDown: true,
+      startX: e.pageX - el.offsetLeft,
+      scrollLeft: el.scrollLeft,
+    };
+  };
+
+  const handleTimelineMouseMove = (e) => {
+    const el = timelineScrollRef.current;
+    if (!el || !dragStateRef.current.isDown) return;
+    const x = e.pageX - el.offsetLeft;
+    const walk = (x - dragStateRef.current.startX) * 1.2;
+    el.scrollLeft = dragStateRef.current.scrollLeft - walk;
+  };
+
+  const handleTimelineMouseUpOrLeave = () => {
+    dragStateRef.current.isDown = false;
+  };
+
   const accentColor = '#307FE2';
   const heroGlowColor = 'rgba(48, 127, 226, 0.45)';
   const heroLineColor = '#05C3DE';
+
+  const rawLiveUrl =
+    project?.liveLink ||
+    project?.liveUrl ||
+    project?.website ||
+    project?.url ||
+    '';
+  const liveWebsiteUrl = rawLiveUrl
+    ? /^https?:\/\//i.test(rawLiveUrl)
+      ? rawLiveUrl
+      : `https://${rawLiveUrl}`
+    : '';
 
   const showcaseImages = (project?.showcaseImages || []).filter(Boolean);
   const painPoints = project?.painPointsEn || [];
   const keyChallenges = project?.keyChallengesEn || [];
   const objectives = project?.objectivesEn || [];
+  const timelineRows = normalizeTimelineRows(project?.timeline);
   const outcomes = project?.outcomes || [];
 
   const featureGroups =
@@ -143,18 +286,10 @@ export function ProjectView() {
   const outcomeIconOrder = ['transfers', 'rocket', 'globe', 'design'];
 
   return (
-    <div
-      className="pv-page"
-      style={{
-        '--pv-accent': accentColor,
-        '--pv-hero-glow': heroGlowColor,
-        '--pv-hero-line': heroLineColor,
-      }}
-    >
+    <div ref={pageRef} className="pv-page" style={{ '--pv-accent': accentColor, '--pv-hero-glow': heroGlowColor, '--pv-hero-line': heroLineColor,}}>
       {/* 1. HERO SECTION */}
       <section className="pv-hero" aria-label={project.titleEn}>
         <div className="pv-hero-glow" />
-
         <div className="pv-hero-stage">
           {project.heroCoinsImage ? (
             <img
@@ -245,16 +380,13 @@ export function ProjectView() {
               {project.overviewEn || project.descriptionEn}
             </p>
 
-            {project.liveLink && (
-              <a
-                href={project.liveLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="pv-live-link"
-              >
-                <span>Visit Live Website</span>
-                <ExternalLink size={17} strokeWidth={1.8} />
-              </a>
+            {liveWebsiteUrl && (
+              <div className="pv-live-actions">
+                <a href={liveWebsiteUrl} target="_blank" rel="noopener noreferrer" className="pv-live-link">
+                  <span>Visit Live Website</span>
+                  <ExternalLink size={16} strokeWidth={2} />
+                </a>
+              </div>
             )}
           </div>
 
@@ -300,10 +432,7 @@ export function ProjectView() {
 
       {/* 5. PAIN POINTS & KEY CHALLENGES */}
       {(painPoints.length > 0 || keyChallenges.length > 0) && (
-        <section
-          className="pv-challenges-grid"
-          aria-label="Pain Points and Challenges"
-        >
+        <section className="pv-challenges-grid" aria-label="Pain Points and Challenges">
           {painPoints.length > 0 && (
             <div className="pv-dark-panel">
               <h3 className="pv-panel-title">Pain points</h3>
@@ -424,6 +553,71 @@ export function ProjectView() {
         </section>
       )}
 
+      {/* PROJECT TIMELINE (FULL EDGE-TO-EDGE ABOVE PROJECT OUTCOMES) */}
+      {timelineRows.length > 0 && (
+        <section className="pv-timeline-section" aria-label="Project Timeline">
+          <div className="pv-timeline-inner">
+            <SectionTitle primary="Project" accent="Timeline" />
+          </div>
+
+          <div ref={timelineScrollRef} className="pv-timeline-scroll" data-lenis-prevent onMouseDown={handleTimelineMouseDown} onMouseMove={handleTimelineMouseMove} onMouseUp={handleTimelineMouseUpOrLeave} onMouseLeave={handleTimelineMouseUpOrLeave}>
+            <div className="pv-timeline-board">
+              <div className="pv-timeline-grid-lines" aria-hidden="true">
+                {Array.from({ length: TOTAL_MONTHS + 1 }).map((_, idx) => (
+                  <span key={idx} className="pv-timeline-col-line" />
+                ))}
+              </div>
+
+              <div className="pv-timeline-rows">
+                {timelineRows.map((rowItems, rowIdx) => {
+                  let cursorPct = 0;
+                  return (
+                    <div key={rowIdx} className="pv-timeline-row">
+                      {rowItems.map((phase, itemIdx) => {
+                        const startPct = Math.max(
+                          0,
+                          Math.min(92, (phase.start / TOTAL_MONTHS) * 100)
+                        );
+                        const widthPct = Math.max(
+                          11,
+                          Math.min(
+                            100 - startPct,
+                            (phase.span / TOTAL_MONTHS) * 100
+                          )
+                        );
+                        const gapPct = Math.max(0, startPct - cursorPct);
+                        cursorPct = startPct + widthPct;
+                        const toneClass = `pv-timeline-bar--${phase.tone || 'blue'}`;
+
+                        return (
+                          <div key={itemIdx} className={`pv-timeline-bar ${toneClass}`}
+                            style={{
+                              '--pv-bar-gap': `${gapPct}%`,
+                              '--pv-bar-width': `${widthPct}%`,
+                              marginLeft: `${gapPct}%`,
+                              width: `${widthPct}%`,
+                            }}>
+                            <span className="pv-timeline-label">{phase.label}</span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="pv-timeline-axis">
+                {TIMELINE_AXIS_LABELS.map((item, idx) => (
+                  <span key={idx} className="pv-timeline-month" style={{ left: `${item.positionPct}%` }}>
+                    {item.label}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* PROJECT OUTCOMES */}
       {outcomes.length > 0 && (
         <section className="pv-outcomes-section" aria-label="Project Outcomes">
@@ -453,34 +647,6 @@ export function ProjectView() {
           </div>
         </section>
       )}
-
-      {/* FROM OUR PARTNERS */}
-      <section className="pv-partners-section" aria-label="From Our Partners">
-        <SectionTitle primary="From Our" accent="Partners" />
-
-        <div className="pv-partner-card">
-          <div className="pv-partner-inner">
-            <div className="pv-partner-photo-wrap">
-              <img
-                src="/images/projects/sahab/our-partner.avif"
-                alt="Miguel Torres"
-                className="pv-partner-photo"
-              />
-            </div>
-
-            <div>
-              <p className="pv-partner-quote">
-                The major benefit of Bytelyx is that they do not only think like
-                developers, but also like business owners and entrepreneurs. We
-                benefited from their experience of building and operating
-                digital products.
-              </p>
-              <p className="pv-partner-name">Miguel Torres</p>
-              <p className="pv-partner-role">Sahab CEO</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* FINAL CTA */}
       <ReadyToStart />

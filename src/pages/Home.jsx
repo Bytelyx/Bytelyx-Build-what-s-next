@@ -43,24 +43,9 @@ function PremiumServiceVisual({ type, label }) {
       <div className="service-orbit service-orbit-one" />
       <div className="service-orbit service-orbit-two" />
 
-      <svg
-        viewBox="0 0 280 170"
-        role="img"
-        aria-label={label}
-        className="service-art relative z-10 h-full w-full overflow-visible"
-      >
+      <svg viewBox="0 0 280 170" role="img" aria-label={label} className="service-art relative z-10 h-full w-full overflow-visible">
         {common}
-
-        <ellipse
-          cx="140"
-          cy="139"
-          rx="72"
-          ry="10"
-          fill="#05C3DE"
-          opacity=".18"
-          filter={`url(#shadow-${type})`}
-        />
-
+        <ellipse cx="140" cy="139" rx="72" ry="10" fill="#05C3DE" opacity=".18" filter={`url(#shadow-${type})`} />
         {type === 'puzzle' && <>
           <path d="M72 52 L111 30 L151 52 L111 75 Z" fill={`url(#metal-${type})`} stroke="#B7F5FF" strokeOpacity=".75" />
           <path d="M72 52 L111 75 L111 120 L72 96 Z" fill="#2365B5" stroke="#82E9FF" strokeOpacity=".6" />
@@ -183,7 +168,7 @@ export function Home() {
   // GSAP Animations and ScrollTriggers
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // 1. Hero entrance animation
+      // Hero entrance animation
       const heroTl = gsap.timeline({
         defaults: { ease: 'power3.out' },
       });
@@ -226,7 +211,7 @@ export function Home() {
         );
       }
 
-      // 2. Section reveal animations
+      // Section reveal animations
       const revealSections = gsap.utils.toArray('.gsap-reveal-section');
 
       revealSections.forEach((section) => {
@@ -247,7 +232,7 @@ export function Home() {
         );
       });
 
-      // 3. Bento cards
+      // Bento cards
       const bentoCards = gsap.utils.toArray('.gsap-bento-card');
 
       if (bentoCards.length) {
@@ -269,7 +254,7 @@ export function Home() {
         );
       }
 
-      // 4. Stack only the What We Offer cards.
+      // Stack only the What We Offer cards.
       const offerSection = document.querySelector('.gsap-offer-stack-section');
       const offerGrid = offerSection?.querySelector('.gsap-offer-grid');
       const offerCards = offerSection
@@ -336,7 +321,7 @@ export function Home() {
     };
   }, []);
 
-  // 5. Project card ScrollTrigger - Mobile + Desktop
+  // Project card ScrollTrigger - Mobile + Desktop
   useEffect(() => {
     let refreshFrame;
 
@@ -382,84 +367,63 @@ export function Home() {
   return (
     <div ref={mainRef} className="flex w-full flex-col items-center">
 
-      {/* 1. HERO SECTION */}
-      <section
-        className="relative mx-auto mb-16 w-full max-w-7xl isolate overflow-hidden px-4 pt-4 text-center md:px-10 lg:px-8 lg:pt-6 xl:px-14 xl:pt-10 2xl:px-24 2.5xl:px-32 3xl:container 3xl:px-48"
-        aria-label="Hero"
-      >
+      {/* HERO SECTION */}
+      <section className="relative mx-auto mb-16 w-full max-w-7xl isolate overflow-hidden px-4 pt-4 text-center md:px-10 lg:px-8 lg:pt-6 xl:px-14 xl:pt-10 2xl:px-24 2.5xl:px-32 3xl:container 3xl:px-48" aria-label="Hero">
         <HeroScene />
-
         <div className="pointer-events-none absolute -top-20 left-1/2 z-0 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,_#20375699,_#05c5de00)] opacity-75 blur-[100px] md:w-[900px]" />
-
-        <h1
-          ref={heroHeadingRef}
-          className="relative z-10 mx-auto w-full text-3xl font-medium leading-tight md:text-5xl lg:mb-2 lg:w-4/5 lg:text-5xl 2xl:text-7xl 3xl:mb-16 2.5xl:mb-12"
-        >
+        <h1 ref={heroHeadingRef} className="relative z-10 mx-auto w-full text-3xl font-medium leading-tight md:text-5xl lg:mb-2 lg:w-4/5 lg:text-5xl 2xl:text-7xl 3xl:mb-16 2.5xl:mb-12">
           <span className="block bg-gradient-to-b from-foreground-from via-white to-foreground-to bg-clip-text py-2 text-transparent">
             Building What's Next
           </span>
-
           <span className="block bg-gradient-to-r from-[#307FE2] to-[#05C3DE] bg-clip-text py-2 text-transparent">
             Where Ideas Become Reality.
           </span>
         </h1>
 
         <div className="group relative isolate space-y-6 py-4 pb-10 md:pb-14 lg:space-y-12 lg:py-8 lg:pb-16 3xl:space-y-16">
-          <p
-            ref={heroSubtitleRef}
-            className="relative z-10 mx-auto mb-8 max-w-2xl text-xs font-light leading-6 text-white/90 md:text-xl lg:mb-8 lg:text-base 3xl:mb-16"
-          >
+          <p ref={heroSubtitleRef} className="relative z-10 mx-auto mb-8 max-w-2xl text-xs font-light leading-6 text-white/90 md:text-xl lg:mb-8 lg:text-base 3xl:mb-16" >
             We build exceptional digital products that bring ideas to life.
           </p>
 
-          <div ref={heroCtaRef} className="relative z-10 inline-block">
-            <Link
-              to="/services"
-              className="relative inline-flex items-center justify-center gap-4 overflow-hidden rounded-full border border-white/20 bg-gradient-to-r from-[#307FE2] to-[#05C3DE] px-6 py-3.5 text-xs font-medium text-white shadow-[0_0_20px_rgba(48,127,226,0.3)] transition-all duration-500 hover:scale-105 hover:shadow-[0_0_35px_rgba(48,127,226,0.5),0_0_60px_rgba(5,195,222,0.3)] md:px-8 md:py-4 md:text-lg lg:px-6 lg:py-3 lg:text-sm xl:px-8 xl:py-4"
-            >
-              <div className="pointer-events-none absolute inset-0 rounded-full border-2 border-transparent bg-clip-border">
+          <div ref={heroCtaRef} className="relative z-10 inline-flex justify-center">
+            <Link to="/services" className="relative inline-flex w-auto items-center justify-center gap-2 overflow-hidden rounded-full border border-white/20 bg-gradient-to-r from-[#307FE2] to-[#05C3DE] px-5 py-2.5 text-xs font-medium text-white shadow-[0_0_20px_rgba(48,127,226,0.3)] transition-all duration-500 hover:scale-105 hover:shadow-[0_0_35px_rgba(48,127,226,0.5),0_0_60px_rgba(5,195,222,0.3)] md:gap-3 md:px-7 md:py-3.5 md:text-base lg:px-6 lg:py-3 lg:text-sm xl:px-7 xl:py-3.5">
+              <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-full border-2 border-transparent bg-clip-border">
                 <div className="absolute -left-36 h-20 w-64 origin-right animate-spin rounded-full bg-gradient-to-b from-white/30 to-transparent duration-5000" />
               </div>
 
-              <div className="relative flex items-center">
+              <div className="relative flex shrink-0 items-center">
                 <span className="animate-pulse text-white">
-                  <svg viewBox="0 0 24 24" className="size-4 fill-current">
+                  <svg viewBox="0 0 24 24" className="size-3.5 fill-current md:size-4">
                     <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
                   </svg>
                 </span>
-                <span className="ms-1 size-2 animate-ping text-cyan-200">
+                <span className="ms-0.5 size-2 animate-ping text-cyan-200">
                   <svg viewBox="0 0 24 24" className="size-2 fill-current">
                     <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
                   </svg>
                 </span>
               </div>
 
-              <span className="relative z-10 font-semibold tracking-wide">
+              <span className="relative z-10 whitespace-nowrap font-semibold tracking-wide">
                 Discover Services
               </span>
 
               <div className="pointer-events-none absolute -bottom-6 left-0 z-20 h-10 w-full bg-white/20 blur-lg" />
             </Link>
           </div>
-
           <div className="pointer-events-none absolute -bottom-36 left-1/2 z-0 size-40 -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,_#81a1f9_0%,_#6ac8ff_44%,_#6ee2fc_54%,_#245bf1_100%)] opacity-70 blur-2xl transition-transform duration-1000 group-hover:scale-125 lg:-bottom-40 lg:size-48 lg:blur-3xl xl:-bottom-80 xl:size-80 xl:blur-[100px]" />
-
           <div className="pointer-events-none absolute bottom-0 left-1/2 z-0 h-64 w-3/4 -translate-x-1/2 rounded-[50%] bg-[radial-gradient(ellipse_at_center,_rgba(48,127,226,0.45)_0%,_rgba(5,195,222,0.25)_35%,_transparent_75%)] opacity-90 blur-[60px]" />
-
           <div className="pointer-events-none absolute bottom-0 left-1/2 z-20 h-[2px] w-3/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-[#6DA5FF] to-transparent shadow-[0_-2px_10px_rgba(80,150,255,0.4)]" />
         </div>
       </section>
 
-      {/* 2. TRUSTED BY INNOVATORS */}
+      {/* TRUSTED BY INNOVATORS */}
       <div className="w-full">
         <TrustedBy />
       </div>
 
-      {/* 3. THE STORY OF BYTELYX */}
-      <section
-        className="gsap-reveal-section 3xl:container 2.5xl:px-32 3xl:px-48 mx-auto mt-20 w-full max-w-7xl space-y-10 px-4 md:px-10 lg:my-24 lg:px-8 xl:mb-20 xl:mt-32 xl:space-y-16 xl:px-14 2xl:px-24"
-        aria-label="The Story of FikraTech"
-      >
+      {/* THE STORY OF BYTELYX */}
+      <section className="gsap-reveal-section 3xl:container 2.5xl:px-32 3xl:px-48 mx-auto mt-20 w-full max-w-7xl space-y-10 px-4 md:px-10 lg:my-24 lg:px-8 xl:mb-20 xl:mt-32 xl:space-y-16 xl:px-14 2xl:px-24" aria-label="The Story of Bytelyx">
         <div className="m-auto flex flex-col items-center justify-center gap-2 text-center lg:gap-4 xl:gap-6">
           <div className="bottomBorder flex items-center rounded-full border-t border-white/10 bg-[#0A1825] px-3 py-1">
             <span className="me-2 size-1.5 rounded-full bg-gradient-to-t from-primary-from to-primary-to shadow-sm" />
@@ -479,7 +443,6 @@ export function Home() {
             More than a software company — ByteLyx turns innovative ideas into powerful digital solutions.
           </p>
         </div>
-
         <div className="gsap-bento-grid grid grid-cols-1 gap-y-5 lg:grid-cols-12 lg:gap-4 xl:gap-8">
 
           {/* Card 1: What is ByteLyx? */}
@@ -509,11 +472,7 @@ export function Home() {
           </SpecialCard>
 
           {/* Card 2: Our Vision */}
-          <div
-            className="gsap-bento-card col-span-12 lg:col-span-8"
-            onMouseEnter={() => setVisionHovered(true)}
-            onMouseLeave={() => setVisionHovered(false)}
-          >
+          <div className="gsap-bento-card col-span-12 lg:col-span-8" onMouseEnter={() => setVisionHovered(true)} onMouseLeave={() => setVisionHovered(false)}>
             <SpecialCard className="group/vision flex h-full flex-col items-start p-6 transition-all duration-500 hover:border-blue-400/40 hover:shadow-[0_0_30px_rgba(59,130,246,0.12)] md:p-8">
               <h3 className="mb-3 font-bold text-white md:text-3xl lg:text-base xl:mb-5 xl:text-2xl">
                 Our Vision
@@ -527,21 +486,17 @@ export function Home() {
                 <img
                   src="/images/home/story/image2.svg"
                   alt="Bytelyx Global Vision Map"
-                  className={`relative z-10 h-full w-full object-contain transition-all duration-700 ${
-                    visionHovered
+                  className={`relative z-10 h-full w-full object-contain transition-all duration-700 ${visionHovered
                       ? 'brightness-125 drop-shadow-[0_0_18px_rgba(5,195,222,0.25)]'
                       : ''
-                  }`}
-                />
+                    }`} />
 
                 <svg
                   aria-hidden="true"
                   viewBox="0 0 689 290"
                   preserveAspectRatio="xMidYMid meet"
-                  className={`pointer-events-none absolute inset-0 z-20 h-full w-full transition-opacity duration-500 ${
-                    visionHovered ? 'opacity-100' : 'opacity-0'
-                  }`}
-                >
+                  className={`pointer-events-none absolute inset-0 z-20 h-full w-full transition-opacity duration-500 ${visionHovered ? 'opacity-100' : 'opacity-0'
+                    }`}>
                   <defs>
                     <mask id="fikra-continent-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="689" height="290">
                       <image
@@ -561,19 +516,10 @@ export function Home() {
                         const x = col * 8.6 + (row % 2) * 4.3 + 5;
                         const y = row * 7.5 + 5;
                         const visible = (row * 13 + col * 17) % 4 !== 0;
-
                         if (!visible || x > 684 || y > 286) return null;
-
                         const cyan = (row + col) % 3 === 0;
-
                         return (
-                          <circle
-                            key={`${row}-${col}`}
-                            cx={x}
-                            cy={y}
-                            r={cyan ? 1.6 : 1.1}
-                            fill={cyan ? '#05C3DE' : '#307FE2'}
-                            className="animate-pulse"
+                          <circle key={`${row}-${col}`} cx={x} cy={y} r={cyan ? 1.6 : 1.1} fill={cyan ? '#05C3DE' : '#307FE2'} className="animate-pulse"
                             style={{
                               animationDelay: `${((row * 2 + col) % 10) * 100}ms`,
                             }}
@@ -584,11 +530,8 @@ export function Home() {
                   </g>
                 </svg>
 
-                <div
-                  className={`pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,rgba(48,127,226,0.2),transparent_70%)] transition-opacity duration-700 ${
-                    visionHovered ? 'opacity-100' : 'opacity-0'
-                  }`}
-                />
+                <div className={`pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,rgba(48,127,226,0.2),transparent_70%)] transition-opacity duration-700 ${visionHovered ? 'opacity-100' : 'opacity-0'
+                  }`} />
               </div>
             </SpecialCard>
           </div>
@@ -598,7 +541,6 @@ export function Home() {
             <h3 className="mb-3 font-bold text-white md:text-3xl lg:text-base xl:mb-5 xl:text-2xl">
               What We Do
             </h3>
-
             <p className="text-start text-xs font-light leading-5 text-[#828282] md:text-xl lg:text-[0.65rem] lg:leading-4 xl:text-xs xl:leading-5">
               At ByteLyx, we turn ideas into smart, scalable digital solutions. From intuitive apps to powerful platforms, we design, develop, and deliver technology that drives real impact.
             </p>
@@ -610,24 +552,14 @@ export function Home() {
                 ['NodeJS', 'ExpressJS', 'MongoDB', 'GIT', 'GitHub', 'Dart'],
               ].map((items, rowIndex) => (
                 <div key={rowIndex} className="w-full overflow-hidden">
-                  <div
-                    className={`flex w-max gap-2 ${
-                      rowIndex === 1
-                        ? 'animate-marquee-reverse'
-                        : 'animate-marquee-slow'
-                    }`}
-                  >
+                  <div className={`flex w-max gap-2 ${rowIndex === 1
+                      ? 'animate-marquee-reverse'
+                      : 'animate-marquee-slow'
+                    }`} >
                     {[0, 1].map((copy) => (
-                      <div
-                        key={copy}
-                        aria-hidden={copy === 1 ? 'true' : undefined}
-                        className="flex shrink-0 gap-2"
-                      >
+                      <div key={copy} aria-hidden={copy === 1 ? 'true' : undefined} className="flex shrink-0 gap-2">
                         {items.map((item, idx) => (
-                          <span
-                            key={`${item}-${idx}`}
-                            className="shrink-0 rounded-lg border border-primary/40 bg-primary/10 px-2.5 py-1 text-[0.65rem] font-medium text-white shadow-sm"
-                          >
+                          <span key={`${item}-${idx}`} className="shrink-0 rounded-lg border border-primary/40 bg-primary/10 px-2.5 py-1 text-[0.65rem] font-medium text-white shadow-sm">
                             {item}
                           </span>
                         ))}
@@ -640,11 +572,7 @@ export function Home() {
           </SpecialCard>
 
           {/* Card 4: Our Achievements */}
-          <div
-            className="gsap-bento-card col-span-12 lg:col-span-6"
-            onMouseEnter={triggerConfetti}
-            onMouseLeave={() => setAchievementsHovered(false)}
-          >
+          <div className="gsap-bento-card col-span-12 lg:col-span-6" onMouseEnter={triggerConfetti} onMouseLeave={() => setAchievementsHovered(false)}>
             <SpecialCard className="group relative isolate flex h-full flex-col items-start overflow-hidden p-6 transition-all duration-500 hover:border-primary/40 hover:shadow-[0_0_35px_rgba(48,127,226,0.18)] md:p-8">
               <h3 className="relative z-10 mb-3 font-bold text-white md:text-3xl lg:text-base xl:mb-5 xl:text-2xl">
                 Our Achievements
@@ -656,10 +584,7 @@ export function Home() {
 
               <div className="relative z-10 m-auto mt-4 flex w-full justify-around py-8 md:py-10">
                 <div className="text-center">
-                  <span
-                    ref={stat1Ref}
-                    className="block bg-gradient-to-b from-primary-from to-primary-to bg-clip-text text-3xl font-bold text-transparent md:text-5xl lg:text-4xl xl:text-5xl"
-                  >
+                  <span ref={stat1Ref} className="block bg-gradient-to-b from-primary-from to-primary-to bg-clip-text text-3xl font-bold text-transparent md:text-5xl lg:text-4xl xl:text-5xl" >
                     100%
                   </span>
                   <p className="mt-1 text-xs text-foreground/80 md:text-base">
@@ -668,10 +593,7 @@ export function Home() {
                 </div>
 
                 <div className="text-center">
-                  <span
-                    ref={stat2Ref}
-                    className="block bg-gradient-to-b from-primary-from to-primary-to bg-clip-text text-3xl font-bold text-transparent md:text-5xl lg:text-4xl xl:text-5xl"
-                  >
+                  <span ref={stat2Ref} className="block bg-gradient-to-b from-primary-from to-primary-to bg-clip-text text-3xl font-bold text-transparent md:text-5xl lg:text-4xl xl:text-5xl">
                     15+
                   </span>
                   <p className="mt-1 text-xs text-foreground/80 md:text-base">
@@ -680,10 +602,7 @@ export function Home() {
                 </div>
 
                 <div className="text-center">
-                  <span
-                    ref={stat3Ref}
-                    className="block bg-gradient-to-b from-primary-from to-primary-to bg-clip-text text-3xl font-bold text-transparent md:text-5xl lg:text-4xl xl:text-5xl"
-                  >
+                  <span ref={stat3Ref} className="block bg-gradient-to-b from-primary-from to-primary-to bg-clip-text text-3xl font-bold text-transparent md:text-5xl lg:text-4xl xl:text-5xl">
                     20+
                   </span>
                   <p className="mt-1 text-xs text-foreground/80 md:text-base">
@@ -706,13 +625,7 @@ export function Home() {
 
             <div className="relative mt-auto flex h-44 w-full flex-none items-center justify-center overflow-visible transition-all duration-700 md:h-52 lg:h-40 xl:h-48">
               <div className="pointer-events-none absolute inset-0 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(210,220,245,0.24),rgba(105,125,165,0.10)_35%,transparent_70%)] opacity-70 transition-all duration-700 group-hover:scale-110 group-hover:bg-[radial-gradient(ellipse_at_center,rgba(235,242,255,0.52),rgba(130,165,235,0.26)_38%,transparent_72%)] group-hover:opacity-100" />
-
-              <svg
-                viewBox="0 0 240 180"
-                role="img"
-                aria-label="Silver faceted diamond"
-                className="relative z-10 h-full w-full max-w-[220px] overflow-visible drop-shadow-[0_8px_18px_rgba(205,215,240,0.24)] transition-all duration-700 group-hover:scale-105 group-hover:brightness-150 group-hover:drop-shadow-[0_0_34px_rgba(225,235,255,1)]"
-              >
+              <svg viewBox="0 0 240 180" role="img" aria-label="Silver faceted diamond" className="relative z-10 h-full w-full max-w-[220px] overflow-visible drop-shadow-[0_8px_18px_rgba(205,215,240,0.24)] transition-all duration-700 group-hover:scale-105 group-hover:brightness-150 group-hover:drop-shadow-[0_0_34px_rgba(225,235,255,1)]">
                 <defs>
                   <linearGradient id="diamondTop" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0%" stopColor="#F9FAFF" />
@@ -735,18 +648,7 @@ export function Home() {
                     <feGaussianBlur stdDeviation="5" />
                   </filter>
                 </defs>
-
-                <ellipse
-                  cx="120"
-                  cy="91"
-                  rx="77"
-                  ry="49"
-                  fill="#DCE5FF"
-                  opacity="0.16"
-                  filter="url(#diamondGlow)"
-                  className="transition-all duration-700 group-hover:fill-[#F0F5FF] group-hover:opacity-90"
-                />
-
+                <ellipse cx="120" cy="91" rx="77" ry="49" fill="#DCE5FF" opacity="0.16" filter="url(#diamondGlow)" className="transition-all duration-700 group-hover:fill-[#F0F5FF] group-hover:opacity-90" />
                 <g fill="#DDE6FA" opacity="0.7">
                   <circle cx="39" cy="38" r="2.2" />
                   <circle cx="65" cy="17" r="1.6" />
@@ -775,10 +677,7 @@ export function Home() {
       </section>
 
       {/* 4. WHAT WE OFFER */}
-      <section
-        className="hidden md:block gsap-reveal-section gsap-offer-stack-section 3xl:container 2.5xl:px-32 3xl:px-48 mx-auto mb-30 w-full max-w-7xl space-y-10 overflow-visible px-4 pt-20 pb-40 md:mb-32 md:px-10 md:pb-48 lg:px-8 xl:space-y-16 xl:px-14 xl:pb-56 2xl:px-24"
-        aria-label="What We Offer"
-      >
+      <section className="hidden md:block gsap-reveal-section gsap-offer-stack-section 3xl:container 2.5xl:px-32 3xl:px-48 mx-auto mb-30 w-full max-w-7xl space-y-10 overflow-visible px-4 pt-20 pb-40 md:mb-32 md:px-10 md:pb-48 lg:px-8 xl:space-y-16 xl:px-14 xl:pb-56 2xl:px-24" aria-label="What We Offer">
         <div className="m-auto flex flex-col items-center justify-center gap-2 text-center lg:gap-4 xl:gap-6">
           <div className="bottomBorder flex items-center rounded-full border-t border-white/10 bg-[#0A1825] px-3 py-1">
             <span className="me-2 size-1.5 rounded-full bg-gradient-to-t from-primary-from to-primary-to shadow-sm" />
@@ -800,24 +699,17 @@ export function Home() {
         </div>
 
         <div className="gsap-offer-stack-viewport w-full overflow-visible pb-4">
-          <div
-            className="gsap-offer-grid relative !grid min-w-[1200px] !grid-cols-5 gap-6"
+          <div className="gsap-offer-grid relative !grid min-w-[1200px] !grid-cols-5 gap-6"
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(5, minmax(0, 1fr))',
               gridAutoFlow: 'column',
               minWidth: '1200px',
-            }}
-          >
+            }}>
             {/* 1. Business Automation */}
-            <div
-              onMouseEnter={() => setPuzzleHovered(true)}
-              onMouseLeave={() => setPuzzleHovered(false)}
-              className="gsap-offer-card h-full"
-            >
+            <div onMouseEnter={() => setPuzzleHovered(true)} onMouseLeave={() => setPuzzleHovered(false)} className="gsap-offer-card h-full">
               <SpecialCard className="group flex h-full min-h-[22rem] flex-col justify-between p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#307FE2]/50 hover:shadow-[0_12px_35px_rgba(48,127,226,0.15)]">
                 <PremiumServiceVisual type="puzzle" label="Premium 3D full-stack development illustration" />
-
                 <div className="mt-4 space-y-2 text-start">
                   <h3 className="text-base font-semibold text-white">Full Stack Development</h3>
                   <p className="text-xs font-light leading-relaxed text-[#828282]">
@@ -842,11 +734,7 @@ export function Home() {
             </div>
 
             {/* 3. Mobile App Development */}
-            <div
-              onMouseEnter={() => setMobileHovered(true)}
-              onMouseLeave={() => setMobileHovered(false)}
-              className="gsap-offer-card h-full"
-            >
+            <div onMouseEnter={() => setMobileHovered(true)} onMouseLeave={() => setMobileHovered(false)} className="gsap-offer-card h-full">
               <SpecialCard className="group flex h-full min-h-[22rem] flex-col justify-between p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#307FE2]/50 hover:shadow-[0_12px_35px_rgba(48,127,226,0.15)]">
                 <PremiumServiceVisual type="mobile" label="Premium 3D mobile app illustration" />
 
@@ -891,10 +779,7 @@ export function Home() {
       </section>
 
       {/* 5. PROJECTS */}
-      <section
-        className="gsap-reveal-section 3xl:container 2.5xl:px-32 3xl:px-48 mx-auto mt-24 mb-16 w-full max-w-7xl space-y-10 px-4 md:mt-20 md:mb-16 md:px-10 lg:mt-24 lg:px-8 xl:mt-32 xl:px-14 2xl:px-24"
-        aria-label="Innovation Through Projects"
-      >
+      <section className="gsap-reveal-section 3xl:container 2.5xl:px-32 3xl:px-48 mx-auto mt-24 mb-16 w-full max-w-7xl space-y-10 px-4 md:mt-20 md:mb-16 md:px-10 lg:mt-24 lg:px-8 xl:mt-32 xl:px-14 2xl:px-24" aria-label="Innovation Through Projects">
         {/* Section Header */}
         <div className="m-auto flex flex-col items-center justify-center gap-2 text-center lg:gap-4 xl:gap-6">
           <div className="bottomBorder flex items-center rounded-full border-t border-white/10 bg-[#0A1825] px-3 py-1">
@@ -917,27 +802,17 @@ export function Home() {
 
           {/* Tab Filter */}
           <div className="relative m-auto mt-4 flex w-fit rounded-full border border-white/15 bg-[#FFFFFF14] p-1.5 backdrop-blur-md">
-            <button
-              type="button"
-              onClick={() => setProjectTab('private')}
-              className={`cursor-pointer rounded-full px-6 py-2 text-xs font-medium transition ${
-                projectTab === 'private'
-                  ? 'bg-gradient-to-r from-[#307FE2] to-[#05C3DE] text-white shadow-md'
-                  : 'text-white/70 hover:text-white'
-              }`}
-            >
+            <button type="button" onClick={() => setProjectTab('private')} className={`cursor-pointer rounded-full px-6 py-2 text-xs font-medium transition ${projectTab === 'private'
+                ? 'bg-gradient-to-r from-[#307FE2] to-[#05C3DE] text-white shadow-md'
+                : 'text-white/70 hover:text-white'
+              }`}>
               Private Projects
             </button>
 
-            <button
-              type="button"
-              onClick={() => setProjectTab('government')}
-              className={`cursor-pointer rounded-full px-6 py-2 text-xs font-medium transition ${
-                projectTab === 'government'
-                  ? 'bg-gradient-to-r from-[#307FE2] to-[#05C3DE] text-white shadow-md'
-                  : 'text-white/70 hover:text-white'
-              }`}
-            >
+            <button type="button" onClick={() => setProjectTab('government')} className={`cursor-pointer rounded-full px-6 py-2 text-xs font-medium transition ${projectTab === 'government'
+                ? 'bg-gradient-to-r from-[#307FE2] to-[#05C3DE] text-white shadow-md'
+                : 'text-white/70 hover:text-white'
+              }`}>
               Government Projects
             </button>
           </div>
@@ -949,46 +824,16 @@ export function Home() {
             <div
               key={proj.id}
               onClick={() => navigate(`/projects/view/${proj.name}`)}
-              className="
-                gsap-project-card
-                group
-                sticky
-                top-20
-                z-0
-                flex
-                h-[65vh]
-                min-h-[420px]
-                max-h-[650px]
-                w-full
-                cursor-pointer
-                items-center
-                justify-center
-                overflow-hidden
-                rounded-3xl
-                border
-                border-white/10
-                pe-3
-                shadow-2xl
-                transition-all
-                duration-700
-                sm:h-[70vh]
-                sm:min-h-[480px]
-                md:top-24
-                md:h-[75vh]
-                lg:h-[82vh]
-              "
+              className=" gsap-project-card group sticky top-20 z-0 flex h-[65vh] min-h-[420px] max-h-[650px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-3xl border border-white/10 pe-3 shadow-2xl transition-all duration-700 sm:h-[70vh] sm:min-h-[480px] md:top-24 md:h-[75vh] lg:h-[82vh]"
               style={{
                 backgroundColor: proj.bgColor,
                 zIndex: idx + 1,
-              }}
-            >
+              }}>
               {/* Radial Center Glow */}
-              <div
-                className="pointer-events-none absolute -z-10 h-full w-full opacity-70 blur-[5rem] transition duration-700 group-hover:opacity-100"
+              <div className="pointer-events-none absolute -z-10 h-full w-full opacity-70 blur-[5rem] transition duration-700 group-hover:opacity-100"
                 style={{
                   background: `radial-gradient(circle at center, ${proj.bgLight}, transparent)`,
-                }}
-              />
+                }} />
 
               {/* Decorative Stickers (Sahab) */}
               {proj.id === 'lawish' && (
@@ -1022,8 +867,7 @@ export function Home() {
                           : proj.projectImage
                       }
                       alt={proj.titleEn}
-                      className="absolute left-[6.5%] top-[6.5%] h-[58%] w-[87%] rounded-t-sm object-cover object-top"
-                    />
+                      className="absolute left-[6.5%] top-[6.5%] h-[58%] w-[87%] rounded-t-sm object-cover object-top" />
 
                     <img
                       src="/images/projects/iMac.svg"
@@ -1066,10 +910,7 @@ export function Home() {
 
                 <div className="ms-2 flex shrink-0 gap-2">
                   {(proj.badgesEn || []).slice(0, 3).map((badge, bIdx) => (
-                    <span
-                      key={bIdx}
-                      className="hidden rounded-md border border-white/20 bg-white/5 px-3 py-1 text-xs font-medium text-white/90 lg:inline-block"
-                    >
+                    <span key={bIdx} className="hidden rounded-md border border-white/20 bg-white/5 px-3 py-1 text-xs font-medium text-white/90 lg:inline-block">
                       {badge}
                     </span>
                   ))}

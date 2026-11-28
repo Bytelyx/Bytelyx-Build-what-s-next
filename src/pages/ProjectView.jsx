@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useLayoutEffect, useMemo, useRef } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -151,6 +151,8 @@ function SectionTitle({ primary, accent }) {
   );
 }
 
+const OUTCOME_ICON_ORDER = ['transfers', 'rocket', 'globe', 'design'];
+
 export function ProjectView() {
   const { name } = useParams();
   const { pathname } = useLocation();
@@ -162,55 +164,48 @@ export function ProjectView() {
     scrollLeft: 0,
   });
 
-  const project =
-    projectsData.find(
-      (p) => p.name?.toLowerCase() === name?.toLowerCase()
-    ) || projectsData[0];
+  const project = useMemo(
+    () =>
+      projectsData.find(
+        (p) => p.name?.toLowerCase() === name?.toLowerCase()
+      ) || projectsData[0],
+    [name]
+  );
 
   useLayoutEffect(() => {
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual';
     }
 
-    const forceScrollTop = () => {
-      if (window.lenis && typeof window.lenis.scrollTo === 'function') {
-        window.lenis.scrollTo(0, { immediate: true, force: true });
-      }
-      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
-      ScrollTrigger.refresh();
-    };
+    if (window.lenis && typeof window.lenis.scrollTo === 'function') {
+      window.lenis.scrollTo(0, { immediate: true, force: true });
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    }
 
-    forceScrollTop();
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
 
     const rafId = requestAnimationFrame(() => {
-      forceScrollTop();
+      ScrollTrigger.refresh();
     });
 
-    const timerId = setTimeout(() => {
-      forceScrollTop();
-    }, 80);
-
-    return () => {
-      cancelAnimationFrame(rafId);
-      clearTimeout(timerId);
-    };
-  }, [pathname, name, project?.name]);
+    return () => cancelAnimationFrame(rafId);
+  }, [pathname, project?.name]);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from('.pv-timeline-bar', {
-        scaleX: 0.85,
+        scaleX: 0.9,
         opacity: 0,
         transformOrigin: 'left center',
-        duration: 0.65,
-        stagger: 0.08,
+        duration: 0.55,
+        stagger: 0.06,
         ease: 'power2.out',
         clearProps: 'transform,opacity',
         scrollTrigger: {
           trigger: '.pv-timeline-board',
-          start: 'top 84%',
+          start: 'top 86%',
           once: true,
         },
       });
@@ -224,7 +219,7 @@ export function ProjectView() {
     if (!el) return;
     dragStateRef.current = {
       isDown: true,
-      startX: e.pageX - el.offsetLeft,
+      startX: e.clientX,
       scrollLeft: el.scrollLeft,
     };
   };
@@ -232,9 +227,8 @@ export function ProjectView() {
   const handleTimelineMouseMove = (e) => {
     const el = timelineScrollRef.current;
     if (!el || !dragStateRef.current.isDown) return;
-    const x = e.pageX - el.offsetLeft;
-    const walk = (x - dragStateRef.current.startX) * 1.2;
-    el.scrollLeft = dragStateRef.current.scrollLeft - walk;
+    const dx = (e.clientX - dragStateRef.current.startX) * 1.2;
+    el.scrollLeft = dragStateRef.current.scrollLeft - dx;
   };
 
   const handleTimelineMouseUpOrLeave = () => {
@@ -244,6 +238,11 @@ export function ProjectView() {
   const accentColor = '#307FE2';
   const heroGlowColor = 'rgba(48, 127, 226, 0.45)';
   const heroLineColor = '#05C3DE';
+
+  const fallbackImg = Array.isArray(project?.projectImage)
+    ? project.projectImage[0]
+    : project?.projectImage;
+  const heroMediaSrc = project?.heroImage || fallbackImg;
 
   const rawLiveUrl =
     project?.liveLink ||
@@ -261,7 +260,10 @@ export function ProjectView() {
   const painPoints = project?.painPointsEn || [];
   const keyChallenges = project?.keyChallengesEn || [];
   const objectives = project?.objectivesEn || [];
-  const timelineRows = normalizeTimelineRows(project?.timeline);
+  const timelineRows = useMemo(
+    () => normalizeTimelineRows(project?.timeline),
+    [project?.timeline]
+  );
   const outcomes = project?.outcomes || [];
 
   const featureGroups =
@@ -283,88 +285,30 @@ export function ProjectView() {
     { label: 'Year', value: project.yearEn || '2025' },
   ].filter((item) => item.value);
 
-  const outcomeIconOrder = ['transfers', 'rocket', 'globe', 'design'];
-
   return (
-    <div ref={pageRef} className="pv-page" style={{ '--pv-accent': accentColor, '--pv-hero-glow': heroGlowColor, '--pv-hero-line': heroLineColor,}}>
+    <div
+      ref={pageRef}
+      className="pv-page"
+      style={{
+        '--pv-accent': accentColor,
+        '--pv-hero-glow': heroGlowColor,
+        '--pv-hero-line': heroLineColor,
+      }}
+    >
       {/* 1. HERO SECTION */}
       <section className="pv-hero" aria-label={project.titleEn}>
         <div className="pv-hero-glow" />
         <div className="pv-hero-stage">
-          {project.heroCoinsImage ? (
+          {heroMediaSrc && (
             <img
-              src={project.heroImage}
-              alt={`${project.titleEn} showcase`}
-              className="pv-hero-laptop"
+              src={heroMediaSrc}
+              alt={`${project.titleEn} hero showcase`}
+              className="pv-hero-photo"
+              decoding="async"
+              fetchPriority="high"
             />
-          ) : project.heroImage ? (
-            <img
-              src={project.heroImage}
-              alt={`${project.titleEn} 3D showcase`}
-              className="pv-hero-scene"
-            />
-          ) : (
-            <div className="pv-hero-device-fallback">
-              {project.device === 'imac' ? (
-                <div className="pv-imac" style={{ maxWidth: '580px' }}>
-                  <div className="pv-imac-screen">
-                    <img src={project.projectImage} alt={project.titleEn} />
-                  </div>
-                  <img
-                    src="/images/projects/iMac.svg"
-                    alt="Desktop monitor display"
-                    className="pv-imac-frame"
-                  />
-                </div>
-              ) : project.device === 'mobile' ? (
-                <div className="pv-mobile-frame">
-                  <div className="pv-mobile-screen">
-                    <img
-                      src={
-                        Array.isArray(project.projectImage)
-                          ? project.projectImage[0]
-                          : project.projectImage
-                      }
-                      alt={project.titleEn}
-                    />
-                  </div>
-                  <img
-                    src="/images/projects/mobile.svg"
-                    alt="Mobile phone display"
-                    className="pv-mobile-bezel"
-                  />
-                </div>
-              ) : (
-                <div className="pv-macbook">
-                  <div className="pv-macbook-screen">
-                    <img
-                      src={
-                        Array.isArray(project.projectImage)
-                          ? project.projectImage[0]
-                          : project.projectImage
-                      }
-                      alt={project.titleEn}
-                    />
-                  </div>
-                  <img
-                    src="/images/projects/MacbookPro.svg"
-                    alt="MacBook Pro display"
-                    className="pv-macbook-frame"
-                  />
-                </div>
-              )}
-            </div>
           )}
         </div>
-
-        {project.heroCoinsImage && (
-          <img
-            src={project.heroCoinsImage}
-            alt=""
-            aria-hidden="true"
-            className="pv-hero-coins"
-          />
-        )}
 
         <div className="pv-hero-bottom-glow" />
         <div className="pv-hero-divider" />
@@ -382,7 +326,12 @@ export function ProjectView() {
 
             {liveWebsiteUrl && (
               <div className="pv-live-actions">
-                <a href={liveWebsiteUrl} target="_blank" rel="noopener noreferrer" className="pv-live-link">
+                <a
+                  href={liveWebsiteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="pv-live-link"
+                >
                   <span>Visit Live Website</span>
                   <ExternalLink size={16} strokeWidth={2} />
                 </a>
@@ -412,6 +361,7 @@ export function ProjectView() {
                     src={src}
                     alt={`${project.titleEn} visual ${idx + 1}`}
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
               ))}
@@ -424,6 +374,7 @@ export function ProjectView() {
                 src={showcaseImages[2]}
                 alt={`${project.titleEn} partnership showcase`}
                 loading="lazy"
+                decoding="async"
               />
             </div>
           )}
@@ -488,6 +439,7 @@ export function ProjectView() {
                     src={project.objectiveImage}
                     alt={`${project.titleEn} objective`}
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
               )}
@@ -529,12 +481,14 @@ export function ProjectView() {
                             src={group.image}
                             alt={group.items[0]?.titleEn || project.titleEn}
                             loading="lazy"
+                            decoding="async"
                           />
                         </div>
                         <img
                           src="/images/projects/iMac.svg"
                           alt="Desktop monitor display"
                           className="pv-imac-frame"
+                          decoding="async"
                         />
                       </div>
                     ) : (
@@ -542,6 +496,7 @@ export function ProjectView() {
                         src={group.image}
                         alt={group.items[0]?.titleEn || project.titleEn}
                         loading="lazy"
+                        decoding="async"
                         className="pv-feature-standalone"
                       />
                     )}
@@ -560,7 +515,15 @@ export function ProjectView() {
             <SectionTitle primary="Project" accent="Timeline" />
           </div>
 
-          <div ref={timelineScrollRef} className="pv-timeline-scroll" data-lenis-prevent onMouseDown={handleTimelineMouseDown} onMouseMove={handleTimelineMouseMove} onMouseUp={handleTimelineMouseUpOrLeave} onMouseLeave={handleTimelineMouseUpOrLeave}>
+          <div
+            ref={timelineScrollRef}
+            className="pv-timeline-scroll"
+            data-lenis-prevent
+            onMouseDown={handleTimelineMouseDown}
+            onMouseMove={handleTimelineMouseMove}
+            onMouseUp={handleTimelineMouseUpOrLeave}
+            onMouseLeave={handleTimelineMouseUpOrLeave}
+          >
             <div className="pv-timeline-board">
               <div className="pv-timeline-grid-lines" aria-hidden="true">
                 {Array.from({ length: TOTAL_MONTHS + 1 }).map((_, idx) => (
@@ -590,13 +553,16 @@ export function ProjectView() {
                         const toneClass = `pv-timeline-bar--${phase.tone || 'blue'}`;
 
                         return (
-                          <div key={itemIdx} className={`pv-timeline-bar ${toneClass}`}
+                          <div
+                            key={itemIdx}
+                            className={`pv-timeline-bar ${toneClass}`}
                             style={{
                               '--pv-bar-gap': `${gapPct}%`,
                               '--pv-bar-width': `${widthPct}%`,
                               marginLeft: `${gapPct}%`,
                               width: `${widthPct}%`,
-                            }}>
+                            }}
+                          >
                             <span className="pv-timeline-label">{phase.label}</span>
                           </div>
                         );
@@ -608,7 +574,11 @@ export function ProjectView() {
 
               <div className="pv-timeline-axis">
                 {TIMELINE_AXIS_LABELS.map((item, idx) => (
-                  <span key={idx} className="pv-timeline-month" style={{ left: `${item.positionPct}%` }}>
+                  <span
+                    key={idx}
+                    className="pv-timeline-month"
+                    style={{ left: `${item.positionPct}%` }}
+                  >
                     {item.label}
                   </span>
                 ))}
@@ -626,7 +596,7 @@ export function ProjectView() {
           <div className="pv-outcomes-grid">
             {outcomes.map((item, idx) => {
               const iconKey =
-                item.icon || outcomeIconOrder[idx % outcomeIconOrder.length];
+                item.icon || OUTCOME_ICON_ORDER[idx % OUTCOME_ICON_ORDER.length];
 
               return (
                 <article key={idx} className="pv-outcome-card">

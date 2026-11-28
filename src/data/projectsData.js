@@ -5,6 +5,13 @@ import lawish from '../assets/lawish.png';
 import catering from '../assets/catering.png';
 import solmare from '../assets/solmare.png';
 
+import anaraHero from '../assets/project-overview/anara.png';
+import taskproHero from '../assets/project-overview/taskpro.png';
+import ptportalHero from '../assets/project-overview/pt-portal.png';
+import lawishHero from '../assets/project-overview/lawish.png';
+import soukaryamHero from '../assets/project-overview/soukaryam.png';
+import solmareHero from '../assets/project-overview/solmare.png';
+
 export const projectsData = [
   // 01 — ANARA
   {
@@ -27,15 +34,11 @@ export const projectsData = [
     bgLight: '#D4AF7244',
 
     projectImage: anara,
-    heroImage: '/images/projects/anara/anaraHero.avif',
+    heroImage: anaraHero,
     heroGlowColor: 'rgba(243, 217, 153, 0.36)',
     heroLineColor: '#F3D999',
 
-    badgesEn: [
-      'GovTech',
-      'Government Jobs',
-      'Career Portal'
-    ],
+    badgesEn: ['GovTech', 'Government Jobs', 'Career Portal'],
 
     device: 'imac',
     isSecondBg: true,
@@ -47,47 +50,51 @@ export const projectsData = [
       {
         titleEn: 'Job Discovery',
         descEn:
-          'Explore government job opportunities and recruitment notifications in one place.'
+          'Explore government job opportunities and recruitment notifications in one place.',
       },
       {
         titleEn: 'Advanced Job Search',
         descEn:
-          'Find opportunities using district, category, and recruitment-related filters.'
+          'Find opportunities using district, category, and recruitment-related filters.',
       },
       {
         titleEn: 'Application Information',
         descEn:
-          'Access recruitment details, eligibility information, and application updates.'
+          'Access recruitment details, eligibility information, and application updates.',
       },
       {
         titleEn: 'Kannada and English',
         descEn:
-          'Access localized information through Kannada and English language support.'
-      }
+          'Access localized information through Kannada and English language support.',
+      },
     ],
 
     outcomes: [
       {
         stat: 'Centralized',
         labelEn: 'Job Discovery',
-        descEn: 'Centralized access to official Karnataka government recruitment notifications and updates.'
+        descEn:
+          'Centralized access to official Karnataka government recruitment notifications and updates.',
       },
       {
         stat: 'Bilingual',
         labelEn: 'Language Support',
-        descEn: 'Accessible across both Kannada and English interfaces for candidates statewide.'
+        descEn:
+          'Accessible across both Kannada and English interfaces for candidates statewide.',
       },
       {
         stat: 'Accessible',
         labelEn: 'Recruitment Information',
-        descEn: 'Fast district and category filtering with clear eligibility and application workflows.'
+        descEn:
+          'Fast district and category filtering with clear eligibility and application workflows.',
       },
       {
         stat: 'Reliable',
         labelEn: 'High Availability',
-        descEn: 'Engineered to stay responsive during peak recruitment surges.'
-      }
-    ]
+        descEn:
+          'Engineered to stay responsive during peak recruitment surges.',
+      },
+    ],
   },
 
   // 02 — TASKPRO
@@ -111,14 +118,14 @@ export const projectsData = [
     bgLight: '#2855C766',
 
     projectImage: taskpro,
-    heroImage: '/images/projects/taskpro/taskproHero.avif',
+    heroImage: taskproHero,
     heroGlowColor: 'rgba(14, 165, 233, 0.40)',
     heroLineColor: '#38BDF8',
 
     badgesEn: [
       'Worker Booking',
       'Freelance Marketplace',
-      'Service Management'
+      'Service Management',
     ],
 
     device: 'imac',
@@ -131,47 +138,51 @@ export const projectsData = [
       {
         titleEn: 'Client Dashboard',
         descEn:
-          'Discover services, submit requests, and manage worker bookings.'
+          'Discover services, submit requests, and manage worker bookings.',
       },
       {
         titleEn: 'Worker Dashboard',
         descEn:
-          'Allow workers to manage service requests, bookings, and their work activity.'
+          'Allow workers to manage service requests, bookings, and their work activity.',
       },
       {
         titleEn: 'Admin Management',
         descEn:
-          'Provide administrative tools to oversee platform activity and marketplace operations.'
+          'Provide administrative tools to oversee platform activity and marketplace operations.',
       },
       {
         titleEn: 'Task Matching',
         descEn:
-          'Support matching customer requirements with suitable worker skills.'
-      }
+          'Support matching customer requirements with suitable worker skills.',
+      },
     ],
 
     outcomes: [
       {
         stat: '3 Roles',
         labelEn: 'Connected Interfaces',
-        descEn: 'Dedicated client, worker, and admin dashboards operating in real time.'
+        descEn:
+          'Dedicated client, worker, and admin dashboards operating in real time.',
       },
       {
         stat: 'Smart',
         labelEn: 'Worker Matching',
-        descEn: 'Pairs customer job specifications with verified worker availability and skills.'
+        descEn:
+          'Pairs customer job specifications with verified worker availability and skills.',
       },
       {
         stat: 'Unified',
         labelEn: 'Booking Management',
-        descEn: 'Streamlined scheduling, status tracking, and completion workflows.'
+        descEn:
+          'Streamlined scheduling, status tracking, and completion workflows.',
       },
       {
         stat: 'Scalable',
         labelEn: 'Service Marketplace',
-        descEn: 'Built to scale seamlessly across multiple service categories and locations.'
-      }
-    ]
+        descEn:
+          'Built to scale seamlessly across multiple service categories and locations.',
+      },
+    ],
   },
 
   // 03 — PT PORTAL
@@ -195,14 +206,14 @@ export const projectsData = [
     bgLight: '#246B493D',
 
     projectImage: ptportal,
-    heroImage: '/images/projects/ptportal/ptportalHero.avif',
+    heroImage: ptportalHero,
     heroGlowColor: 'rgba(34, 197, 94, 0.38)',
     heroLineColor: '#22C55E',
 
     badgesEn: [
       'Fitness Tracking',
       'Personal Training',
-      'Workout Management'
+      'Workout Management',
     ],
 
     device: 'imac',
@@ -215,47 +226,51 @@ export const projectsData = [
       {
         titleEn: 'Workout Tracking',
         descEn:
-          'Track exercises, workout sessions, and daily fitness activity.'
+          'Track exercises, workout sessions, and daily fitness activity.',
       },
       {
         titleEn: 'Progress Analytics',
         descEn:
-          'Monitor fitness improvements, performance metrics, and training goals.'
+          'Monitor fitness improvements, performance metrics, and training goals.',
       },
       {
         titleEn: 'Training Plans',
         descEn:
-          'Create and manage personalized workout routines and exercise schedules.'
+          'Create and manage personalized workout routines and exercise schedules.',
       },
       {
         titleEn: 'Trainer Management',
         descEn:
-          'Connect trainers and clients through organized training and progress management.'
-      }
+          'Connect trainers and clients through organized training and progress management.',
+      },
     ],
 
     outcomes: [
       {
         stat: 'Smart',
         labelEn: 'Workout Tracking',
-        descEn: 'Structured exercise logs and daily session tracking for clients.'
+        descEn:
+          'Structured exercise logs and daily session tracking for clients.',
       },
       {
         stat: 'Live',
         labelEn: 'Progress Monitoring',
-        descEn: 'Real-time visibility into strength gains, consistency, and milestones.'
+        descEn:
+          'Real-time visibility into strength gains, consistency, and milestones.',
       },
       {
         stat: 'Personal',
         labelEn: 'Training Plans',
-        descEn: 'Tailored routines assigned and updated effortlessly by coaches.'
+        descEn:
+          'Tailored routines assigned and updated effortlessly by coaches.',
       },
       {
         stat: 'Connected',
         labelEn: 'Coach-Client Sync',
-        descEn: 'Keeps trainers and clients aligned across every training cycle.'
-      }
-    ]
+        descEn:
+          'Keeps trainers and clients aligned across every training cycle.',
+      },
+    ],
   },
 
   // 04 — LAWISH FILMS
@@ -278,15 +293,11 @@ export const projectsData = [
     bgLight: '#D6A66A33',
 
     projectImage: lawish,
-    heroImage: '/images/projects/lawish/lawishHero.avif',
+    heroImage: lawishHero,
     heroGlowColor: 'rgba(245, 158, 11, 0.36)',
     heroLineColor: '#F59E0B',
 
-    badgesEn: [
-      'Photography',
-      'Videography',
-      'Creative Portfolio'
-    ],
+    badgesEn: ['Photography', 'Videography', 'Creative Portfolio'],
 
     device: 'imac',
     isSecondBg: false,
@@ -298,47 +309,51 @@ export const projectsData = [
       {
         titleEn: 'Cinematic Showcase',
         descEn:
-          'Present photography and video projects through immersive visual layouts.'
+          'Present photography and video projects through immersive visual layouts.',
       },
       {
         titleEn: 'Portfolio Gallery',
         descEn:
-          'Organize creative work into an engaging portfolio experience.'
+          'Organize creative work into an engaging portfolio experience.',
       },
       {
         titleEn: 'Video Presentation',
         descEn:
-          'Showcase cinematic video content with an emphasis on visual quality.'
+          'Showcase cinematic video content with an emphasis on visual quality.',
       },
       {
         titleEn: 'Creative Storytelling',
         descEn:
-          'Build a distinctive digital presence around photography and filmmaking.'
-      }
+          'Build a distinctive digital presence around photography and filmmaking.',
+      },
     ],
 
     outcomes: [
       {
         stat: 'Cinematic',
         labelEn: 'Visual Experience',
-        descEn: 'High-impact full-bleed visuals tailored for film and photography.'
+        descEn:
+          'High-impact full-bleed visuals tailored for film and photography.',
       },
       {
         stat: 'Premium',
         labelEn: 'Portfolio Presentation',
-        descEn: 'Refined editorial layouts highlighting every shoot and frame.'
+        descEn:
+          'Refined editorial layouts highlighting every shoot and frame.',
       },
       {
         stat: 'Creative',
         labelEn: 'Brand Storytelling',
-        descEn: 'Distinctive digital identity elevating client inquiries and bookings.'
+        descEn:
+          'Distinctive digital identity elevating client inquiries and bookings.',
       },
       {
         stat: 'Fast',
         labelEn: 'Media Delivery',
-        descEn: 'Optimized media loading across desktop and mobile displays.'
-      }
-    ]
+        descEn:
+          'Optimized media loading across desktop and mobile displays.',
+      },
+    ],
   },
 
   // 05 — SOUKARIYAM
@@ -361,14 +376,14 @@ export const projectsData = [
     bgLight: '#B88A3B44',
 
     projectImage: catering,
-    heroImage: '/images/projects/soukariyam/soukariyamHero.avif',
+    heroImage: soukaryamHero,
     heroGlowColor: 'rgba(230, 195, 122, 0.36)',
     heroLineColor: '#E6C37A',
 
     badgesEn: [
       'Catering Services',
       'Event Management',
-      'Wedding Planning'
+      'Wedding Planning',
     ],
 
     device: 'imac',
@@ -381,47 +396,51 @@ export const projectsData = [
       {
         titleEn: 'Event Planning',
         descEn:
-          'Organize weddings, celebrations, and corporate events.'
+          'Organize weddings, celebrations, and corporate events.',
       },
       {
         titleEn: 'Catering Services',
         descEn:
-          'Explore catering menus, food options, and customized dining experiences.'
+          'Explore catering menus, food options, and customized dining experiences.',
       },
       {
         titleEn: 'Menu Management',
         descEn:
-          'Present food selections and catering packages for different occasions.'
+          'Present food selections and catering packages for different occasions.',
       },
       {
         titleEn: 'Event Reservations',
         descEn:
-          'Manage event inquiries, booking requests, and customer requirements.'
-      }
+          'Manage event inquiries, booking requests, and customer requirements.',
+      },
     ],
 
     outcomes: [
       {
         stat: 'Custom',
         labelEn: 'Event Experiences',
-        descEn: 'Bespoke menu and event configurations for weddings and celebrations.'
+        descEn:
+          'Bespoke menu and event configurations for weddings and celebrations.',
       },
       {
         stat: 'Premium',
         labelEn: 'Catering Services',
-        descEn: 'Clear showcase of culinary offerings and hospitality packages.'
+        descEn:
+          'Clear showcase of culinary offerings and hospitality packages.',
       },
       {
         stat: 'Seamless',
         labelEn: 'Event Management',
-        descEn: 'Simplified inquiry and booking coordination for clients and teams.'
+        descEn:
+          'Simplified inquiry and booking coordination for clients and teams.',
       },
       {
         stat: 'Responsive',
         labelEn: 'Cross-Device Access',
-        descEn: 'Smooth browsing and reservation experience on any screen size.'
-      }
-    ]
+        descEn:
+          'Smooth browsing and reservation experience on any screen size.',
+      },
+    ],
   },
 
   // 06 — SOLMARE
@@ -444,15 +463,11 @@ export const projectsData = [
     bgLight: '#D4AF7244',
 
     projectImage: solmare,
-    heroImage: '/images/projects/solmare/solmareHero.avif',
+    heroImage: solmareHero,
     heroGlowColor: 'rgba(243, 217, 153, 0.36)',
     heroLineColor: '#F3D999',
 
-    badgesEn: [
-      'Jewellery',
-      'E-commerce',
-      'Luxury Branding'
-    ],
+    badgesEn: ['Jewellery', 'E-commerce', 'Luxury Branding'],
 
     device: 'imac',
     isSecondBg: false,
@@ -464,46 +479,50 @@ export const projectsData = [
       {
         titleEn: 'Jewellery Collections',
         descEn:
-          'Explore jewellery collections through an elegant product browsing experience.'
+          'Explore jewellery collections through an elegant product browsing experience.',
       },
       {
         titleEn: 'Product Details',
         descEn:
-          'Present jewellery products with detailed information and product imagery.'
+          'Present jewellery products with detailed information and product imagery.',
       },
       {
         titleEn: 'Shopping Experience',
         descEn:
-          'Support customers throughout their online product selection and shopping journey.'
+          'Support customers throughout their online product selection and shopping journey.',
       },
       {
         titleEn: 'Responsive Storefront',
         descEn:
-          'Deliver a consistent shopping experience across desktop and mobile devices.'
-      }
+          'Deliver a consistent shopping experience across desktop and mobile devices.',
+      },
     ],
 
     outcomes: [
       {
         stat: 'Premium',
         labelEn: 'Store Experience',
-        descEn: 'Luxury aesthetic tailored to fine jewellery presentation.'
+        descEn:
+          'Luxury aesthetic tailored to fine jewellery presentation.',
       },
       {
         stat: 'Elegant',
         labelEn: 'Product Presentation',
-        descEn: 'High-clarity product photography and detailed specification views.'
+        descEn:
+          'High-clarity product photography and detailed specification views.',
       },
       {
         stat: 'Responsive',
         labelEn: 'Shopping Experience',
-        descEn: 'Consistent, effortless checkout flow across desktop and mobile.'
+        descEn:
+          'Consistent, effortless checkout flow across desktop and mobile.',
       },
       {
         stat: 'Fast',
         labelEn: 'Catalog Browsing',
-        descEn: 'Instant collection filtering and smooth page transitions.'
-      }
-    ]
-  }
+        descEn:
+          'Instant collection filtering and smooth page transitions.',
+      },
+    ],
+  },
 ];
